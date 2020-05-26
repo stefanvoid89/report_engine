@@ -1,11 +1,11 @@
-<table border="1" style="width:100%">
+<table>
     <thead></thead>
     <tbody>
         <tr>
-            <th>Entry Header 1</th>
-            <th>Entry Header 2</th>
-            <th>Entry Header 3</th>
-            <th>Entry Header 4</th>
+            <th>Open 1</th>
+            <th>Open 2</th>
+            <th>Open 3</th>
+            <th>Open 4</th>
         </tr>
         <tr>
             <td>Entry First Line 1</td>

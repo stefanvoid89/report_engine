@@ -15,14 +15,17 @@ class PrintController extends Controller
 
         $slug_parsed =  preg_replace('/-/', '_', $slug);
 
+        $databag = (object) $this->somefunction(1);
+
+        //dd($databag);
 
 
-        $title = "Stampa ugovora";
+        $title = $databag->title;
 
 
 
-        $header = view('print.layout.headers.default', [])->render();
-        $footer = view('print.layout.footers.default', [])->render();
+        $header = view('print.layout.headers.default', ['databag' => $databag])->render();
+        $footer = view('print.layout.footers.default', ['databag' => $databag])->render();
 
         $page = view('print.layout.main', ['header' => $header, 'footer' => $footer, 'padding' => 15])->render();
 
@@ -62,18 +65,18 @@ class PrintController extends Controller
     }
 
 
-    public function somefunctin()
+    public function somefunction($id)
     {
 
-        $title = "Stampa ugovora";
+
+        $title = "Stampa djordja";
+
 
         $company_info = collect(DB::select("SELECT acName, acAddress, acCode, acRegNo, acPhone, acPost,acCity, acFax, acAccontNr,acWebSite
         from _Subjects where anId = 1"))->first();
 
-        $header = (object) ["company_info" => $company_info];
 
 
-        $page_html = view("print.layouts.page_contract_daily", ['header' => $header])->render();
 
         $reservation = collect(DB::select("SELECT r.acKey, r.anSubjectId
         ,convert(varchar(20),r.adDateFrom,104)+' '+convert(varchar(5),convert(time,r.adDateFrom,108)) as adDateFrom
@@ -97,6 +100,7 @@ class PrintController extends Controller
 
         $car =  collect(DB::select("SELECT acCarNameShort, acChasis,acRegNo from _v_CarExtended
         where anId = :car_id", ['car_id' => $reservation->anCarId]))->first();
+
 
 
         $currency = '€';
@@ -156,31 +160,20 @@ class PrintController extends Controller
         and r.anId = :reservation_id", ['reservation_id' => $id, 'car_id' => $reservation->anCarId]))->first();
 
 
+
+
         $selected_ext_car_damages = array_column($selected_ext_car_damages_full, 'anDamageId');
 
-        // dd($page_html);
-
-        $html_to_props = view("print.content.contract_daily_print", [
-            'reservation' => $reservation, 'subject' => $subject, 'driver' => $driver,
+        $databag = [
+            'title' => $title, 'company_info' => $company_info,             'reservation' => $reservation, 'subject' => $subject, 'driver' => $driver,
             'car' => $car, 'items' => $items, 'currency' => $currency, 'total_value' => $total_value,
             'selected_ext_car_damages' => $selected_ext_car_damages, 'car_damage' => $car_damage,
             'selected_ext_car_damages_full' => $selected_ext_car_damages_full,
             'selected_int_car_damages_full' => $selected_int_car_damages_full
-        ])->render();
-
-        // dd($html_to_props);
-
-        // $render = view("print.render.render", [
-        //     'title' => $title, 'prop_data' => collect(['html_prop' => $html_to_props, 'page' => $page_html])
-        // ])->render();
-
-        // dd($render);
-
-        // return $render;
+        ];
 
 
-        return view("print.render.render", [
-            'title' => $title, 'prop_data' => collect(['html_prop' => $html_to_props, 'page' => $page_html])
-        ]);
+
+        return $databag;
     }
 }

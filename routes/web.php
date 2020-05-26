@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/reports/{slug}', 'PrintController@index');
+
+
+Route::get('/test/{id}', 'PrintController@somefunction');
