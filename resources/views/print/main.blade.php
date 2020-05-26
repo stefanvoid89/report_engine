@@ -152,9 +152,40 @@
     </style>
 
     <style>
+        @font-face {
+            font-family: VWHead;
+            src: url("{{ URL::to('/fonts/VWHead-Regular.otf')    }}") format("opentype");
+        }
+
+        @font-face {
+            font-family: VWHead;
+            font-weight: bold;
+            src: url("{{ URL::to('/fonts/VWHead-Bold.otf')    }}") format("opentype");
+        }
+
+        @font-face {
+            font-family: VWText;
+            src: url("{{ URL::to('/fonts/VWText-Regular.otf')    }}") format("opentype");
+        }
+
+        @font-face {
+            font-family: VWText;
+            font-weight: bold;
+            src: url("{{ URL::to('/fonts/VWText-Bold.otf')    }}") format("opentype");
+        }
+
+        body {
+            font-family: "VWText";
+            font-size: 9pt;
+        }
+
         #header,
         #content,
         #footer {
+            width: 100%
+        }
+
+        table.parent {
             width: 100%
         }
     </style>

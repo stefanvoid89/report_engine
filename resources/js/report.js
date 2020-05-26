@@ -168,8 +168,16 @@ Report.prototype.parse_nodes = function() {
 
         if (element.classList.contains("footer")) {
             if (remained_page_height > node_height) {
-                element.style.marginTop =
-                    remained_page_height - node_height + "px";
+                let div = document.createElement("div");
+                div.style.height = remained_page_height - node_height + "px";
+                div.style.width = "100%";
+                // element.style.marginTop =remained_page_height - node_height + "px";
+
+                elements.push({
+                    node: div,
+                    page: page_counter
+                });
+
                 elements.push({
                     node: element,
                     page: page_counter
@@ -177,8 +185,15 @@ Report.prototype.parse_nodes = function() {
                 page_counter++;
                 remained_page_height = this.page_height;
             } else {
-                element.style.marginTop = this.page_height - node_height + "px";
+                let div = document.createElement("div");
+                div.style.height = this.page_height - node_height + "px";
+                div.style.width = "100%";
+                // element.style.marginTop = this.page_height - node_height + "px";
                 page_counter++;
+                elements.push({
+                    node: div,
+                    page: page_counter
+                });
                 elements.push({
                     node: element,
                     page: page_counter

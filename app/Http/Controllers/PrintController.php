@@ -124,7 +124,9 @@ class PrintController extends Controller
         inner join _Um u on u.anId=  re.anUmId
         cross apply (SELECT anId from _SetItem where acIdent = 'Dodatna oprema')q
         where r.anId = :reservation_id2
-        )q", ['reservation_id1' => $id, 'reservation_id2' => $id]));
+        )q
+        cross join (select top 30 1 as d from sys.objects)o
+        ", ['reservation_id1' => $id, 'reservation_id2' => $id]));
 
 
         $total_value = collect(DB::select("SELECT r.anValue,r.anVatValue,r.anTotalValue, cast(v.anVat as char) as acVat from _Reservations r

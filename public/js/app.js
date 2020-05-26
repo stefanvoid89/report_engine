@@ -30167,13 +30167,15 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _print__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./print */ "./resources/js/print.js");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
+/* harmony import */ var _report__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./report */ "./resources/js/report.js");
+window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 window.addEventListener("load", function () {
   console.log("All assets are loaded");
-  var report = new _print__WEBPACK_IMPORTED_MODULE_0__["default"](data);
+  var report = new _report__WEBPACK_IMPORTED_MODULE_0__["default"](data);
   window.report = report;
   report.showmessage(); // report.mount_page();
 
@@ -30182,28 +30184,10 @@ window.addEventListener("load", function () {
 
 /***/ }),
 
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-
-try {
-  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-} catch (e) {}
-
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
-
-/***/ }),
-
-/***/ "./resources/js/print.js":
-/*!*******************************!*\
-  !*** ./resources/js/print.js ***!
-  \*******************************/
+/***/ "./resources/js/report.js":
+/*!********************************!*\
+  !*** ./resources/js/report.js ***!
+  \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -30315,7 +30299,14 @@ Report.prototype.parse_nodes = function () {
 
     if (element.classList.contains("footer")) {
       if (remained_page_height > node_height) {
-        element.style.marginTop = remained_page_height - node_height + "px";
+        var div = document.createElement("div");
+        div.style.height = remained_page_height - node_height + "px";
+        div.style.width = "100%"; // element.style.marginTop =remained_page_height - node_height + "px";
+
+        elements.push({
+          node: div,
+          page: page_counter
+        });
         elements.push({
           node: element,
           page: page_counter
@@ -30323,8 +30314,16 @@ Report.prototype.parse_nodes = function () {
         page_counter++;
         remained_page_height = this.page_height;
       } else {
-        element.style.marginTop = this.page_height - node_height + "px";
+        var _div = document.createElement("div");
+
+        _div.style.height = this.page_height - node_height + "px";
+        _div.style.width = "100%"; // element.style.marginTop = this.page_height - node_height + "px";
+
         page_counter++;
+        elements.push({
+          node: _div,
+          page: page_counter
+        });
         elements.push({
           node: element,
           page: page_counter
