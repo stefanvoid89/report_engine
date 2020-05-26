@@ -27,7 +27,7 @@ class PrintController extends Controller
         $header = view('print.layout.headers.default', ['databag' => $databag])->render();
         $footer = view('print.layout.footers.default', ['databag' => $databag])->render();
 
-        $page = view('print.layout.main', ['header' => $header, 'footer' => $footer, 'padding' => 15])->render();
+        $page = view('print.layout.main', ['header' => $header, 'footer' => $footer, 'padding' => 10])->render();
 
         $config = ['conf1' => 1, "conf2" => "ovo je conf2"];
 
@@ -47,7 +47,7 @@ class PrintController extends Controller
 
         foreach ($partials as $partial) {
 
-            $rendered = view('print.reports.daily_invoice.partials.' . $partial, [])->render();
+            $rendered = view('print.reports.daily_invoice.partials.' . $partial, ['databag' => $databag])->render();
 
             array_push($nodes, $rendered);
         }
@@ -69,7 +69,7 @@ class PrintController extends Controller
     {
 
 
-        $title = "Stampa djordja";
+        $title = "Stampa izvestaja";
 
 
         $company_info = collect(DB::select("SELECT acName, acAddress, acCode, acRegNo, acPhone, acPost,acCity, acFax, acAccontNr,acWebSite
