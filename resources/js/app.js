@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
 
     let report = new Report(data);
     window.report = report;
-    report.showmessage();
-    // report.mount_page();
+    //report.showmessage();
+    //report.mount_page();
     report.render_report();
 });

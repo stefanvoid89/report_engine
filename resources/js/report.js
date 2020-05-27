@@ -15,7 +15,7 @@ function Report(data) {
     this.page_height = this.get_page_height();
 }
 
-Report.prototype.get_page_height = function(someattribute) {
+Report.prototype.get_page_height = function() {
     var base_element = this.page;
     var element = base_element.cloneNode(true);
     var dom_element = document.body.appendChild(element);
@@ -33,7 +33,8 @@ Report.prototype.get_page_height = function(someattribute) {
     height -= padding;
 
     var header = document.querySelector("#header");
-    var header_height = document.querySelector("#header").clientHeight;
+
+    var header_height = document.querySelector("#header").offsetHeight;
 
     console.log("header height pre margina " + header_height);
 
@@ -76,6 +77,7 @@ Report.prototype.get_page_height = function(someattribute) {
     height = height - header_height - footer_height;
 
     console.log("final height is ", height);
+
     document.body.removeChild(dom_element);
 
     return height;
