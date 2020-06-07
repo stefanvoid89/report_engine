@@ -154,29 +154,46 @@
     <style>
         @font-face {
             font-family: VWHead;
-            src: url("{{ URL::to('/fonts/VWHead-Regular.otf')    }}") format("opentype");
+            src: url("{{URL::to('/fonts/VWHead-Regular.otf')}}") format("opentype");
         }
 
         @font-face {
             font-family: VWHead;
             font-weight: bold;
-            src: url("{{ URL::to('/fonts/VWHead-Bold.otf')    }}") format("opentype");
+            src: url("{{URL::to('/fonts/VWHead-Bold.otf')}}") format("opentype");
         }
 
         @font-face {
             font-family: VWText;
-            src: url("{{ URL::to('/fonts/VWText-Regular.otf')    }}") format("opentype");
+            src: url("{{URL::to('/fonts/VWText-Regular.otf')}}") format("opentype");
         }
 
         @font-face {
             font-family: VWText;
             font-weight: bold;
-            src: url("{{ URL::to('/fonts/VWText-Bold.otf')    }}") format("opentype");
+            src: url("{{URL::to('/fonts/VWText-Bold.otf')}}") format("opentype");
+        }
+
+        @font-face {
+            font-family: "RenaultLife-Bold";
+            src: url("{{ URL::to('/fonts/RenaultLife-Bold.ttf')    }}") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+
+
+        @font-face {
+            font-family: 'RenaultLife';
+            src: url("{{ URL::to('/fonts/RenaultLife.ttf')    }}") format("truetype");
+            font-weight: normal;
+            font-style: normal;
         }
 
         body {
-            font-family: "VWText";
-            font-size: 9pt;
+            font-family: "RenaultLife", 'Arial';
+            font-size: 12px;
         }
 
         #header,

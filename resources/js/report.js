@@ -34,7 +34,9 @@ Report.prototype.get_page_height = function() {
 
     var header = document.querySelector("#header");
 
-    var header_height = document.querySelector("#header").offsetHeight;
+    var header_height = document
+        .querySelector("#header")
+        .getBoundingClientRect().height;
 
     console.log("header height pre margina " + header_height);
 
@@ -54,7 +56,9 @@ Report.prototype.get_page_height = function() {
     header_height += header_margina_bottom;
 
     var footer = dom_element.querySelector("#footer");
-    var footer_height = document.querySelector("#footer").clientHeight;
+    var footer_height = document
+        .querySelector("#footer")
+        .getBoundingClientRect().height;
 
     console.log("footer " + footer_height);
 
@@ -77,6 +81,12 @@ Report.prototype.get_page_height = function() {
     height = height - header_height - footer_height;
 
     console.log("final height is ", height);
+
+    console.log(
+        "______________________________________________________________"
+    );
+    console.log(document.querySelector("#header").getBoundingClientRect());
+    console.log(document.querySelector("#footer").getBoundingClientRect());
 
     document.body.removeChild(dom_element);
 

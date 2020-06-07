@@ -5,25 +5,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PrintController extends Controller
 {
 
 
-    public function index(Request $request, $slug)
+    public function index(Request $request)
     {
-        $slug_parsed =  preg_replace('/-/', '_', $slug);
-        $params = $request->query();
-        // dd([$slug, $params]);
-        $service_classes = require(config_path('report.php'));
-        //  dd([$service_classes, $params]);
-        $service_name = $service_classes[$slug_parsed];
+
+        $query = $request->query();
+        $hash = "";
+        $params = [];
+        $all_config = config('report');
+        $main_config = [];
+
+        try {
+            $hash = $query['hash'];
+            $report = $query['report'];
+            $main_config = $all_config[$hash];
+            $params = $query['params'];
+        } catch (\Exception $ex) {
+            return;
+        }
+        $connection = $main_config['connection'];
+
+        $service_name = $main_config['reports'][$report]['class'];
         // dd($service_name);
         $service = new $service_name();
-        $databag = (object) $service->getData($params);
+        $databag = (object) $service->getData($params, $connection);
         //   dd($databag);
-        $dafault_config = require(resource_path('views\\print\\reports\\default\\config.php'));
-        $report_config = require(resource_path('views\\print\\reports\\' . $slug_parsed . '\\config.php'));
+
+        $report_path = $main_config['reports'][$report]['path'] ?? 'common\\' . $report;
+
+        // dd($report_path);
+
+        $dafault_config = require(resource_path('views\\print\\reports\\common\\default\\config.php'));
+        $report_config = require(resource_path('views\\print\\reports\\' . $report_path . '\\config.php'));
         $config = (object) array_merge($dafault_config, $report_config);
 
         // dd($config);
@@ -31,11 +49,12 @@ class PrintController extends Controller
         $title = $databag->title;
 
         $header_path = $config->header ?? 'print.layout.headers.default';
+        $footer_path = $config->footer ?? 'print.layout.footers.default';
 
         // dd($header_path);
 
         $header = view($header_path, ['databag' => $databag])->render();
-        $footer = view('print.layout.footers.default', ['databag' => $databag])->render();
+        $footer = view($footer_path, ['databag' => $databag])->render();
 
         $page = view('print.layout.main', ['header' => $header, 'footer' => $footer, 'padding' => $config->padding])->render();
 
@@ -43,7 +62,7 @@ class PrintController extends Controller
         $partials = [];
         $nodes = [];
 
-        $path = resource_path('views\\print\\reports\\' . $slug_parsed . '\\partials');
+        $path = resource_path('views\\print\\reports\\' . $report_path . '\\partials');
 
         foreach (File::allFiles($path) as $file) {
             array_push($partials, $file->getBasename('.blade.php'));
@@ -54,7 +73,8 @@ class PrintController extends Controller
 
         foreach ($partials as $partial) {
 
-            $rendered = view('print.reports.' . $slug_parsed . '.partials.' . $partial, ['databag' => $databag])->render();
+            // $rendered = view('print.reports.' . $report . '.partials.' . $partial, ['databag' => $databag])->render();
+            $rendered = view('print.reports.' . str_replace('\\', '.', $report_path) . '.partials.' . $partial, ['databag' => $databag])->render();
 
             array_push($nodes, $rendered);
         }

@@ -13,15 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::get('/reports/{slug}', 'PrintController@index');
-
-
-Route::get('/test/{id}', 'PrintController@somefunction');
+Route::get('/reports', 'PrintController@index');

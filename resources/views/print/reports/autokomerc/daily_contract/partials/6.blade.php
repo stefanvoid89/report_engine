@@ -1,4 +1,5 @@
 <table class="parent" style="font-size:12px;width:100%">
+    @if(isset($databag->car_damage->acKey))
     <tr>
         <td colspan="3"><br></td>
     </tr>
@@ -1111,5 +1112,5 @@
             </table>
         </td>
     </tr>
-
+    @endif
 </table>

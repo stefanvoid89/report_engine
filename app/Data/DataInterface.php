@@ -4,5 +4,5 @@ namespace App\Data;
 
 interface DataInterface
 {
-    public  function getData($params);
+    public  function getData($params, $connection);
 }

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Data;
+namespace App\Data\autokomerc;
 
 use Illuminate\Support\Facades\DB;
+use App\Data\DataInterface;
 
 class DailyInvoice extends DataInterface
 {

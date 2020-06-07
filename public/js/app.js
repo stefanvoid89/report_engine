@@ -30176,7 +30176,7 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 window.addEventListener("load", function () {
   console.log("All assets are loaded");
   var report = new _report__WEBPACK_IMPORTED_MODULE_0__["default"](data);
-  window.report = report; //report.showmessage();
+  window.report = report; //   report.get_page_height();
   //report.mount_page();
 
   report.render_report();
@@ -30216,7 +30216,7 @@ Report.prototype.get_page_height = function () {
   console.log("padding strane " + padding);
   height -= padding;
   var header = document.querySelector("#header");
-  var header_height = document.querySelector("#header").offsetHeight;
+  var header_height = document.querySelector("#header").getBoundingClientRect().height;
   console.log("header height pre margina " + header_height);
   var header_margina_top = parseInt(window.getComputedStyle(header).getPropertyValue("margin-top"));
   console.log("header margina top " + header_margina_top);
@@ -30225,7 +30225,7 @@ Report.prototype.get_page_height = function () {
   console.log("header margina bottom " + header_margina_bottom);
   header_height += header_margina_bottom;
   var footer = dom_element.querySelector("#footer");
-  var footer_height = document.querySelector("#footer").clientHeight;
+  var footer_height = document.querySelector("#footer").getBoundingClientRect().height;
   console.log("footer " + footer_height);
   var footer_margin_top = parseInt(window.getComputedStyle(footer).getPropertyValue("margin-top"));
   console.log("footer margin top " + footer_margin_top);
@@ -30235,6 +30235,9 @@ Report.prototype.get_page_height = function () {
   footer_height += footer_margin_bottom;
   height = height - header_height - footer_height;
   console.log("final height is ", height);
+  console.log("______________________________________________________________");
+  console.log(document.querySelector("#header").getBoundingClientRect());
+  console.log(document.querySelector("#footer").getBoundingClientRect());
   document.body.removeChild(dom_element);
   return height;
 };
@@ -30438,7 +30441,7 @@ Report.prototype.mount_page = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Stefan\Documents\development\laravel_test\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Stefan\Documents\development\report_engine\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
