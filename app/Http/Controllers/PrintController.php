@@ -40,7 +40,9 @@ class PrintController extends Controller
 
         // dd($report_path);
 
-        $dafault_config = require(resource_path('views\\print\\reports\\common\\default\\config.php'));
+        // dd([realpath(resource_path('views\\print\\reports\\common\\default\\config.php')), resource_path('views\\print\\reports\\common\\default\\config.php')]);
+
+        $dafault_config = require(realpath(resource_path('views\\print\\reports\\common\\default\\config.php')));
         $report_config = require(resource_path('views\\print\\reports\\' . $report_path . '\\config.php'));
         $config = (object) array_merge($dafault_config, $report_config);
 
