@@ -36,7 +36,7 @@ class PrintController extends Controller
         $databag = (object) $service->getData($params, $connection);
         //   dd($databag);
 
-        $report_path = $main_config['reports'][$report]['path'] ?? 'common\\' . $report;
+        $report_path = $main_config['reports'][$report]['path'] ?? 'common/' . $report;
 
         // dd($report_path);
 
