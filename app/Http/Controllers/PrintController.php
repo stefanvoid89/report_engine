@@ -34,37 +34,37 @@ class PrintController extends Controller
         // dd($service_name);
         $service = new $service_name();
         $databag = (object) $service->getData($params, $connection);
-        //   dd($databag);
+
+        //dd($databag);
 
         $report_path = $main_config['reports'][$report]['path'] ?? 'common/' . $report;
 
         // dd($report_path);
 
-        // dd([realpath(resource_path('views\\print\\reports\\common\\default\\config.php')), resource_path('views\\print\\reports\\common\\default\\config.php')]);
 
-        $dafault_config = require(resource_path('views/print/reports/common/default/config.php'));
-        $report_config = require(resource_path('views/print/reports/' . $report_path . '/config.php'));
+        $dafault_config = require(resource_path('views/print/common/default/config.php'));
+        $report_config = require(resource_path('views/print/' . $report_path . '/config.php'));
         $config = (object) array_merge($dafault_config, $report_config);
 
         // dd($config);
 
         $title = $databag->title;
 
-        $header_path = $config->header ?? 'print.layout.headers.default';
-        $footer_path = $config->footer ?? 'print.layout.footers.default';
+        $header_path = $config->header ?? 'print.common.headers.default';
+        $footer_path = $config->footer ?? 'print.common.footers.default';
 
         // dd($header_path);
 
         $header = view($header_path, ['databag' => $databag])->render();
         $footer = view($footer_path, ['databag' => $databag])->render();
 
-        $page = view('print.layout.main', ['header' => $header, 'footer' => $footer, 'padding' => $config->padding])->render();
+        $page = view('print.page', ['header' => $header, 'footer' => $footer, 'padding' => $config->padding])->render();
 
 
         $partials = [];
         $nodes = [];
 
-        $path = resource_path('views/print/reports/' . $report_path . '/partials');
+        $path = resource_path('views/print/' . $report_path . '/partials');
 
         foreach (File::allFiles($path) as $file) {
             array_push($partials, $file->getBasename('.blade.php'));
@@ -76,7 +76,7 @@ class PrintController extends Controller
         foreach ($partials as $partial) {
 
             // $rendered = view('print.reports.' . $report . '.partials.' . $partial, ['databag' => $databag])->render();
-            $rendered = view('print.reports.' . str_replace('/', '.', $report_path) . '.partials.' . $partial, ['databag' => $databag])->render();
+            $rendered = view('print.' . str_replace('/', '.', $report_path) . '.partials.' . $partial, ['databag' => $databag])->render();
 
             array_push($nodes, $rendered);
         }

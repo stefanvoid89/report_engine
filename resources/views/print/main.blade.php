@@ -205,6 +205,16 @@
         table.parent {
             width: 100%
         }
+
+        table.table_border {
+            border: 1px black solid;
+            border-collapse: collapse;
+        }
+
+        table.table_border td {
+            border: 1px black solid;
+            padding: 2px;
+        }
     </style>
 </head>
 

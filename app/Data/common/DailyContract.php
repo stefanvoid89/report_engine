@@ -110,7 +110,7 @@ class DailyContract implements DataInterface
         $selected_ext_car_damages = array_column($selected_ext_car_damages_full, 'anDamageId');
 
         $databag = [
-            'title' => $title, 'company_info' => $company_info,             'reservation' => $reservation, 'subject' => $subject, 'driver' => $driver,
+            'title' => $title, 'company_info' => $company_info, 'reservation' => $reservation, 'subject' => $subject, 'driver' => $driver,
             'car' => $car, 'items' => $items, 'currency' => $currency, 'total_value' => $total_value,
             'selected_ext_car_damages' => $selected_ext_car_damages, 'car_damage' => $car_damage,
             'selected_ext_car_damages_full' => $selected_ext_car_damages_full,

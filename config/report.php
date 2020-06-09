@@ -8,6 +8,7 @@ return [
         "db" => "mirent_hitauto",
         "reports" => [
             'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => null],
+            'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'hitauto/daily_invoice'],
             'test' =>  ["class" => App\Data\common\Test::class, "path" => null],
         ]
     ],
