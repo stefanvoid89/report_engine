@@ -15,7 +15,7 @@ return [
         "connection" => "autokomerc",
         "db" => "mirent_autokomerc",
         "reports" => [
-            'daily_contract' => ["class" => App\Data\autokomerc\DailyContract::class, "path" => 'autokomerc\\daily_contract'],
+            'daily_contract' => ["class" => App\Data\autokomerc\DailyContract::class, "path" => 'autokomerc/daily_contract'],
             'test' => ["class" => App\Data\autokomerc\Test::class, "path" => null],
         ]
     ],

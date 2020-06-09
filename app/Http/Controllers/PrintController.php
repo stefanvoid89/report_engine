@@ -42,8 +42,8 @@ class PrintController extends Controller
 
         // dd([realpath(resource_path('views\\print\\reports\\common\\default\\config.php')), resource_path('views\\print\\reports\\common\\default\\config.php')]);
 
-        $dafault_config = require(realpath(resource_path('views\\print\\reports\\common\\default\\config.php')));
-        $report_config = require(resource_path('views\\print\\reports\\' . $report_path . '\\config.php'));
+        $dafault_config = require(resource_path('views/print/reports/common/default/config.php'));
+        $report_config = require(resource_path('views/print/reports/' . $report_path . '/config.php'));
         $config = (object) array_merge($dafault_config, $report_config);
 
         // dd($config);
@@ -64,7 +64,7 @@ class PrintController extends Controller
         $partials = [];
         $nodes = [];
 
-        $path = resource_path('views\\print\\reports\\' . $report_path . '\\partials');
+        $path = resource_path('views/print/reports/' . $report_path . '/partials');
 
         foreach (File::allFiles($path) as $file) {
             array_push($partials, $file->getBasename('.blade.php'));
@@ -76,7 +76,7 @@ class PrintController extends Controller
         foreach ($partials as $partial) {
 
             // $rendered = view('print.reports.' . $report . '.partials.' . $partial, ['databag' => $databag])->render();
-            $rendered = view('print.reports.' . str_replace('\\', '.', $report_path) . '.partials.' . $partial, ['databag' => $databag])->render();
+            $rendered = view('print.reports.' . str_replace('/', '.', $report_path) . '.partials.' . $partial, ['databag' => $databag])->render();
 
             array_push($nodes, $rendered);
         }
