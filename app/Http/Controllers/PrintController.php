@@ -87,4 +87,9 @@ class PrintController extends Controller
 
         return view("print.main", ['title' => $title, 'data' => collect($data)]);
     }
+
+    public function test()
+    {
+        return "hello from report_engine";
+    }
 }
