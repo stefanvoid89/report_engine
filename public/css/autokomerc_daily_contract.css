@@ -1,0 +1,58 @@
+.check {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border: 1px solid black;
+    min-width: 15px;
+    margin-right: 5px;
+}
+
+.big_font {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+body {
+    letter-spacing: -0.5px;
+}
+
+hr.thin {
+    height: 1px;
+    border: 0;
+    color: #333;
+    background-color: #333;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+hr.thin_without_margin {
+    height: 1px;
+    border: 0;
+    color: #333;
+    background-color: #333;
+}
+
+.border_bottom {
+    /* border-top: 1px solid black; */
+    padding-top: 10px;
+}
+
+table.table_border {
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+
+table.table_border td {
+    border: 1px black solid;
+    padding: 2px;
+}
+
+table.reservation_items th,
+table.reservation_items td {
+    border: 1px solid black;
+}
+
+table.reservation_items th {
+    background: #dfe5f2;
+}

@@ -8,6 +8,8 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
     <title>{{$title}}</title>
     <link href="{{URL::asset('/css/reset.css')}}" rel="stylesheet">
+    @if($style)
+    <link href="{{URL::asset('/css/'.$style)}}" rel="stylesheet"> @endif
 
     <style>
         @page {
@@ -79,6 +81,11 @@
         }
 
         /** Padding area **/
+
+        .sheet.padding-5-10-5mm {
+            padding: 5mm 10mm 5mm;
+        }
+
         .sheet.padding-5mm {
             padding: 5mm;
         }

@@ -6,7 +6,7 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 import Report from "./report";
 
 window.addEventListener("load", function() {
-    console.log("All assets are loaded");
+    console.log("_______________POCETAK______________________");
 
     let report = new Report(data);
     window.report = report;

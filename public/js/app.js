@@ -30174,7 +30174,7 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 window.addEventListener("load", function () {
-  console.log("All assets are loaded");
+  console.log("_______________POCETAK______________________");
   var report = new _report__WEBPACK_IMPORTED_MODULE_0__["default"](data);
   window.report = report; //   report.get_page_height();
   //report.mount_page();
@@ -30211,6 +30211,7 @@ Report.prototype.get_page_height = function () {
   var style = window.getComputedStyle(dom_element, null);
   var height = Math.floor(parseFloat(style.getPropertyValue("height"))); // dom_element.clientHeight;
 
+  console.log("___________________DIMENZIJE STRANE_____________________________");
   console.log("visina strane " + height);
   var padding = Math.ceil(parseFloat(style.getPropertyValue("padding-top"))) + Math.ceil(parseFloat(style.getPropertyValue("padding-bottom")));
   console.log("padding strane " + padding);
@@ -30235,9 +30236,9 @@ Report.prototype.get_page_height = function () {
   footer_height += footer_margin_bottom;
   height = height - header_height - footer_height;
   console.log("final height is ", height);
-  console.log("______________________________________________________________");
-  console.log(document.querySelector("#header").getBoundingClientRect());
-  console.log(document.querySelector("#footer").getBoundingClientRect());
+  console.log("______________________________________________________________"); // console.log(document.querySelector("#header").getBoundingClientRect());
+  // console.log(document.querySelector("#footer").getBoundingClientRect());
+
   document.body.removeChild(dom_element);
   return height;
 };
@@ -30289,14 +30290,16 @@ Report.prototype.parse_nodes = function () {
   var page_counter = 1;
   var elements = []; // prvi deo punjenje arraya elements koji se posle renderuje na page-ove
 
+  console.log("___________________DIMENZIJE NODOVA_____________________________");
+
   for (var index = 0; index < this.nodes.length; index++) {
-    var node_height = this.get_element_height(index); // svaki element je tabela sa klasom parent koja moze da bude renderovana iscela ili podeljena na vise strana u okvirima headera i footera
+    var node_height = this.get_element_height(index);
+    console.log("Node no. ".concat(index + 1, " od ").concat(this.nodes.length, " nodova je visina ").concat(node_height)); // svaki element je tabela sa klasom parent koja moze da bude renderovana iscela ili podeljena na vise strana u okvirima headera i footera
 
     var element = this.nodes[index].cloneNode(true);
 
     if (node_height > this.page_height) {
-      console.log("Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!!");
-      console.log("page height je ".concat(this.page_height, " a node je visina ").concat(node_height));
+      console.log("Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!! ----> page height je ".concat(this.page_height, " a node no. ").concat(index + 1, " od ").concat(this.nodes.length, " nodova je visina ").concat(node_height));
       return;
     }
 
@@ -30386,6 +30389,7 @@ Report.prototype.parse_nodes = function () {
     }
   }
 
+  console.log("______________________________________________________________");
   this.elements = elements;
 };
 

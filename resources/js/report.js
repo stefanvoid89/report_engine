@@ -22,6 +22,10 @@ Report.prototype.get_page_height = function() {
     var style = window.getComputedStyle(dom_element, null);
     var height = Math.floor(parseFloat(style.getPropertyValue("height"))); // dom_element.clientHeight;
 
+    console.log(
+        "___________________DIMENZIJE STRANE_____________________________"
+    );
+
     console.log("visina strane " + height);
 
     var padding =
@@ -85,8 +89,8 @@ Report.prototype.get_page_height = function() {
     console.log(
         "______________________________________________________________"
     );
-    console.log(document.querySelector("#header").getBoundingClientRect());
-    console.log(document.querySelector("#footer").getBoundingClientRect());
+    // console.log(document.querySelector("#header").getBoundingClientRect());
+    // console.log(document.querySelector("#footer").getBoundingClientRect());
 
     document.body.removeChild(dom_element);
 
@@ -164,17 +168,31 @@ Report.prototype.parse_nodes = function() {
 
     // prvi deo punjenje arraya elements koji se posle renderuje na page-ove
 
+    console.log(
+        "___________________DIMENZIJE NODOVA_____________________________"
+    );
+
     for (let index = 0; index < this.nodes.length; index++) {
         let node_height = this.get_element_height(index);
+
+        console.log(
+            `Node no. ${index + 1} od ${
+                this.nodes.length
+            } nodova je visina ${node_height}`
+        );
 
         // svaki element je tabela sa klasom parent koja moze da bude renderovana iscela ili podeljena na vise strana u okvirima headera i footera
         let element = this.nodes[index].cloneNode(true);
 
         if (node_height > this.page_height) {
-            console.log("Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!!");
             console.log(
-                `page height je ${this.page_height} a node je visina ${node_height}`
+                `Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!! ----> page height je ${
+                    this.page_height
+                } a node no. ${index + 1} od ${
+                    this.nodes.length
+                } nodova je visina ${node_height}`
             );
+
             return;
         }
 
@@ -274,7 +292,9 @@ Report.prototype.parse_nodes = function() {
             }
         }
     }
-
+    console.log(
+        "______________________________________________________________"
+    );
     this.elements = elements;
 };
 

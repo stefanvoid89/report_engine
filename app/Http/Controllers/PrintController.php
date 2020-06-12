@@ -53,6 +53,8 @@ class PrintController extends Controller
         $header_path = $config->header ?? 'print.common.headers.default';
         $footer_path = $config->footer ?? 'print.common.footers.default';
 
+        $style = $config->style ?? null;
+
         // dd($header_path);
 
         $header = view($header_path, ['databag' => $databag])->render();
@@ -70,8 +72,9 @@ class PrintController extends Controller
             array_push($partials, $file->getBasename('.blade.php'));
         }
 
-        //dd($partials);
-        //  dd($slug_parsed);
+        sort($partials);
+
+        //  dd($partials);
 
         foreach ($partials as $partial) {
 
@@ -85,7 +88,7 @@ class PrintController extends Controller
 
         $data = ["config" => $config, "nodes" => $nodes, "page" => $page];
 
-        return view("print.main", ['title' => $title, 'data' => collect($data)]);
+        return view("print.main", ['title' => $title, 'data' => collect($data), 'style' => $style]);
     }
 
     public function test()

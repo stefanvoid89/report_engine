@@ -9,7 +9,6 @@ return [
         "reports" => [
             'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => null],
             'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'hitauto/daily_invoice'],
-            'test' =>  ["class" => App\Data\common\Test::class, "path" => null],
         ]
     ],
     "QeJvjtrqGHafBsNNzYlC4jbkAVryldEudUkETAJsT2Sl8AU3gE" => [
@@ -17,7 +16,7 @@ return [
         "db" => "mirent_autokomerc",
         "reports" => [
             'daily_contract' => ["class" => App\Data\autokomerc\DailyContract::class, "path" => 'autokomerc/daily_contract'],
-            'test' => ["class" => App\Data\autokomerc\Test::class, "path" => null],
+            'daily_invoice' => ["class" => App\Data\common\DailyInvoice::class, "path" => null],
         ]
     ],
 

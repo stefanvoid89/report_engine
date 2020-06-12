@@ -1,4 +1,4 @@
-<table style="font-size:18px; text-align:left;width:100%">
+<table style="font-size:12px; text-align:left;width:100%">
 
 
     <tr>

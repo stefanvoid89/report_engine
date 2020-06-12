@@ -41,7 +41,8 @@ class DailyContract implements DataInterface
         convert(varchar(20),adDateOfBirth,104) as adDateOfBirth from _Drivers
         where anId = :driver_id", ['driver_id' => $reservation->anDriverId]))->first();
 
-        $car =  collect(DB::connection($connection)->select("SELECT acCarNameShort, acChasis,acRegNo from _v_CarExtended
+        $car =  collect(DB::connection($connection)->select("SELECT acCarNameShort, acChasis,acRegNo
+        ,convert(varchar(20),adDateRegistrationExpiration,104) as adDateRegistrationExpiration from _v_CarExtended
         where anId = :car_id", ['car_id' => $reservation->anCarId]))->first();
 
 
