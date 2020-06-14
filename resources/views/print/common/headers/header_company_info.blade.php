@@ -1,7 +1,7 @@
 <table style="width:100%">
     <tr>
         <td align="left" width="30%" id="logotd">
-            <img id="logo" src="/images/logo.png" style="height:40px" />
+            <img id="logo" src="/images/{{$databag->logo}}" style="height:60px" />
         </td>
         <td style="font-size: 10px;text-align: right;vertical-align: top ">
             <span style="font-size: 16px;font-weight: bold;">{{$databag->company_info->acName}}</span>

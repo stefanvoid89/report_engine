@@ -41,6 +41,8 @@ class PrintController extends Controller
 
         // dd($report_path);
 
+        $databag->logo = $main_config['logo'];
+
 
         $dafault_config = require(resource_path('views/print/common/default/config.php'));
         $report_config = require(resource_path('views/print/' . $report_path . '/config.php'));
