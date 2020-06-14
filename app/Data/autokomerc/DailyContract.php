@@ -23,7 +23,7 @@ class DailyContract implements DataInterface
 
         $reservation = collect(DB::connection($connection)->select("SELECT r.acKey, r.anSubjectId
         ,convert(varchar(20),r.adDateFrom,104)+' '+convert(varchar(5),convert(time,r.adDateFrom,108)) as adDateFrom
-        ,convert(varchar(20),r.adDateTo,104)+' '+convert(varchar(5),convert(time,r.adDateTo,108))  as adDateTo
+        ,convert(varchar(20),r.adDateTo,104)+' '+convert(varchar(5),convert(time,r.adDateTo,108))  as adDateTo, cast(anQty as int) anQty
         ,r.anCarId , u.acName + ' ' + u.acSurname as acUser, right(convert(char(10),adDateExpCreditCard,103),7) as adDateExpCreditCard
         ,isnull(cct.acName,'') as acCreditCard, r.acCreditCardNo, r.acCVV,r.acCreditCardHolder, r.anDeposit, r.anDriverId
         , FORMAT(anMilleageFrom,'#,0') as anMilleageFrom ,acTankFrom
@@ -38,7 +38,9 @@ class DailyContract implements DataInterface
         where s.anId = :subject_id", ['subject_id' => $reservation->anSubjectId]))->first();
 
         $driver = collect(DB::connection($connection)->select("SELECT acName ,acId, acDriverLicence,acAddress,acPhone,
-        convert(varchar(20),adDateOfBirth,104) as adDateOfBirth from _Drivers
+        convert(varchar(20),adDateOfBirth,104) as adDateOfBirth ,
+        convert(varchar(20),adDriverLicenceIssueDate,104) as adDriverLicenceIssueDate,convert(varchar(20),adDriverLicenceExpDate,104) as adDriverLicenceExpDate,  acDriverLicenceIssuePlace
+        from _Drivers
         where anId = :driver_id", ['driver_id' => $reservation->anDriverId]))->first();
 
         $car =  collect(DB::connection($connection)->select("SELECT acCarNameShort, acChasis,acRegNo
@@ -49,30 +51,56 @@ class DailyContract implements DataInterface
 
         $currency = '€';
 
-        $items = collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over(order by anNo) as anNo, acName,anQty, acUm,
+        // obracun sa popustom na identima
+        // $items = collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over(order by anNo) as anNo, acName,anQty, acUm,acUmEN,
+        // cast(anPrice as decimal(10,2)) as anPrice,cast(anValue as decimal(10,2)) as anValue  from (
+        // SELECT 0 as anNo, q.acName , r.anQty , q.acUm ,q.acUmEN ,
+        // r.anPrice * ((100.00-isnull(r.anRebate,0))/100.00) as anPrice ,r.anPrice * ((100.00-isnull(r.anRebate,0))/100.00)  * r.anQty as anValue
+        // from _Reservations r
+        // inner join _Vat	 v on v.anId = r.anVatId
+        // cross apply (SELECT si.anId, si.acName ,si.acUm,u.acNameEN as acUmEN from _SetItem si inner join _Um u on u.acName = si.acName	 where acIdent = 'Najam')q
+        // where r.anId = :reservation_id1
+        // union all
+        // SELECT row_number() over(order by rer.acName) as anNo, rer.acName , case when u.acName = 'dan' then r.anQty else 1 end as anQty, u.acName as acUm,u.acNameEN as acUmEN,
+        // re.anPrice * ((100.00-isnull(r.anRebate,0))/100.00) as anPrice,
+        // re.anPrice * ((100.00-isnull(r.anRebate,0))/100.00) * case when u.acName = 'dan' then r.anQty else 1 end as anValue
+        // from _ReservationExtras re
+        // inner join _Reservations r on r.anId	= re.anReservationId
+        // inner join _ReservationExtrasReigster rer	on rer.anId = re.anReservationExtraId
+        // inner join _Vat	 v on v.anId = r.anVatId
+        // inner join _Um u on u.anId=  re.anUmId
+        // cross apply (SELECT anId from _SetItem where acIdent = 'Dodatna oprema')q
+        // where r.anId = :reservation_id2
+        // )q
+        // ", ['reservation_id1' => $id, 'reservation_id2' => $id]));
+
+
+
+        $items = collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over(order by anNo) as anNo, acName,anQty, acUm,acUmEN,
         cast(anPrice as decimal(10,2)) as anPrice,cast(anValue as decimal(10,2)) as anValue  from (
-        SELECT 0 as anNo, q.acName , r.anQty , q.acUm ,
-        r.anPrice * ((100.00-isnull(r.anRebate,0))/100.00) as anPrice ,r.anPrice * ((100.00-isnull(r.anRebate,0))/100.00)  * r.anQty as anValue
+        SELECT 0 as anNo, q.acName , r.anQty , q.acUm ,q.acUmEN ,
+        r.anPrice  ,r.anPrice * r.anQty as anValue
         from _Reservations r
         inner join _Vat	 v on v.anId = r.anVatId
-        cross apply (SELECT anId, acName ,acUm from _SetItem where acIdent = 'Najam')q
+        cross apply (SELECT si.anId, si.acName ,si.acUm,u.acNameEN as acUmEN from _SetItem si inner join _Um u on u.acName = si.acUm	 where acIdent = 'Najam')q
         where r.anId = :reservation_id1
         union all
-        SELECT row_number() over(order by rer.acName) as anNo, rer.acName , case when u.acName = 'dan' then r.anQty else 1 end as anQty, u.acName as acUm,
-        re.anPrice * ((100.00-isnull(r.anRebate,0))/100.00) as anPrice,
-        re.anPrice * ((100.00-isnull(r.anRebate,0))/100.00) * case when u.acName = 'dan' then r.anQty else 1 end as anValue
+        SELECT row_number() over(order by rer.acName) as anNo, rer.acName , case when u.acUm = 'dan' then r.anQty else 1 end as anQty, u.acUm as acUm,u.acNameEN as acUmEN,
+        re.anPrice ,
+        re.anPrice * case when u.acUm = 'dan' then r.anQty else 1 end as anValue
         from _ReservationExtras re
         inner join _Reservations r on r.anId	= re.anReservationId
         inner join _ReservationExtrasReigster rer	on rer.anId = re.anReservationExtraId
         inner join _Vat	 v on v.anId = r.anVatId
-        inner join _Um u on u.anId=  re.anUmId
+        inner join _UmReservationExtras u on u.anId=  re.anUmId
         cross apply (SELECT anId from _SetItem where acIdent = 'Dodatna oprema')q
         where r.anId = :reservation_id2
-        )q
-        ", ['reservation_id1' => $id, 'reservation_id2' => $id]));
+        )q", ['reservation_id1' => $id, 'reservation_id2' => $id]));
 
 
-        $total_value = collect(DB::connection($connection)->select("SELECT r.anValue,r.anVatValue,r.anTotalValue, cast(v.anVat as char) as acVat from _Reservations r
+        $total_value = collect(DB::connection($connection)->select("SELECT
+        cast((r.anQty * r.anPrice	+ r.anAdditionalCosts + r.anAdditionalCostsPerDay * anQty)  as decimal(10,2)) as anValueWORebate,
+        r.anValue,r.anVatValue,r.anTotalValue,r.anRebate, cast(cast(v.anVat as int) as char) as acVat from _Reservations r
         inner join _Vat v on r.anVatId = v.anId
         where r.anId = :reservation_id", ['reservation_id' => $id]))->first();
 

@@ -53,6 +53,10 @@ table.reservation_items td {
     border: 1px solid black;
 }
 
+table.td_margin td {
+    height: 20px;
+}
+
 table.reservation_items th {
     background: #dfe5f2;
 }

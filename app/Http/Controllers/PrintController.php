@@ -74,16 +74,21 @@ class PrintController extends Controller
 
         sort($partials);
 
-        //  dd($partials);
+        //   dd($partials);
+
+        $test = [];
 
         foreach ($partials as $partial) {
+
+
+            array_push($test, $partial);
 
             // $rendered = view('print.reports.' . $report . '.partials.' . $partial, ['databag' => $databag])->render();
             $rendered = view('print.' . str_replace('/', '.', $report_path) . '.partials.' . $partial, ['databag' => $databag])->render();
 
             array_push($nodes, $rendered);
         }
-        // dd($nodes);
+        //  dd($test);
 
 
         $data = ["config" => $config, "nodes" => $nodes, "page" => $page];

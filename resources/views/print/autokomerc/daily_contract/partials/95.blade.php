@@ -1,54 +1,48 @@
-<table class="parent" style="width:100%;font-size:12px">
+<table class="parent td_margin" style="width:100%;font-size:10px">
+
     <tr>
-        <td style="width:68%">
-            <table style="width:100%;font-size:12px">
-                <tr>
-                    <td style="font-weight:bold">Vozilo</td>
-                </tr>
-                <tr>
-                    <td>Vozilo(marka,model,verzija)</td>
-                    <td>{{$databag->car->acCarNameShort}}</td>
-                </tr>
-                <tr>
-                    <td>Broj šasije:</td>
-                    <td>{{$databag->car->acChasis}}</td>
-                </tr>
-                <tr>
-                    <td>
-                        Registarske oznake:
-                    </td>
-                    <td>{{$databag->car->acRegNo}}</td>
-                </tr>
 
-            </table>
+        <td style="width:60%;font-weight: bold">
+            <i class="fas fa-user"></i> &nbsp; VOZAČ / DRIVER
         </td>
-        <td style="width:4%"></td>
-
-        <td style="width:38%">
-            <table style="width:100%;font-size:12px">
+        <td style="width:60%;font-weight: bold">
+            <i class="fas fa-user"></i> &nbsp; DODATNI VOZAC / ADDITIONAL DRIVER
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table style="width:100%;table-layout: fixed;font-size:10px">
                 <tr>
-                    <td style="font-weight:bold">Stanje izdavanja</td>
+                    <td>Ime / Name: {{$databag->driver->acName}}</td>
+                    <td>Broj vozačke / Driver licence No:{{$databag->driver->acDriverLicence}}</td>
+
+                </tr>
+
+
+                <tr>
+                    <td>Adresa / Address: {{$databag->driver->acAddress}}</td>
+                    <td>Datum izdavanja / Data of issue:{{$databag->driver->adDriverLicenceIssueDate}}</td>
+
+
                 </tr>
                 <tr>
+                    <td>Datum rođenja / Date of birth: {{$databag->driver->adDateOfBirth}}</td>
+                    <td>Važi do / Valid to:{{$databag->driver->adDriverLicenceExpDate}}</td>
 
-                    <td>Km izlaz: </td>
-                    <td>{{$databag->reservation->anMilleageFrom}}</td>
                 </tr>
                 <tr>
-                    <td>Rezervoar:</td>
-                    <td>{{$databag->reservation->acTankFrom}}</td>
+                    <td>Id: {{$databag->driver->acId}}</td>
+                    <td>Mesto izdavanja / Place of issue:{{$databag->driver->acDriverLicenceIssuePlace}}</td>
+
                 </tr>
 
 
             </table>
         </td>
-
     </tr>
     <tr>
-        <td colspan="3">
-            <hr>
+        <td>
+            <br style="line-height: 15px;">
         </td>
     </tr>
-
-
 </table>

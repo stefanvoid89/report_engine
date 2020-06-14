@@ -24,7 +24,8 @@ return [
         "connection" => "autofleet",
         "db" => "mirent_autofleet",
         "reports" => [
-            'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => ""],
+            'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => null],
+            'daily_invoice' => ["class" => App\Data\common\DailyInvoice::class, "path" => null],
         ]
     ],
 

@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
     <title>{{$title}}</title>
     <link href="{{URL::asset('/css/reset.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('/css/fa_all.css')}}" rel="stylesheet">
     @if($style)
     <link href="{{URL::asset('/css/'.$style)}}" rel="stylesheet"> @endif
 

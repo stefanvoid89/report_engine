@@ -121,9 +121,9 @@ border-spacing:0 2px;">
     </tr>
 
     <tr>
-        <td class="big_font">Unutrasnjost + Komande</td>
+        <td class="big_font">Unutrašnjost + Komande</td>
         <td></td>
-        <td class="big_font">Spoljasnost</td>
+        <td class="big_font">Spoljašnost</td>
         <td></td>
         <td colspan="3" class="big_font">Ispod haube</td>
 
@@ -149,7 +149,7 @@ border-spacing:0 2px;">
                 <div class="check">
                     &nbsp;
                 </div>
-                <div>Motor and transmission oil / Ulje u motoru i menjacu</div>
+                <div>Motor and transmission oil / Ulje u motoru i menjaču</div>
             </div>
 
         </td>
@@ -193,7 +193,7 @@ border-spacing:0 2px;">
         <td colspan="3">
             <div class="check">
                 &nbsp;
-            </div>Antifreeze / Rashladna tecnost motora
+            </div>Antifreeze / Rashladna tečnost motora
         </td>
 
     </tr>
@@ -202,7 +202,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Brake action / Kontrola kocnice
+            </div>Brake action / Kontrola kočnice
         </td>
         <td></td>
         <td>
@@ -223,7 +223,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Emergency brake / Provera rucne kocnice
+            </div>Emergency brake / Provera ručne kočnice
         </td>
         <td></td>
         <td>
@@ -235,7 +235,7 @@ border-spacing:0 2px;">
         <td colspan="3">
             <div class="check">
                 &nbsp;
-            </div>Windshieldwasher / Tecnost za pranje stakala
+            </div>Windshieldwasher / Tečnost za pranje stakala
         </td>
 
     </tr>
@@ -250,7 +250,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Wipers (F+B) condition / Stanje brisaca P+Z
+            </div>Wipers (F+B) condition / Stanje brisača P+Z
         </td>
         <td></td>
         <td colspan="3" class="big_font">
@@ -303,7 +303,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Air condition / Klima uredjaj
+            </div>Air condition / Klima uređaj
         </td>
         <td></td>
         <td>
@@ -315,7 +315,7 @@ border-spacing:0 2px;">
         <td colspan="3">
             <div class="check">
                 &nbsp;
-            </div>First aid kit / Prva pomoc
+            </div>First aid kit / Prva pomoć
         </td>
 
     </tr>
@@ -330,7 +330,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>General condition / Opste stanje
+            </div>General condition / Opšte stanje
         </td>
         <td></td>
         <td colspan="3">
@@ -354,14 +354,14 @@ border-spacing:0 2px;">
                 <div class="check">
                     &nbsp;
                 </div>
-                <div>Tools / Alat(dizalica, kljuc dizalice, kljuc za tockove)</div>
+                <div>Tools / Alat(dizalica, ključ dizalice, ključ za točkove)</div>
             </div>
         </td>
         <td></td>
         <td colspan="3">
             <div class="check">
                 &nbsp;
-            </div>Towrope / Sajla za vucu
+            </div>Towrope / Sajla za vuču
         </td>
 
     </tr>
@@ -391,7 +391,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Windshield wipers / Kontrola rada brisaca
+            </div>Windshield wipers / Kontrola rada brisača
         </td>
         <td></td>
         <td>
@@ -417,7 +417,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Rear view mirror / Unutrasnji retrovizor
+            </div>Rear view mirror / Unutrašnji retrovizor
         </td>
         <td></td>
         <td>
@@ -440,7 +440,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Sun visors / Kontrola rada brisaca
+            </div>Sun visors / Kontrola rada brisača
         </td>
         <td></td>
         <td>
@@ -484,7 +484,7 @@ border-spacing:0 2px;">
         <td colspan="3">
             <div class="check">
                 &nbsp;
-            </div>Ski rack / Nosac za skije
+            </div>Ski rack / Nosač za skije
         </td>
 
     </tr>
@@ -492,7 +492,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Cigarette lighter / Upaljac za cigarete
+            </div>Cigarette lighter / Upaljač za cigarete
         </td>
         <td></td>
         <td class="big_font">
@@ -504,7 +504,7 @@ border-spacing:0 2px;">
         <td colspan="3">
             <div class="check">
                 &nbsp;
-            </div>Baby seat / Sediste za bebe
+            </div>Baby seat / Sedište za bebe
         </td>
 
     </tr>
@@ -516,7 +516,7 @@ border-spacing:0 2px;">
         </td>
         <td></td>
         <td class="big_font">
-            Cistoca
+            Čistoća
         </td>
         <td></td>
         <td colspan="3">
@@ -538,7 +538,7 @@ border-spacing:0 2px;">
                 <div class="check">
                     &nbsp;
                 </div>
-                <div>Exterior / Spoljasnost
+                <div>Exterior / Spoljašnost
                 </div>
             </div>
 
@@ -553,7 +553,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Fronseat adjustment / Podesavanje prednjih sedista
+            </div>Fronseat adjustment / Podešavanje prednjih sedista
         </td>
         <td></td>
         <td>
@@ -561,7 +561,7 @@ border-spacing:0 2px;">
                 <div class="check">
                     &nbsp;
                 </div>
-                <div>Interior / Unutrasnjost
+                <div>Interior / Unutrašnjost
                 </div>
             </div>
 
@@ -575,7 +575,7 @@ border-spacing:0 2px;">
         <td>
             <div class="check">
                 &nbsp;
-            </div>Backseat adjustment / Podesavanje zadnjih sedista
+            </div>Backseat adjustment / Podešavanje zadnjih sedišta
         </td>
         <td></td>
         <td>
@@ -602,7 +602,7 @@ border-spacing:0 2px;">
                 <div class="check">
                     &nbsp;
                 </div>
-                <div>El./manual windows L+R / El./manuelni podizaci stakla L+D
+                <div>El./manual windows L+R / El./manuelni podizači stakla L+D
                 </div>
             </div>
         </td>
@@ -646,7 +646,7 @@ border-spacing:0 2px;">
         <td colspan="3">
             <div class="check">
                 &nbsp;
-            </div>Steering / Upravljacki mehanizam
+            </div>Steering / Upravljački mehanizam
         </td>
 
     </tr>
@@ -662,7 +662,7 @@ border-spacing:0 2px;">
                 <div class="check">
                     &nbsp;
                 </div>
-                <div>Spare tyre / Rezervni tocak
+                <div>Spare tyre / Rezervni točak
                 </div>
             </div>
 
@@ -695,8 +695,10 @@ border-spacing:0 2px;">
 
                             <div>
                                 <div style="display: inline-block">BANG IN DAMAGES / UDUBLJENJA</div>
-                                <div class="check">
-                                    &nbsp;
+                                <div class="check" style=" display: inline-flex;
+                                justify-content: center;
+                                align-items: center;">
+                                    <i class="fas fa-times "></i>
                                 </div>
                             </div>
 
@@ -709,8 +711,10 @@ border-spacing:0 2px;">
                         <div style="display: flex;justify-content:space-between">
                             <div>
                                 <div style="display: inline-block">SCRATCHES / OGREBOTINE</div>
-                                <div class="check">
-                                    &nbsp;
+                                <div class="check" style=" display: inline-flex;
+                                justify-content: center;
+                                align-items: center;">
+                                    <i class="fas fa-circle "></i>
                                 </div>
                             </div>
 
@@ -736,9 +740,9 @@ border-spacing:0 2px;">
                     </td>
                 </tr>
                 <tr>
-                    <td>Damage description / Opis ostecenja</td>
+                    <td>Damage description / Opis oštećenja</td>
                     <td></td>
-                    <td>Damage description / Opis ostecenja</td>
+                    <td>Damage description / Opis oštećenja</td>
                 </tr>
 
                 <tr>
