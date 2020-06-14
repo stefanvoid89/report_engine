@@ -184,17 +184,17 @@ Report.prototype.parse_nodes = function() {
         // svaki element je tabela sa klasom parent koja moze da bude renderovana iscela ili podeljena na vise strana u okvirima headera i footera
         let element = this.nodes[index].cloneNode(true);
 
-        if (node_height > this.page_height) {
-            console.log(
-                `Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!! ----> page height je ${
-                    this.page_height
-                } a node no. ${index + 1} od ${
-                    this.nodes.length
-                } nodova je visina ${node_height}`
-            );
+        // if (node_height > this.page_height) {
+        //     console.log(
+        //         `Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!! ----> page height je ${
+        //             this.page_height
+        //         } a node no. ${index + 1} od ${
+        //             this.nodes.length
+        //         } nodova je visina ${node_height}`
+        //     );
 
-            return;
-        }
+        //     return;
+        // }
 
         if (element.classList.contains("footer")) {
             if (remained_page_height > node_height) {

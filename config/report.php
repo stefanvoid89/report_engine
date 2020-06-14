@@ -29,6 +29,7 @@ return [
         "reports" => [
             'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => null],
             'daily_invoice' => ["class" => App\Data\common\DailyInvoice::class, "path" => null],
+            'long_term_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/long_term_contract'],
         ]
     ],
 

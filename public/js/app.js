@@ -30296,12 +30296,16 @@ Report.prototype.parse_nodes = function () {
     var node_height = this.get_element_height(index);
     console.log("Node no. ".concat(index + 1, " od ").concat(this.nodes.length, " nodova je visina ").concat(node_height)); // svaki element je tabela sa klasom parent koja moze da bude renderovana iscela ili podeljena na vise strana u okvirima headera i footera
 
-    var element = this.nodes[index].cloneNode(true);
-
-    if (node_height > this.page_height) {
-      console.log("Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!! ----> page height je ".concat(this.page_height, " a node no. ").concat(index + 1, " od ").concat(this.nodes.length, " nodova je visina ").concat(node_height));
-      return;
-    }
+    var element = this.nodes[index].cloneNode(true); // if (node_height > this.page_height) {
+    //     console.log(
+    //         `Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!! ----> page height je ${
+    //             this.page_height
+    //         } a node no. ${index + 1} od ${
+    //             this.nodes.length
+    //         } nodova je visina ${node_height}`
+    //     );
+    //     return;
+    // }
 
     if (element.classList.contains("footer")) {
       if (remained_page_height > node_height) {
