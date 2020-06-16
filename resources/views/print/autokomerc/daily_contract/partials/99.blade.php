@@ -23,12 +23,39 @@
         <td style="width:15%;text-align:right;font-weight:bold">Iznos / Ammount</td>
         <td style="width:15%;text-align:right;font-weight:bold"></td>
     </tr>
+
     <tr>
         <td colspan="4" style="font-weight:bold">Uplaćen depozit / Deposit ({{$databag->reservation->acCreditCard}})
         </td>
 
         <td style="width:15%;text-align:right">{{$databag->reservation->anDeposit}}{{$databag->currency}}</td>
         <td style="width:15%;text-align:right;font-weight:bold"></td>
+    </tr>
+
+    <tr>
+        <td colspan="6"><i class="fas fa-credit-card "></i> &nbsp; KREDITNA KARTICA / CREDIT CARD</td>
+
+    </tr>
+    <tr>
+        <td colspan="2">Vlasnik / Owner &nbsp; <span
+                style="font-weight: bold">{{$databag->reservation->acCreditCardHolder}}</span></td>
+        <td colspan="2">Broj / Number &nbsp; <span
+                style="font-weight: bold">{{$databag->reservation->acCreditCardNo}}</span></td>
+        <td colspan="2">Tip kartice / Card type &nbsp; <span
+                style="font-weight: bold">{{$databag->reservation->acCreditCard}}</span></td>
+    </tr>
+    <tr>
+        <td colspan="2">CVV broj / CVV number &nbsp; <span
+                style="font-weight: bold">{{$databag->reservation->acCVV}}</span></td>
+        <td colspan="2">Datum isteka / Expiration date &nbsp; <span
+                style="font-weight: bold">{{$databag->reservation->adDateExpCreditCard}}</span></td>
+        <td colspan="2"></td>
+    </tr>
+
+    <tr>
+        <td colspan="6">
+            <br style="line-height: 15px;">
+        </td>
     </tr>
 
     <tr>
