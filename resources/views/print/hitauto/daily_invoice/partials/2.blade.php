@@ -3,7 +3,7 @@
 
     <tr>
         <td colspan="4">
-            <hr>
+            <hr class="thin_without_margin">
         </td>
     </tr>
 
@@ -49,7 +49,7 @@
     </tr>
     <tr>
         <td colspan="8">
-            <hr>
+            <hr class="thin_without_margin">
         </td>
     </tr>
     @if($databag->invoice_header->acComment)
@@ -62,11 +62,19 @@
     </tr>
     <tr>
         <td colspan=" 8">
-            <hr>
+            <hr class="thin_without_margin">
         </td>
     </tr>
 
     @endif
+
+    <tr>
+        <td colspan="8">Račun je izdat na osnovu člana 5. stav 3, tačka 1 Zakona o PDV-u, a u skladu sa članom 4a
+            Pravilnika o određivanju slučajeva u
+            kojima nema obaveze izdavanja računa i o računima kod kojih se mogu izostaviti pojedini podaci
+            Račun je validan bez pečata i potpisa
+        </td>
+    </tr>
 
     <tr>
         <td colspan="8">

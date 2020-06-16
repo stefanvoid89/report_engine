@@ -80,7 +80,7 @@
 
         <tr>
             <td colspan="8">
-                <hr>
+                <hr class="thin_without_margin">
             </td>
         </tr>
 

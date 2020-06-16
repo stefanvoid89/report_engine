@@ -20,7 +20,11 @@
             </tr>
         </table>
     </tr>
-
+    <tr>
+        <td>
+            <br style="line-height: 10px;">
+        </td>
+    </tr>
 
 
     <tr style="margin-top:1px">
@@ -95,16 +99,8 @@
 
 
                 </tr>
-            </table>
 
-            @if($databag->car)
-            <table>
-                <tr>
-                    <td style="line-height: 5px;">&nbsp;</td>
-                </tr>
-            </table>
-            <table id="vozilo_table" class="table_border"
-                style="font-size:8pt;border-collapse: collapse;    margin-top: -1px; width:100%;border:1px solid black">
+
 
                 <tr>
                     <td style=";width:45%; padding-left:5px">
@@ -123,17 +119,10 @@
                 </tr>
 
             </table>
-            @endif
+
+
             <table>
                 <tr>
                     <td style="line-height: 5px;">&nbsp;</td>
                 </tr>
             </table>
-        </td>
-
-
-    </tr>
-
-
-
-</table>
