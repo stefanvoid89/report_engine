@@ -41,8 +41,8 @@ class LongTermContract implements DataInterface
         $reservation = collect(DB::connection($connection)->select("SELECT r.anId, r.acKey, r.anSubDocTypeId, r.anSubjectId,
         cast(convert(char(10),r.adDateFrom,104) + ' ' + 	convert(char(5),r.adDateFrom,114) as char(10)) as adDateFrom,
         convert(char(10),r.adDateTo,104) + ' ' + 	convert(char(5),r.adDateTo,114) as adDateTo,
-        r.anCarId, r.acComment,
-        r.anValue ,r.anDriverId, r.anQty, r.anPrice	, r.anRebate, r.anAdditionalCosts	,r.anAdditionalCostsPerDay,
+        r.anCarId, r.acComment, 
+        r.anValue ,r.anDriverId,cast(r.anQty as int) as  anQty,r.anPrice	, r.anRebate, r.anAdditionalCosts	,r.anAdditionalCostsPerDay,
         c.anBrandId, c.anModelId
         from _Reservations r
         inner join _Cars c on c.anId = r.anCarId

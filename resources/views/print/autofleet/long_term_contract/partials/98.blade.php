@@ -1,7 +1,15 @@
-<table cellspacing="0" cellpadding="0" class="parent" id="contract_table" style="font-size:12px">
+<table cellspacing="0" cellpadding="0" class="parent" id="contract_table" style="font-size:10px;line-height:15px">
     <thead></thead>
     <tbody>
 
+        <tr>
+            <td style="text-align: center">
+                <span style="font-weight: bold">UGOVOR O ZAKUPU VOZILA br. {{$databag->reservation->acKey}}</span>
+            </td>
+        </tr>
+        <td>
+            <br style="line-height: 10px;">
+        </td>
         <tr>
             <td>
                 Ovaj ugovor o zakupu vozila br. {{$databag->reservation->acKey}}, (u daljem tekstu: Ugovor),
@@ -11,7 +19,13 @@
         </tr>
         <tr>
             <td>
-                {{$databag->company_info->acName}} , {{$databag->company_info->acAddress}} ,
+                <br style="line-height: 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="font-weight: bold">{{$databag->company_info->acName}}</span> ,
+                {{$databag->company_info->acAddress}} ,
                 {{$databag->company_info->acCity}} , Mat. Br.
                 {{$databag->company_info->acRegNo}} ,
                 PIB: {{$databag->company_info->acCode}} koga zastupa Zoran Dragoj ( u daljem tekstu Kupac ) (u daljem
@@ -25,7 +39,8 @@
         </tr>
         <tr>
             <td>
-                {{$databag->subject->acName}}, {{$databag->subject->acAddress}} ,{{$databag->subject->acCode}}
+                <span style="font-weight: bold">{{$databag->subject->acName}}</span>, {{$databag->subject->acAddress}}
+                ,{{$databag->subject->acCode}}
             </td>
         </tr>
         <tr>
@@ -47,14 +62,68 @@
         </tr>
         <tr>
             <td style="text-align: center">
-                <strong> </strong>
+                <span style="font-weight: bold"> PRI ČEMU:</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br style="line-height: 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="indent">
+                Zakupodavac je privredno društvo čija je osnovna delatnost davanje u zakup motornih vozila i druge
+                opreme trećim licima (korisnicima) za određenu naknadu.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br style="line-height: 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="indent">
+
+                U cilju unapređenja svoje poslovne delatnosti Zakupodavac je ušao u odnos poslovne saradnje sa
+                privrednim društvom CA Leasing Srbija, članicom Credit Agricole Groupe.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br style="line-height: 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="indent">
+                Zakupac je u potpunosti upoznat sa gore navedenim i voljan da uđe u pravni odnos sa Zakupcem, u skladu
+                sa odredbama ovog Ugovora.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br style="line-height: 10px;">
             </td>
         </tr>
         <tr>
             <td style="text-align: center">
-                <strong>
+                <span style="font-weight: bold">
                     IMAJUĆI U VIDU GORE NAVEDENO, UGOVORNE STRANE SU SE SPORAZUMELE KAKO SLEDI:
-                </strong>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center">
+
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center">
+                <span style="font-weight: bold">PREDMET UGOVORA</span>
             </td>
         </tr>
         <tr>
@@ -69,22 +138,7 @@
         </tr>
         <tr>
             <td style="text-align: center">
-                <strong>PREDMET UGOVORA</strong>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center">
-                <strong> </strong>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center">
-                <strong>Član 1.</strong>
+                <span style="font-weight: bold">Član 1.</span>
             </td>
         </tr>
         <tr>
@@ -156,7 +210,7 @@
         </tr>
         <tr>
             <td style="text-align: center">
-                <strong>TRAJANJE ZAKUPA I UPOTREBA VOZILA</strong>
+                <span style="font-weight: bold">TRAJANJE ZAKUPA I UPOTREBA VOZILA</span>
             </td>
         </tr>
         <tr>
@@ -171,7 +225,7 @@
         </tr>
         <tr>
             <td style="text-align: center">
-                <strong>Član 2.</strong>
+                <span style="font-weight: bold">Član 2.</span>
             </td>
         </tr>
         <tr>
@@ -180,13 +234,18 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="indent">
                 Zakup počinje da teče danom potpisivanja ovog Ugovora i preuzimanja vozila
-                i traje 12 meseci.
+                i traje <span style="font-weight: bold">{{$databag->reservation->anQty}}</span> meseci.
             </td>
         </tr>
         <tr>
             <td>
+                <br style="line-height: 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="indent">
                 Prilikom potpisivanja Ugovora, Zakupac je dužan da uplati iznos garancije
                 zakupa vozila, u iznosu od <strong>900 </strong> eur u dinarskoj
                 protivvrednosti, obračunato po prodajnom kursu Narodne Banke Srbije na dan
@@ -195,6 +254,11 @@
         </tr>
         <tr>
             <td>
+                <br style="line-height: 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="indent">
                 Za Vozilo iz ovog Ugovora godišnja kilometraža je ograničena 10.000 km na
                 godišnjem nivou odnosno maksimalno 20.000 km za za ceo period trajanja
                 zakupa.
@@ -202,6 +266,11 @@
         </tr>
         <tr>
             <td>
+                <br style="line-height: 10px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="indent">
                 U slučaju pređenih više kilometara u odnosu na kilometražu definisanu u
                 prethodnom stavu Zakupac se obavezuje da Zakupodavcu isplati naknadu koja
                 će se obračunati na sledeći način:

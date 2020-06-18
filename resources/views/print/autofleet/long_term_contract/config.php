@@ -2,5 +2,6 @@
 
 return [
     "header" => "print.common.headers.header_only_logo",
-    "padding" => "10"
+    "style" => "autofleet_long_term_contract.css",
+    "padding" => "15"
 ];
