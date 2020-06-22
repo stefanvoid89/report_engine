@@ -46,6 +46,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+            'options' => [PDO::SQLSRV_ATTR_FORMAT_DECIMALS => true]
         ],
 
         'hitauto' => [
@@ -59,6 +60,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+            'options' => [PDO::SQLSRV_ATTR_FORMAT_DECIMALS => true]
         ],
 
         'autokomerc' => [
@@ -72,6 +74,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+            'options' => [PDO::SQLSRV_ATTR_FORMAT_DECIMALS => true]
         ],
         'autofleet' => [
             'driver' => 'sqlsrv',
@@ -84,6 +87,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+            'options' => [PDO::SQLSRV_ATTR_FORMAT_DECIMALS => true]
         ],
 
 
