@@ -102,4 +102,13 @@ class PrintController extends Controller
     {
         return "hello from report_engine";
     }
+
+    public function number_to_text()
+    {
+        $broj = 3221251.51;
+        $str = \App\Data\NumberToText::vrati_string($broj);
+        dd($str);
+
+        //     dd(\App\Data\NumberToText::vrati_decimale($broj));
+    }
 }

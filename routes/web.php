@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/reports', 'PrintController@index');
 
 Route::get('/test', 'PrintController@test');
+
+Route::get('/number', 'PrintController@number_to_text');
