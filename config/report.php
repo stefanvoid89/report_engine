@@ -29,7 +29,8 @@ return [
         "reports" => [
             'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => null],
             'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'hitauto/daily_invoice'],
-            'long_term_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/long_term_contract'],
+            'energy_net_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/energy_net_contract'],
+            'fiat_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/fiat_contract'],
         ]
     ],
 
