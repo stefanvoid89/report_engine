@@ -18,7 +18,7 @@ return [
         'logo' => "autokomerc_logo.png",
         "reports" => [
             'daily_contract' => ["class" => App\Data\autokomerc\DailyContract::class, "path" => 'autokomerc/daily_contract'],
-            'daily_invoice' => ["class" => App\Data\common\DailyInvoice::class, "path" => null],
+            'daily_invoice' => ["class" => App\Data\common\DailyInvoice::class, "path" => "autokomerc/daily_invoice"],
         ]
     ],
 

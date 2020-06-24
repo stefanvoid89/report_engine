@@ -60,3 +60,7 @@ table.td_margin td {
 table.reservation_items th {
     background: #dfe5f2;
 }
+
+.indent {
+    text-indent: 10px;
+}
