@@ -50,7 +50,7 @@ class PrintController extends Controller
 
         // dd($config);
 
-        $title = $databag->title;
+        $title = $config->title ?? $databag->title;
 
         $header_path = $config->header ?? 'print.common.headers.default';
         $footer_path = $config->footer ?? 'print.common.footers.default';

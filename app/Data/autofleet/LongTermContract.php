@@ -13,8 +13,7 @@ class LongTermContract implements DataInterface
 
         $id = $params['id'];
 
-        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress + ', ' + s.acCity  as acAddress,
-        case when s.anSubjectTypeId = 1 then 'PIB: ' + acCode + ' Mat. br.: ' +acRegNo else 'JMBG: '  + s.acId end as acCode
+        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo 
         from _Subjects s inner join _Reservations r on r.anSubjectId = s.anId
         where 1=1 and r.anId =  :id", ['id' => $id]))->first();
 
@@ -43,17 +42,18 @@ class LongTermContract implements DataInterface
         convert(char(10),r.adDateTo,104) + ' ' + 	convert(char(5),r.adDateTo,114) as adDateTo,
         r.anCarId, r.acComment, 
         r.anValue ,r.anDriverId,cast(r.anQty as int) as  anQty,r.anPrice	, r.anRebate, r.anAdditionalCosts	,r.anAdditionalCostsPerDay,
-        c.anBrandId, c.anModelId
+        c.anBrandId, c.anModelId,acWorkOrder,anExpenses,cast(anKmYear as int) anKmYear, cast((anQty/12)*anKmYear as int) as anKmPeriod
         from _Reservations r
         inner join _Cars c on c.anId = r.anCarId
         where r.anId = :id", ['id' => $id]))->first();
 
 
         $currency = '€';
+        $price_text = \App\Data\NumberToText::vrati_string($reservation->anPrice);
 
         $databag = [
             'title' => $title, 'company_info' => $company_info, 'reservation' => $reservation, 'subject' => $subject,
-            'car' => $car, 'currency' => $currency
+            'car' => $car, 'currency' => $currency, 'price_text' => $price_text
         ];
 
         return $databag;
