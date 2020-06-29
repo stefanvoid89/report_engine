@@ -42,7 +42,7 @@
 
                 <tr>
 
-                    <td rowspan="3" style="vertical-align: top;border-bottom:none">
+                    <td rowspan="5" style="vertical-align: top;border-bottom:none">
 
                         <div
                             style="font-size:10pt;border-collapse: collapse; width:100% ;padding-left: 5px;padding-top: 5px;">
@@ -89,16 +89,28 @@
 
 
                 <tr>
-                    <td style="vertical-align: bottom;border-top: none;">
 
-                    </td>
-                    <td colspan="3">
+                    <td colspan="4">
                         <div style="text-align:left">Usluzio vas je:</div>
                         <div style="text-align:center">{{$databag->invoice_header->acUser}}</div>
                     </td>
 
 
                 </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <div style="text-align:left">Datum prometa dobara i usluga:</div>
+                        <div style="text-align:center">{{$databag->invoice_header->adDate}}</div>
+                    </td>
+                    <td>
+                        <div style="text-align:left">Broj fiskalnog isečka:</div>
+                        <div style="text-align:center">&nbsp; </div>
+                    </td>
+
+                </tr>
+
+
 
 
 

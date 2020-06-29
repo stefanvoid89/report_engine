@@ -14,16 +14,10 @@
     </colgroup>
 
 
-    <thead style="border:1px solid black;">
+    <thead style="border:1px solid black;background: #e6ffea;height: 30px;">
 
 
-        <tr>
-            <th colspan="3" style="text-align:left">Datum prometa dobara i usluga:
-                {{$databag->invoice_header->adDate}}
-            </th>
-            <th colspan="4" style="width:350px">Broj fiskalnog isečka:
-            </th>
-        </tr>
+
 
         <tr>
 
@@ -57,6 +51,8 @@
             </td>
             <td style="text-align:left">
                 {{$position->acName}}
+                <br> Ugovor: {{$position->acWorkOrder}}
+                <br> Vozilo: {{$position->acRegNo}}
             </td>
             <td style="width:50px;text-align:left;padding:2px 0px 2px 10px;">{{$position->anQty}}
             </td>
@@ -75,14 +71,20 @@
 
 
         </tr>
-        @endforeach
-
 
         <tr>
             <td colspan="8">
                 <hr class="thin_without_margin">
             </td>
         </tr>
+        @endforeach
+
+
+        {{-- <tr>
+            <td colspan="8">
+                <hr class="thin_without_margin">
+            </td>
+        </tr> --}}
 
     </tbody>
 </table>

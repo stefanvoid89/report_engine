@@ -40,6 +40,17 @@
 
 
     </tr>
+    <tr style="line-height: 20px; ">
+
+        <td style="padding-left:50px;font-family:RenaultLife-Bold"> Slovima </td>
+        <td> </td>
+        <td> </td>
+        <td style="text-align:right;padding-right:80px;">
+            {{$databag->positions_sum->value_text}}
+        </td>
+
+
+    </tr>
 
 
     <tr>

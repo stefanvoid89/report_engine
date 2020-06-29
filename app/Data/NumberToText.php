@@ -99,7 +99,7 @@ class NumberToText
         $decimale_string = ($decimale != 0) ? " i " .  strval($decimale) . "/100 para" : "";
 
 
-        return $milioni_string . " " . $hiljade_string . " " . $jedinice_string . $decimale_string;
+        return $milioni_string . "" . $hiljade_string . "" . $jedinice_string . $decimale_string;
     }
 
 
@@ -175,6 +175,6 @@ class NumberToText
 
 
 
-        return $stotine_string . "" . $desetice_string . "" . $jedinice_string . "" . $sufix . " ";
+        return $stotine_string . "" . $desetice_string . "" . $jedinice_string . "" . $sufix . "";
     }
 }
