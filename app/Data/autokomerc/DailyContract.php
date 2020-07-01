@@ -28,12 +28,13 @@ class DailyContract implements DataInterface
         ,isnull(cct.acName,'') as acCreditCard, r.acCreditCardNo, r.acCVV,r.acCreditCardHolder, r.anDeposit, r.anDriverId
         , FORMAT(anMilleageFrom,'#,0') as anMilleageFrom ,acTankFrom
         , FORMAT(anMilleageTo,'#,0') as anMilleageTo ,acTankTo
+        ,anExpenses,acCrossBorderAllowed
         from _Reservations r inner join _Users u on r.anUserIns = u.anId
         left join _CreditCardTypes cct on cct.anId = r.anCreditCardTypeId
         where r.anId = :id", ['id' => $id]))->first();
 
 
-        $subject = collect(DB::connection($connection)->select("SELECT s.anId, s.acName, s.anSubjectTypeId ,s.acId, s.acAddress, s.acCity, s.acPhone,s.acCode, s.acRegNo
+        $subject = collect(DB::connection($connection)->select("SELECT s.anId, s.acName, s.anSubjectTypeId ,s.acId, s.acAddress, s.acCity,s.acState, s.acPhone,s.acCode, s.acRegNo
         from _Subjects s inner join
         _SubjectTypes st on st.anId = s.anSubjectTypeId
         where s.anId = :subject_id", ['subject_id' => $reservation->anSubjectId]))->first();

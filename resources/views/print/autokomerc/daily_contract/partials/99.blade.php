@@ -10,12 +10,22 @@
         <td style="width:15%;text-align:right;font-weight:bold"></td>
     </tr>
 
+    {{-- anExpenses --}}
     <tr>
         <td colspan="6"> <span style="font-weight:bold">Ukjučeno osiguranje / Included insurance</span> sa učešćem u
             šteti do / damage participation excess to 800,00{{$databag->currency}} sa učešćem u krađi do / theft
             participation excess to 800,00{{$databag->currency}} </td>
 
     </tr>
+
+    @if($databag->reservation->acCrossBorderAllowed=="T")
+    <tr>
+        <td colspan="6">
+            <span style="font-weight:bold">Dozvoljeno upravljanje van teritorije Republike Srbije / Cross border
+                allowed</span>
+        </td>
+    </tr>
+    @endif
 
     <tr>
         <td colspan="4" style="font-weight:bold">PLAĆANJA / PAYMENTS</td>

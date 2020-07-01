@@ -19,9 +19,11 @@
         <td style="width:20%"><i class="fas fa-car-alt "></i> &nbsp;VOZILO / VEHICLE</td>
         <td style="width:30%">Model: &nbsp;<span style="font-weight: bold">{{$databag->car->acCarNameShort}}</span>
         </td>
+
+        <td style="width:20%">Br. šasije / Chassis Nr:&nbsp; <span
+                style="font-weight: bold">{{$databag->car->acChasis}}</span></td>
         <td style="width:30%">Reg br / Plate Nr:&nbsp; <span style="font-weight: bold">{{$databag->car->acRegNo}}</span>
         </td>
-        <td style="width:20%"></td>
     </tr>
     <tr>
         <td>
