@@ -29,6 +29,13 @@
     @endif
 
     <tr>
+        <td colspan="6">
+            <div style="font-weight:bold">Napomena / Note:</div> {!! nl2br($databag->reservation->acComment) !!}
+
+        </td>
+    </tr>
+
+    <tr>
         <td colspan="4" style="font-weight:bold">PLAĆANJA / PAYMENTS</td>
 
         <td style="width:15%;text-align:right;font-weight:bold">Iznos / Ammount</td>
