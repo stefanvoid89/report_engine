@@ -18,6 +18,13 @@
 
 
             <div style="text-align: center; padding:2px;">
+                {{$databag->subject->acCity}}, {{$databag->subject->acState}}
+            </div>
+
+
+
+
+            <div style="text-align: center; padding:2px;">
                 @if($databag->subject->anSubjectTypeId == 1) PIB / VAT @else JMBG / PIN
                 @endif:{{$databag->subject->acCode}}
             </div>

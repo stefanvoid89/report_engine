@@ -26,19 +26,14 @@
 
                 </tr>
                 <tr>
-                    <td>Grad / City: {{$databag->subject->acCity}}</td>
+                    <td>Datum rođenja / Date of birth: {{$databag->driver->adDateOfBirth}}</td>
                     <td>Važi do / Valid to:{{$databag->driver->adDriverLicenceExpDate}}</td>
 
                 </tr>
                 <tr>
-                    <td>Država / Country: {{$databag->subject->acState}}</td>
+                    <td>Id: {{$databag->driver->acId}}</td>
                     <td>Mesto izdavanja / Place of issue:{{$databag->driver->acDriverLicenceIssuePlace}}</td>
 
-
-                </tr>
-                <tr>
-                    <td>Datum rođenja / Date of birth: {{$databag->driver->adDateOfBirth}}</td>
-                    <td>Id: {{$databag->driver->acId}}</td>
                 </tr>
 
 

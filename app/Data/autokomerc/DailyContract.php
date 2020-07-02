@@ -28,7 +28,7 @@ class DailyContract implements DataInterface
         ,isnull(cct.acName,'') as acCreditCard, r.acCreditCardNo, r.acCVV,r.acCreditCardHolder, r.anDeposit, r.anDriverId
         , FORMAT(anMilleageFrom,'#,0') as anMilleageFrom ,acTankFrom
         , FORMAT(anMilleageTo,'#,0') as anMilleageTo ,acTankTo
-        ,anExpenses,acCrossBorderAllowed
+        ,isnull(anExpenses,0.0) as anExpenses,acCrossBorderAllowed
         from _Reservations r inner join _Users u on r.anUserIns = u.anId
         left join _CreditCardTypes cct on cct.anId = r.anCreditCardTypeId
         where r.anId = :id", ['id' => $id]))->first();

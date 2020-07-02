@@ -13,8 +13,9 @@
     {{-- anExpenses --}}
     <tr>
         <td colspan="6"> <span style="font-weight:bold">Ukjučeno osiguranje / Included insurance</span> sa učešćem u
-            šteti do / damage participation excess to 800,00{{$databag->currency}} sa učešćem u krađi do / theft
-            participation excess to 800,00{{$databag->currency}} </td>
+            šteti do / damage participation excess to {{$databag->reservation->anExpenses}} {{$databag->currency}} sa
+            učešćem u krađi do / theft
+            participation excess to {{$databag->reservation->anExpenses}} {{$databag->currency}} </td>
 
     </tr>
 
