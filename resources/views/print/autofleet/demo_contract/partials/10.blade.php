@@ -221,7 +221,7 @@
 
                 Ovaj ugovor o zakupu zaključuje se na period od {{$databag->reservation->anQty}} meseci.
                 Ugovor stupa na snagu danom potpisivanja, a period zakupa počinje teći od momenta preuzimanja u posed
-                predmeta zakupa od strane zakupca i potpisivanju ugovora.
+                predmeta zakupa od strane zakupca.
                 Po isteku ugovorenog roka zakupac se obavezuje da predmet zakupa iz člana 1. ovog ugovora vrati
                 zakupodavcu u ispravnom stanju, uzimajući u obzir redovnu upotrebu predmeta zakupa.
 
@@ -296,8 +296,6 @@
                 podrazumeva: saobraćajnu dozvolu, kopiju polise obaveznog osiguranja, zelena karta.
 
 
-
-
             </td>
         </tr>
 
@@ -351,9 +349,8 @@
         </tr>
         <tr>
             <td class="indent">
-                Zakupac se obavezuje da će se prema predmetu ovog ugovora odnositi kao dobar i savestan domaćin, te da
-                na sebe preuzima obavezu tekućeg održavanja i servisiranja premeta zakupa,placanja mesecnih rata za
-                kasko osiguranje i usluge registracije vozila 1 godisnje,imajući u vidu prirodu posla u čijem cilju se
+                Zakupac se obavezuje da će se prema predmetu ovog ugovora odnositi kao dobar i savestan domaćin imajući
+                u vidu prirodu posla u čijem cilju se
                 ovaj ugovor zaključuje.
             </td>
         </tr>
