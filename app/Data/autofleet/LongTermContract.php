@@ -42,10 +42,28 @@ class LongTermContract implements DataInterface
         convert(char(10),r.adDateTo,104) + ' ' + 	convert(char(5),r.adDateTo,114) as adDateTo,
         r.anCarId, r.acComment, 
         r.anValue ,r.anDriverId,cast(r.anQty as int) as  anQty,r.anPrice	, r.anRebate, r.anAdditionalCosts	,r.anAdditionalCostsPerDay,
-        c.anBrandId, c.anModelId,acWorkOrder,anExpenses,cast(anKmYear as int) anKmYear, cast((anQty/12)*anKmYear as int) as anKmPeriod
+        c.anBrandId, c.anModelId,acWorkOrder,anExpenses,cast(anKmYear as int) anKmYear, cast((anQty/12)*anKmYear as int) as anKmPeriod,r.acCreditCardHolder
         from _Reservations r
         inner join _Cars c on c.anId = r.anCarId
         where r.anId = :id", ['id' => $id]))->first();
+
+
+        $leasing =  collect(DB::connection($connection)->select("SELECT  anId from _Leasing where anReservationId = ?", [$reservation->anId]));
+
+        $dodaci = '';
+
+        if (count($leasing)) {
+            $dodaci =  collect(DB::connection($connection)->select("
+            DECLARE @dodaci_prefix varchar(max) = 'Utvrđenim iznosom i plaćanjem Zakupnine obuhvaćeni su sledeći troškovi:'
+            DECLARE @dodaci VARCHAR(max) =''
+            SELECT @dodaci = COALESCE(@dodaci + ', ', '') + acName from _LeasingItems li where anLeasingId = ?
+            and anvalue > 0 and acName not like '%leasing%'
+            if(len(@dodaci) >= 1)SELECT @dodaci = right(@dodaci, len(@dodaci) - 1) + '.'
+            select @dodaci_prefix + @dodaci as dodaci", [$leasing->first()->anId]))->first()->dodaci;
+        }
+
+
+
 
 
         $currency = '€';
@@ -53,7 +71,7 @@ class LongTermContract implements DataInterface
 
         $databag = [
             'title' => $title, 'company_info' => $company_info, 'reservation' => $reservation, 'subject' => $subject,
-            'car' => $car, 'currency' => $currency, 'price_text' => $price_text
+            'car' => $car, 'currency' => $currency, 'price_text' => $price_text, 'dodaci' => $dodaci
         ];
 
         return $databag;

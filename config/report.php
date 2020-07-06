@@ -31,6 +31,7 @@ return [
             'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'autofleet/daily_invoice'],
             'energy_net_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/energy_net_contract'],
             'fiat_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/fiat_contract'],
+            'demo_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/demo_contract'],
         ]
     ],
 

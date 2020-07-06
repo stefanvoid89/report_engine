@@ -59,50 +59,7 @@
                 <br>
             </td>
         </tr>
-        <tr>
-            <td style="text-align: center">
-                <span style="font-weight: bold"> PRI ČEMU:</span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br class="spacer">
-            </td>
-        </tr>
-        <tr>
-            <td class="indent">
-                Zakupodavac je privredno društvo čija je osnovna delatnost davanje u zakup motornih vozila i druge
-                opreme trećim licima (korisnicima) za određenu naknadu.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br class="spacer">
-            </td>
-        </tr>
-        <tr>
-            <td class="indent">
 
-                U cilju unapređenja svoje poslovne delatnosti Zakupodavac je ušao u odnos poslovne saradnje sa
-                privrednim društvom CA Leasing Srbija, članicom Credit Agricole Groupe.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br class="spacer">
-            </td>
-        </tr>
-        <tr>
-            <td class="indent">
-                Zakupac je u potpunosti upoznat sa gore navedenim i voljan da uđe u pravni odnos sa Zakupcem, u skladu
-                sa odredbama ovog Ugovora.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br class="spacer">
-            </td>
-        </tr>
         <tr>
             <td style="text-align: center">
                 <span style="font-weight: bold">
@@ -112,24 +69,12 @@
         </tr>
         <tr>
             <td>
-                <br>
+                <br class="spacer">
             </td>
         </tr>
-        <tr>
-            <td style="text-align: center">
 
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center">
-                <span style="font-weight: bold">PREDMET UGOVORA</span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br>
-            </td>
-        </tr>
+
+
         <tr>
             <td style="text-align: center">
                 <strong> </strong>
@@ -204,24 +149,16 @@
         </tr>
         <tr>
             <td>
-                <br>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center">
-                <span style="font-weight: bold">TRAJANJE ZAKUPA I UPOTREBA VOZILA</span>
+                Zakupodavac vozila iz prethodnog stava daje zakupcu u cilju pružanja test vožnji.
             </td>
         </tr>
         <tr>
             <td>
-                <br>
+                <br class="spacer">
             </td>
         </tr>
-        <tr>
-            <td style="text-align: center">
-                <strong> </strong>
-            </td>
-        </tr>
+
+
         <tr>
             <td style="text-align: center">
                 <span style="font-weight: bold">Član 2.</span>
@@ -229,13 +166,49 @@
         </tr>
         <tr>
             <td>
-                <br>
+                <br class="spacer">
             </td>
         </tr>
         <tr>
             <td class="indent">
-                Zakup počinje da teče danom potpisivanja ovog Ugovora i preuzimanja vozila
-                i traje <span style="font-weight: bold">{{$databag->reservation->anQty}}</span> meseci.
+
+                Zakupodavac daje zakupcu motorno vozilo iz člana 1. ovog ugovora u zakup.
+                Iznos mesečne zakupnine (u daljem tekstu: Zakupnina) za korišćenje Vozila je
+                {{$databag->reservation->anPrice}}
+                EUR (slovima: {{$databag->price_text}} ) u dinarskoj protivvrednosti po srednjem kursu Narodne Banke
+                Srbije na dan
+                fakturisanja uvećan za pripadajući PDV obračunat po stopi važećoj na dan fakturisanja i uplaćuje se na
+                račun Zakupodavca broj 330-4006391-89 kod Banke Credit Agricole Srbija AD Novi Sad.
+                {{$databag->dodaci}}
+
+
+                @if($databag->reservation->anExpenses && $databag->reservation->anExpenses != 0 )
+                Ugovorne strane ugovaraju plaćanje zakupnine na sledeći način i to:
+                Ukupno placanje na pocetku za administrativne troskove je {{$databag->reservation->anExpenses}} eur sa
+                PDV-om po srednjem kursu NBS na dan
+                fakturisanja.
+
+                @endif
+
+
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td style="text-align: center">
+                <span style="font-weight: bold">Član 3.</span>
             </td>
         </tr>
         <tr>
@@ -243,16 +216,39 @@
                 <br class="spacer">
             </td>
         </tr>
-        @if($databag->reservation->anExpenses && $databag->reservation->anExpenses != 0 )
         <tr>
             <td class="indent">
-                Prilikom potpisivanja Ugovora, Zakupac je dužan da uplati administrativne troškove za zakup Vozila, u
-                iznosu od {{$databag->reservation->anExpenses}} eur u dinarskoj protivvrednosti, obračunat po srednjem
-                kursu
-                Narodne Banke Srbije sa pripadajućim PDV-om obračunat po važećoj stopi.
+
+                Ovaj ugovor o zakupu zaključuje se na period od {{$databag->reservation->anQty}} meseci.
+                Ugovor stupa na snagu danom potpisivanja, a period zakupa počinje teći od momenta preuzimanja u posed
+                predmeta zakupa od strane zakupca i potpisivanju ugovora.
+                Po isteku ugovorenog roka zakupac se obavezuje da predmet zakupa iz člana 1. ovog ugovora vrati
+                zakupodavcu u ispravnom stanju, uzimajući u obzir redovnu upotrebu predmeta zakupa.
+
+
+
             </td>
         </tr>
-        @endif
+
+
+
+
+
+
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td style="text-align: center">
+                <span style="font-weight: bold">Član 4.</span>
+            </td>
+        </tr>
         <tr>
             <td>
                 <br class="spacer">
@@ -260,9 +256,31 @@
         </tr>
         <tr>
             <td class="indent">
-                Za Vozilo iz ovog Ugovora godišnja kilometraža je ograničena {{$databag->reservation->anKmYear}} km na
-                godišnjem nivou odnosno maksimalno {{$databag->reservation->anKmPeriod}} km za za ceo period trajanja
-                zakupa.
+
+                Period zakupa na koji je ovaj ugovor zaključen može biti kraći ili duži uz obostranu pismenu saglasnost
+                ugovornih strana, što će biti regulisano posebnim anexom ugovora.
+
+
+
+            </td>
+        </tr>
+
+
+
+
+
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td style="text-align: center">
+                <span style="font-weight: bold">Član 5.</span>
             </td>
         </tr>
         <tr>
@@ -272,35 +290,75 @@
         </tr>
         <tr>
             <td class="indent">
-                U slučaju pređenih više kilometara u odnosu na kilometražu definisanu u
-                prethodnom stavu Zakupac se obavezuje da Zakupodavcu isplati naknadu koja
-                će se obračunati na sledeći način:
+                Predmet zakupa zakupodavac je dužan isporučiti u ispravnom stanju koje odgovara upotrebi vozila i svrsi
+                za koju se ovaj ugovor zaključuje.
+                Zakupodavac je dužan osigurati zakupcu svu neophodnu prateću dokumentaciju za predmet zakupa što
+                podrazumeva: saobraćajnu dozvolu, kopiju polise obaveznog osiguranja, zelena karta.
+
+
+
+
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td style="text-align: center">
+                <span style="font-weight: bold">Član 6.</span>
             </td>
         </tr>
         <tr>
             <td>
-                Obračun više pređene km:
+                <br class="spacer">
             </td>
         </tr>
         <tr>
             <td class="indent">
-                Za vozilo <span style="font-weight: bold"> {{$databag->car->marka}}</span> je iznos od 0.10 u eur koji
-                se obračunava po svakom više pređenom
-                km.Tolerancija za čitav period trajanja svakog Ugovora o zakupu pojedinačno koja se ne računa već se
-                klijentu priznaje je + 500 km.
+                Zakupodavac će neposredno pre isporuke vozila napraviti zapisnik o stanju istog, koji zapisnik će
+                zakupac potpisati prilikom prijema navedenog vozila.
             </td>
         </tr>
+
+
         <tr>
-            <td class="indent">
-                Po isteku Ugovora, Zakupac i Zakupodavac, ili od njega ovlašćeno lice
-                potpisaće zapisnik o primopredaji Vozila.
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td style="text-align: center">
+                <span style="font-weight: bold">Član 7.</span>
             </td>
         </tr>
         <tr>
             <td>
-                Zakupac ima pravo da koristi Vozilo u zemlji i inostranstvu.
+                <br class="spacer">
             </td>
         </tr>
+        <tr>
+            <td class="indent">
+                Zakupac se obavezuje da će se prema predmetu ovog ugovora odnositi kao dobar i savestan domaćin, te da
+                na sebe preuzima obavezu tekućeg održavanja i servisiranja premeta zakupa,placanja mesecnih rata za
+                kasko osiguranje i usluge registracije vozila 1 godisnje,imajući u vidu prirodu posla u čijem cilju se
+                ovaj ugovor zaključuje.
+            </td>
+        </tr>
+
+
 
     </tbody>
 
