@@ -15,7 +15,8 @@
     <style>
         @page {
             margin: 0;
-            size: A4 portrait;
+            size: <?=$size;
+            ?>;
         }
 
         body {
@@ -227,7 +228,7 @@
 </head>
 
 
-<body class="A4">
+<body class="{{$size}}">
 
 
 

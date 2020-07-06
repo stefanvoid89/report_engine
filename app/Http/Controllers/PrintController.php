@@ -57,12 +57,18 @@ class PrintController extends Controller
 
         $style = $config->style ?? null;
 
+        $size = $config->size;
+        $orientation = $config->orientation == 'portrait' ? '' : $config->orientation;
+        $size .= ' ' . $orientation;
+
+
+
         // dd($header_path);
 
         $header = view($header_path, ['databag' => $databag])->render();
         $footer = view($footer_path, ['databag' => $databag])->render();
 
-        $page = view('print.page', ['header' => $header, 'footer' => $footer, 'padding' => $config->padding])->render();
+        $page = view('print.page', ['header' => $header, 'footer' => $footer, 'padding' => $config->padding, 'size' => $size])->render();
 
 
         $partials = [];
@@ -95,7 +101,7 @@ class PrintController extends Controller
 
         $data = ["config" => $config, "nodes" => $nodes, "page" => $page];
 
-        return view("print.main", ['title' => $title, 'data' => collect($data), 'style' => $style]);
+        return view("print.main", ['title' => $title, 'data' => collect($data), 'style' => $style, 'size' => $size]);
     }
 
     public function test()

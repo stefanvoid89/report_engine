@@ -5,6 +5,6 @@ return [
     "footer" => "print.common.footers.empty",
     "style" => "autofleet_long_term_contract.css",
     "padding" => "15",
-    "title" => "DEMO ugovor",
-
+    "title" => "FIAT ponuda",
+    "orientation" => "landscape"
 ];
