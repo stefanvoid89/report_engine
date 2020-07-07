@@ -112,6 +112,10 @@
             padding: 25mm;
         }
 
+        .sheet.padding-30mm {
+            padding: 30mm;
+        }
+
         /** For screen preview **/
         @media screen {
             body {

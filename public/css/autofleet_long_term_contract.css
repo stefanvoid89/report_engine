@@ -22,3 +22,9 @@ br.spacer {
     min-width: 10px;
     margin-right: 5px;
 }
+
+table#offer,
+table#offer th,
+table#offer td {
+    border: 1px solid black;
+}
