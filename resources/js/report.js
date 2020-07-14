@@ -231,6 +231,19 @@ Report.prototype.parse_nodes = function() {
                 page_counter++;
                 remained_page_height = this.page_height;
             }
+        } else if (element.classList.contains("whole_page")) {
+            let tr = document.createElement("tr");
+            let td = document.createElement("td");
+            td.style.height = remained_page_height - node_height + "px";
+            tr.appendChild(td);
+            element.tBodies[0].appendChild(tr);
+            // let height = this.page_height - 10;
+            // element.style.height = height + "px";
+            elements.push({
+                node: element,
+                page: page_counter
+            });
+            page_counter++;
         } else {
             if (remained_page_height > node_height) {
                 elements.push({

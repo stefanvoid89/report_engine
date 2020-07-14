@@ -33,6 +33,7 @@ return [
             'fiat_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/fiat_contract'],
             'demo_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/demo_contract'],
             'fiat_offer' => ["class" => App\Data\autofleet\FiatOffer::class, "path" =>  'autofleet/fiat_offer'],
+            'sr_en_contract' => ["class" => App\Data\autofleet\FiatOffer::class, "path" =>  'autofleet/sr_en_contract'],
         ]
     ],
 

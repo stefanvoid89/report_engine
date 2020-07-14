@@ -28,3 +28,23 @@ table#offer th,
 table#offer td {
     border: 1px solid black;
 }
+
+table#sr_en {
+    font-size: 14px;
+    text-align: justify;
+    border: solid 1px black;
+}
+
+table#sr_en tr {
+    border: none;
+}
+
+table#sr_en td {
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: top;
+}
+
+table#sr_en td:first-child {
+    border-right: solid 1px black;
+}
