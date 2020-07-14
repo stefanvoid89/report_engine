@@ -44,17 +44,24 @@
 
                     <td rowspan="3" style="vertical-align: top;border-bottom:none">
 
+
                         <div
-                            style="font-size:10pt;border-collapse: collapse; width:100% ;padding-left: 5px;padding-top: 5px;">
-                            <span style="font-size:12pt; font-weight: bold;">Klijent:</span>
-                            <div>{{$databag->invoice_header->acName}}</div>
-                            <div>{{$databag->invoice_header->acAddress}}</div>
-                            <div>{{$databag->invoice_header->acPost}}
-                                {{$databag->invoice_header->acCity}}
-                            </div>
-                            <div>PIB: {{$databag->invoice_header->acCode}}</div>
-                            <div>Matični broj: {{$databag->invoice_header->acRegNo}}</div>
+                            style="font-size:12pt; font-weight: bold;padding-top:10px;padding-left: 10px;margin-bottom:20px">
+                            Kupac:
                         </div>
+                        <div style="padding-left: 45px;;padding-right:10px;font-size:12px;">
+                            {{$databag->invoice_header->acName}}</div>
+                        <div style="padding-left: 45px;;padding-right:10px;font-size:12px">
+                            {{$databag->invoice_header->acAddress}}</div>
+                        <div style="padding-left: 45px;;padding-right:10px;font-size:12px">
+                            {{$databag->invoice_header->acPost}}
+                            {{$databag->invoice_header->acCity}}
+                        </div>
+                        <div style="padding-left: 45px;;padding-right:10px;font-size:12px">PIB:
+                            {{$databag->invoice_header->acCode}}</div>
+                        <div style="padding-left: 45px;;padding-right:10px;font-size:12px">Matični broj:
+                            {{$databag->invoice_header->acRegNo}}</div>
+                        {{-- </div> --}}
 
                     </td>
 
