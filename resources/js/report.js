@@ -201,6 +201,7 @@ Report.prototype.parse_nodes = function() {
                 let div = document.createElement("div");
                 div.style.height = remained_page_height - node_height + "px";
                 div.style.width = "100%";
+
                 // element.style.marginTop =remained_page_height - node_height + "px";
 
                 elements.push({
@@ -237,6 +238,7 @@ Report.prototype.parse_nodes = function() {
             td.style.height = remained_page_height - node_height + "px";
             tr.appendChild(td);
             element.tBodies[0].appendChild(tr);
+
             // let height = this.page_height - 10;
             // element.style.height = height + "px";
             elements.push({

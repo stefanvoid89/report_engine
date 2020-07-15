@@ -13,14 +13,15 @@ class LongTermContract implements DataInterface
 
         $id = $params['id'];
 
-        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo 
+        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo ,isnull(acAccontNr,'') as acAccontNr
         from _Subjects s inner join _Reservations r on r.anSubjectId = s.anId
         where 1=1 and r.anId =  :id", ['id' => $id]))->first();
 
         $company_info = collect(DB::connection($connection)->select("SELECT rtrim(acName) acName, rtrim(acAddress) acAddress, rtrim(acCode) acCode, rtrim(acRegNo) acRegNo, rtrim(acPhone) acPhone, rtrim(acPost) acPost, rtrim(acCity) acCity, rtrim(acFax) acFax, rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite
         from _Subjects where anId = 1"))->first();
 
-        $car = collect(DB::connection($connection)->select("SELECT c.acRegNo, cb.acBrand + ' ' + cm.acModel + ' ' + cv.acVersion  as marka
+        $car = collect(DB::connection($connection)->select("SELECT c.acRegNo, cb.acBrand + ' ' + cm.acModel + ' ' + cv.acVersion  as marka,
+        cb.acBrand + ' ' + cm.acModel  as brand
         ,isnull(c.acColor,'') acColor, cat.acCategory
         ,isnull(ltrim(rtrim(cast(c.anPower as char))),'')+ ' kW' as acPower
         ,ltrim(rtrim(cast(1500 as char)))+ ' cm3'  as zapremina
@@ -68,10 +69,15 @@ class LongTermContract implements DataInterface
 
         $currency = '€';
         $price_text = \App\Data\NumberToText::vrati_string($reservation->anPrice);
+        $price_text_en  = \App\Data\NumberToText::vrati_string_en($reservation->anPrice);
+
+        $expenses_text = \App\Data\NumberToText::vrati_string($reservation->anExpenses);
+        $expenses_text_en  = \App\Data\NumberToText::vrati_string_en($reservation->anExpenses);
 
         $databag = [
             'title' => $title, 'company_info' => $company_info, 'reservation' => $reservation, 'subject' => $subject,
-            'car' => $car, 'currency' => $currency, 'price_text' => $price_text, 'dodaci' => $dodaci
+            'car' => $car, 'currency' => $currency, 'price_text' => $price_text, 'price_text_en' => $price_text_en, 'dodaci' => $dodaci,
+            'expenses_text' => $expenses_text, 'expenses_text_en' => $expenses_text_en
         ];
 
         return $databag;

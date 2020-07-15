@@ -111,8 +111,8 @@ class PrintController extends Controller
 
     public function number_to_text()
     {
-        $broj = 3221251.51;
-        $str = \App\Data\NumberToText::vrati_string($broj);
+        $broj = 1742;
+        $str = \App\Data\NumberToText::vrati_string_en($broj);
         dd($str);
 
         //     dd(\App\Data\NumberToText::vrati_decimale($broj));

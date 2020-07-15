@@ -33,6 +33,7 @@ table#sr_en {
     font-size: 14px;
     text-align: justify;
     border: solid 1px black;
+    line-height: 20px;
 }
 
 table#sr_en tr {

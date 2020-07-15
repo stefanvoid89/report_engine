@@ -6,19 +6,22 @@
             <td></td>
         </tr>
         <tr>
-            <td style="width:50%;text-align: center">INDIVIDUAL VEHICLE LEASE AGREEMENT No.16/2020</td>
-            <td style="width:50%;text-align: center">POJEDINAČNI UGOVOR O ZAKUPU VOZILA br.16/2020</td>
+            <td style="width:50%;text-align: center"><span style="font-weight: bold">INDIVIDUAL VEHICLE LEASE AGREEMENT
+                    No.{{$databag->reservation->acWorkOrder}}</span> </td>
+            <td style="width:50%;text-align: center"><span style="font-weight: bold">POJEDINAČNI UGOVOR O ZAKUPU VOZILA
+                    br.{{$databag->reservation->acWorkOrder}}</span></td>
         </tr>
 
         <tr>
-            <td style="font-size:1px;line-height:20px;">&nbsp;</td>
+            <td style="font-size:1px;line-height:10px;">&nbsp;</td>
             <td></td>
         </tr>
 
 
         <tr>
-            <td>Entered into in Belgrade, this ______________, by and between:</td>
-            <td>Zaključen u Beogradu, dana ______________ godine, između sledećih ugovornih strana:</td>
+            <td>Entered into in Belgrade, this {{$databag->reservation->adDateFrom}} , by and between:</td>
+            <td>Zaključen u Beogradu, dana {{$databag->reservation->adDateFrom}} godine, između sledećih ugovornih
+                strana:</td>
         </tr>
         <tr>
             <td style="font-size:1px;line-height:20px;">&nbsp;</td>
@@ -26,19 +29,24 @@
         </tr>
 
         <tr>
-            <td>1. AUTO FLEET MANAGEMENT d.o.o., address: Sajmište 29, registration number: 20081619, TIN:
+            <td>1. <span style="font-weight: bold">{{$databag->company_info->acName}}</span>, address:
+                {{$databag->company_info->acAddress}}, registration
+                number: 20081619, TIN:
                 104068618,
-                represented herein by Mr. Dejan Dodić, General Manager (hereinafter referred to as “the
-                Lessor”)
+                represented herein by Mr. Dejan Dodić, General Manager (hereinafter referred to as <span
+                    style="font-weight: bold">“the
+                    Lessor”</span>)
             </td>
             <td>
-                1. AUTO FLEET MANAGEMENT d.o.o., adresa: Sajmište 29, matični broj: 20081619, PIB: 104068618
+                1.<span style="font-weight: bold">{{$databag->company_info->acName}}</span>, adresa:
+                {{$databag->company_info->acAddress}}, matični broj:
+                {{$databag->company_info->acRegNo}}, PIB: {{$databag->company_info->acCode}}
                 koje
-                zastupa Dejan Dodić, direktor (u daljem tekstu: Zakupodavac)
+                zastupa Dejan Dodić, direktor (u daljem tekstu: <span style="font-weight: bold">Zakupodavac</span>)
             </td>
         </tr>
         <tr>
-            <td style="font-size:1px;line-height:20px;">&nbsp;</td>
+            <td style="font-size:1px;line-height:10px;">&nbsp;</td>
             <td></td>
         </tr>
 
@@ -47,28 +55,40 @@
             <td>i</td>
         </tr>
         <tr>
-            <td style="font-size:1px;line-height:20px;">&nbsp;</td>
+            <td style="font-size:1px;line-height:10px;">&nbsp;</td>
             <td></td>
         </tr>
+
+
+
+
+
         <tr>
-            <td>1. Delhaize Serbia d.o.o. Beograd -Novi Beograd, Jurija Gagarina 14 street, Company
+            <td>1. <span style="font-weight: bold">{{$databag->subject->acName}}</span> {{$databag->subject->acCity}},
+                {{$databag->subject->acAddress}} street,
+                Company
                 registration No.
-                17569171, TIN: 103482850, bank account No. 275-0000220023624-08 kod Societe Generale banka
+                {{$databag->subject->acRegNo}}, TIN: {{$databag->subject->acCode}}, bank account No.
+                {{$databag->subject->acAccontNr}} kod Societe Generale banka
                 Srbija
                 a.d.
                 Beograd, represented by Wim Maris , director and Miloš Jaukovič, authorized signor
                 (hereinafter
                 referred
-                to as “the Lessee”)</td>
-            <td>1. Delhaize Serbia d.o.o. Beograd -Novi Beograd, ulica Jurija Gagarina broj 14, matični
+                to as <span style="font-weight: bold">“the Lessee”</span>)</td>
+            <td>1. <span style="font-weight: bold">{{$databag->subject->acName}}</span> {{$databag->subject->acCity}},
+                {{$databag->subject->acAddress}},
+                matični
                 broj:
-                17569171,
-                PIB: 103482850, broj tekućeg računa 275-0000220023624-08 kod Societe Generale banka Srbija
+                {{$databag->subject->acRegNo}} ,
+                PIB: {{$databag->subject->acCode}}, broj tekućeg računa {{$databag->subject->acAccontNr}} kod Societe
+                Generale banka
+                Srbija
                 a.d.
                 Beograd,
                 koje zastupaju direktor Wim Maris I Miloš Jaukovič lice ovlašćeno za potpisivanje (u daljem
                 tekstu:
-                Zakupac)</td>
+                <span style="font-weight: bold">Zakupac</span>)</td>
         </tr>
         <tr>
             <td style="font-size:1px;line-height:20px;">&nbsp;</td>
@@ -133,22 +153,6 @@
             <td>WHEREAS the Parties have entered, as the individual Agreement for a specific vehicle, as follow s:</td>
             <td>Ugovorne strane dalje konstatuju pojedinačni Ugovor za konkretno vozilo, kako sledi: </td>
         </tr>
-
-        <tr>
-            <td style="font-size:1px;line-height:20px;">&nbsp;</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td style="font-size:1px;line-height:20px;">&nbsp;</td>
-            <td></td>
-        </tr>
-
-
 
 
 

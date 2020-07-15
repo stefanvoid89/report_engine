@@ -39,13 +39,58 @@ class NumberToText
         300 => "trista",
         400 => "četristo",
         500 => "petsto",
-        600 => "šesto",
+        600 => "šestto",
         700 => "sedamsto",
         800 => "osamsto",
-        900 => "devesto",
+        900 => "devetsto",
         1000 => "hiljada",
         1000000 => "miliona"
     ];
+
+
+    public static $mapiranje_en = [
+        0 => "",
+        1 => "one",
+        2 => "two",
+        3 => "three",
+        4 => "four",
+        5 => "five",
+        6 => "six",
+        7 => "seven",
+        8 => "eight",
+        9 => "nine",
+        10 => "ten",
+        11 => "eleven",
+        12 => "twelve",
+        13 => "thirteen",
+        14 => "fourteen",
+        15 => "fifthteen",
+        16 => "sixteen",
+        17 => "seventeeb",
+        18 => "eighteen",
+        19 => "nineten",
+        20 => "twenty",
+        30 => "thirty",
+        40 => "fourty",
+        50 => "fifty",
+        60 => "sixty",
+        70 => "seventy",
+        80 => "eighty",
+        90 => "ninety",
+        100 => "one hundred",
+        200 => "two hundred",
+        300 => "three hundred",
+        400 => "four hundred",
+        500 => "five hundred",
+        600 => "six hundred",
+        700 => "seven hundred",
+        800 => "eight hundred",
+        900 => "nine hundred",
+        1000 => "thousand",
+        1000000 => "million"
+    ];
+
+
 
 
 
@@ -103,7 +148,99 @@ class NumberToText
     }
 
 
+    public static function vrati_string_en($broj)
+    {
 
+        if ($broj == 0) return "zero";
+
+        $celi_broj = self::vrati_celi_broj($broj);
+        $decimale = self::vrati_decimale($broj);
+
+        $stepen = self::stepen_broja($celi_broj);
+
+        if ($stepen > 8) return "Too big number - number bigger than 999 999 999";
+
+        $milioni = floor($celi_broj / 1000000);
+        $hiljade = floor(($celi_broj - $milioni * 1000000) / 1000);
+        $jedinice = floor(($celi_broj - $milioni * 1000000 - $hiljade * 1000));
+
+
+        $milioni_string = ($milioni != 0) ? self::vrati_kao_stotine_en($milioni, 6) : "";
+        $hiljade_string = ($hiljade != 0) ? self::vrati_kao_stotine_en($hiljade, 3) : "";
+        $jedinice_string = ($jedinice != 0) ?  self::vrati_kao_stotine_en($jedinice, 1) : "";
+
+        $decimale_string = ($decimale != 0) ? " and " .  strval($decimale) . "/100" : "";
+
+
+        return $milioni_string . " " . $hiljade_string . " " . $jedinice_string . $decimale_string;
+    }
+
+
+    private static function vrati_kao_stotine_en($broj, $stepen)
+    {
+
+        $stotine = floor($broj / 100);
+        $desetice = floor(($broj - $stotine * 100) / 10);
+        $jedinice = floor(($broj - $stotine * 100 - $desetice * 10));
+
+        $stotine_string = "";
+        $desetice_string = "";
+        $jedinice_string = "";
+
+
+        $sufix = "";
+
+
+        if ($stotine > 0) {
+            $stotine_string = self::$mapiranje_en[$stotine * 100];
+        }
+
+
+        if ($desetice < 2) {
+            $desetice_string = self::$mapiranje_en[$desetice * 10 + $jedinice];
+        } else {
+            $desetice_string = self::$mapiranje_en[$desetice * 10];
+            $jedinice_string = self::$mapiranje_en[$jedinice];
+        }
+
+
+        if ($stepen == 3) {
+            $sufix = self::$mapiranje_en[1000];
+        }
+
+        if ($stepen == 6) {
+            $sufix = self::$mapiranje_en[1000000];
+        }
+
+        if ($stepen == 1) {
+            if ($stotine > 0)   $desetice_string = "and " . $desetice_string;
+        }
+
+
+        // if ($stepen == 3) {
+        //     if (($jedinice == 2 || $jedinice == 1) && $desetice != 1) {
+        //         if ($desetice == 0) {
+        //             if ($jedinice == 1) $desetice_string = "";
+        //             if ($jedinice == 2) $desetice_string = "dve";
+        //         } else {
+        //             if ($jedinice == 1) $jedinice_string = "jedna";
+        //             if ($jedinice == 2) $jedinice_string = "dve";
+        //         }
+        //     }
+        // }
+
+
+        // if ($stepen == 6) {
+        //     if ($jedinice == 1 && $desetice == 0 && $stotine == 0) {
+        //         $desetice_string = "";
+        //     }
+        // }
+
+
+
+
+        return $stotine_string . " " . $desetice_string . " " . $jedinice_string . " " . $sufix;
+    }
 
 
     private static function vrati_kao_stotine($broj, $stepen)
