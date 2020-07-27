@@ -24,7 +24,7 @@ class LongTermContract implements DataInterface
         cb.acBrand + ' ' + cm.acModel  as brand
         ,isnull(c.acColor,'') acColor, cat.acCategory
         ,isnull(ltrim(rtrim(cast(c.anPower as char))),'')+ ' kW' as acPower
-        ,ltrim(rtrim(cast(1500 as char)))+ ' cm3'  as zapremina
+        ,ltrim(rtrim(cast(c.anVolume as char)))+ ' cm3'  as zapremina
         ,c.acChasis
         ,isnull(c.acEngine,'') acEngine
         ,isnull(cast(anYearOfManufacture as char),'') as anYearOfManufacture
