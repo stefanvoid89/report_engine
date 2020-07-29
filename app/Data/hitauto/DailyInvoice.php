@@ -13,8 +13,11 @@ class DailyInvoice implements DataInterface
 
         $id = $params['id'];
         $_currency = $params['currency'];
+        $_proforma = isset($params['proforma']) ? $params['proforma'] : null;
 
-        $title = "Stampa fakture";
+        $proforma =  $_proforma  ?? "";
+
+        $title = $_proforma   ? "Stampa predracuna" : "Stampa fakture";
 
 
         $company_info = collect(DB::connection($connection)->select("SELECT rtrim(acName) acName, rtrim(acAddress) acAddress, rtrim(acCode) acCode, rtrim(acRegNo) acRegNo, rtrim(acPhone) acPhone, rtrim(acPost) acPost, rtrim(acCity) acCity, rtrim(acFax) acFax, rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite
@@ -88,7 +91,7 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
 
         $databag = [
             'title' => $title, 'company_info' => $company_info, 'reservation_id' => $reservation_id, 'invoice_header' => $invoice_header,
-            'car' => $car, 'positions' => $positions, 'currency' => $currency, 'positions_sum' => $positions_sum
+            'car' => $car, 'positions' => $positions, 'currency' => $currency, 'positions_sum' => $positions_sum, 'proforma' => $proforma
         ];
 
 

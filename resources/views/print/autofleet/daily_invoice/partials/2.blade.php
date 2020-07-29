@@ -79,11 +79,13 @@
 
     @endif
 
+    @if($databag->proforma == "")
     <tr>
         <td colspan="8" style="text-align: center">
             Račun je validan bez pečata i potpisa
         </td>
     </tr>
+    @endif
 
     <tr>
         <td colspan="8">

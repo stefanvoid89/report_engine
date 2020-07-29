@@ -58,7 +58,8 @@
 
                     </td>
 
-                    <td colspan="4" style="font-size:16pt;padding-top: 7px;">RAČUN &nbsp;&nbsp;&nbsp;
+                    <td colspan="4" style="font-size:16pt;padding-top: 7px;">{{$databag->proforma}}RAČUN
+                        &nbsp;&nbsp;&nbsp;
                         {{$databag->invoice_header->acKey}}
                     </td>
 
