@@ -135,6 +135,13 @@ class DailyContract implements DataInterface
         and r.anId = :reservation_id", ['reservation_id' => $id, 'car_id' => $reservation->anCarId]))->first();
 
 
+        $replacements = collect(DB::connection($connection)->select("SELECT 
+         convert(varchar(20),ccr.adDate,104)+' '+convert(varchar(5),convert(time,ccr.adDate,108)) as adDate
+        , c.acCarNameShort, c.acChasis, c.acRegNo 
+        from _ContractCarReplacement ccr inner join _v_CarExtended c on ccr.anCarInId = c.anId 
+        where anReservationId = :reservation_id order by adDate", ['reservation_id' => $id]));
+
+
 
 
         $selected_ext_car_damages = array_column($selected_ext_car_damages_full, 'anDamageId');
@@ -144,7 +151,8 @@ class DailyContract implements DataInterface
             'car' => $car, 'items' => $items, 'currency' => $currency, 'total_value' => $total_value,
             'selected_ext_car_damages' => $selected_ext_car_damages, 'car_damage' => $car_damage,
             'selected_ext_car_damages_full' => $selected_ext_car_damages_full,
-            'selected_int_car_damages_full' => $selected_int_car_damages_full
+            'selected_int_car_damages_full' => $selected_int_car_damages_full,
+            'replacements' => $replacements
         ];
 
 

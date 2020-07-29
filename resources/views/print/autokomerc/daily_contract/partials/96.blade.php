@@ -25,6 +25,24 @@
         <td style="width:30%">Reg br / Plate Nr:&nbsp; <span style="font-weight: bold">{{$databag->car->acRegNo}}</span>
         </td>
     </tr>
+    @if(count($databag->replacements)>0)
+    <tr>
+        <td colspan="4"><i class="fas fa-car-alt "></i>&nbsp;<i class="fas fa-arrow-right"></i>&nbsp;<i
+                class="fas fa-car-alt "></i> &nbsp;ZAMENA VOZILA / VEHICLE REPLACEMENT</td>
+    </tr>
+    @foreach($databag->replacements as $replacement)
+    <tr>
+        <td style="width:20%">Datum / Date: &nbsp;<span style="font-weight: bold">{{$replacement->adDate}}</span></td>
+        <td style="width:30%">Model: &nbsp;<span style="font-weight: bold">{{$replacement->acCarNameShort}}</span>
+        </td>
+
+        <td style="width:20%">Br. šasije / Chassis Nr:&nbsp; <span
+                style="font-weight: bold">{{$replacement->acChasis}}</span></td>
+        <td style="width:30%">Reg br / Plate Nr:&nbsp; <span style="font-weight: bold">{{$replacement->acRegNo}}</span>
+        </td>
+    </tr>
+    @endforeach
+    @endif
     <tr>
         <td>
             <br style="line-height: 15px;">
