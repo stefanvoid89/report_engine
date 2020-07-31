@@ -49,7 +49,10 @@ class DailyInvoice implements DataInterface
         if ($_currency == 'eur') {
             $currency = ' €';
 
-            $positions =  collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, ii.anQty, ii.anPrice,ii.anRebate,ii.anValue  from _InvoiceItems ii
+            $positions =  collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, 
+            ii.anQty, ii.anPrice,ii.anRebate,
+            ii.anValue  
+            from _InvoiceItems ii
         inner join _SetItem si on si.anId = ii.anIdentId
         where 1=1 and ii.anInvoiceId	 =  :id", ['id' => $id]));
 
@@ -59,7 +62,7 @@ class DailyInvoice implements DataInterface
 
             $positions =  collect(DB::connection($connection)->select(
                 "SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, ii.anQty,
-            cast(i.anFxRate * ii.anPrice as decimal(10,2)) as anPrice,ii.anRebate,cast(i.anFxRate * ii.anValue as decimal(10,2)) as anValue  from _InvoiceItems ii
+            cast(i.anFxRate * ii.anPrice as decimal(10,2)) as anPrice,ii.anRebate,ii.anValueRSD as anValue  from _InvoiceItems ii
         inner join _SetItem si on si.anId = ii.anIdentId
         inner join _Invoices i on i.anId = ii.anInvoiceId
         where 1=1
