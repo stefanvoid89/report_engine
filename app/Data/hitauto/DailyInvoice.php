@@ -50,14 +50,12 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
         if ($_currency == 'eur') {
             $currency = ' €';
 
-            $positions =  collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, ii.anQty, 
-            r.acKey, r.acWorkOrder,c.acRegNo,
-            ii.anPrice,ii.anRebate,ii.anValue  
+            $positions =  collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, 
+            ii.anQty, ii.anPrice,ii.anRebate,
+            ii.anValue  
             from _InvoiceItems ii
-            inner join _SetItem si on si.anId = ii.anIdentId
-            left join _Reservations r on r.anId = ii.anReservationId
-            left join _Cars c on c.anId = r.anCarId
-            where 1=1 and ii.anInvoiceId	 =  :id", ['id' => $id]));
+        inner join _SetItem si on si.anId = ii.anIdentId
+        where 1=1 and ii.anInvoiceId	 =  :id", ['id' => $id]));
 
             $value_text = \App\Data\NumberToText::vrati_string($invoice_header->anTotalValue);
 
@@ -65,16 +63,20 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
         } else {
             $currency = ' RSD';
 
+
+
             $positions =  collect(DB::connection($connection)->select(
                 "SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, ii.anQty,
-                r.acKey, r.acWorkOrder,c.acRegNo,
-                cast(i.anFxRate * ii.anPrice as decimal(10,2)) as anPrice,ii.anRebate,cast(i.anFxRate * ii.anValue as decimal(10,2)) as anValue  from _InvoiceItems ii
-                inner join _SetItem si on si.anId = ii.anIdentId
-                inner join _Invoices i on i.anId = ii.anInvoiceId
-                left join _Reservations r on r.anId = ii.anReservationId
-                left join _Cars c on c.anId = r.anCarId
-                where 1=1
-                and anInvoiceId	 =  :id",
+                  r.acKey, r.acWorkOrder,c.acRegNo,
+            cast(i.anFxRate * ii.anPrice as decimal(10,2)) as anPrice,ii.anRebate,ii.anValueRSD as anValue  
+            
+            from _InvoiceItems ii
+        inner join _SetItem si on si.anId = ii.anIdentId
+        inner join _Invoices i on i.anId = ii.anInvoiceId
+        left join _Reservations r on r.anId = ii.anReservationId
+        left join _Cars c on c.anId = r.anCarId
+        where 1=1
+        and anInvoiceId	 =  :id",
                 ['id' => $id]
             ));
 
