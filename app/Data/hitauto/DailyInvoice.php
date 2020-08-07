@@ -68,7 +68,7 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
             $positions =  collect(DB::connection($connection)->select(
                 "SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, ii.anQty,
                   r.acKey, r.acWorkOrder,c.acRegNo,
-            cast(i.anFxRate * ii.anPrice as decimal(10,2)) as anPrice,ii.anRebate,ii.anValueRSD as anValue  
+            anPriceRSD as anPrice,ii.anRebate,ii.anValueRSD as anValue  
             
             from _InvoiceItems ii
         inner join _SetItem si on si.anId = ii.anIdentId
