@@ -10,6 +10,7 @@ return [
         "reports" => [
             'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => null],
             'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'hitauto/daily_invoice'],
+            'permission' => ["class" => App\Data\autofleet\Permission::class, "path" => 'autofleet/permission']
         ]
     ],
     "QeJvjtrqGHafBsNNzYlC4jbkAVryldEudUkETAJsT2Sl8AU3gE" => [
@@ -19,6 +20,7 @@ return [
         "reports" => [
             'daily_contract' => ["class" => App\Data\autokomerc\DailyContract::class, "path" => 'autokomerc/daily_contract'],
             'daily_invoice' => ["class" => App\Data\common\DailyInvoice::class, "path" => "autokomerc/daily_invoice"],
+            'permission' => ["class" => App\Data\autofleet\Permission::class, "path" => 'autofleet/permission']
         ]
     ],
 
@@ -35,6 +37,7 @@ return [
             'fiat_offer' => ["class" => App\Data\autofleet\FiatOffer::class, "path" =>  'autofleet/fiat_offer'],
             'sr_en_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/sr_en_contract'],
             'suez_contract' => ["class" => App\Data\autofleet\LongTermContract::class, "path" =>  'autofleet/suez_contract'],
+            'permission' => ["class" => App\Data\autofleet\Permission::class, "path" => 'autofleet/permission'],
         ]
     ],
 

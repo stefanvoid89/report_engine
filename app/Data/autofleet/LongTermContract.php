@@ -63,10 +63,6 @@ class LongTermContract implements DataInterface
             select @dodaci_prefix + @dodaci as dodaci", [$leasing->first()->anId]))->first()->dodaci;
         }
 
-
-
-
-
         $currency = '€';
         $price_text = \App\Data\NumberToText::vrati_string($reservation->anPrice);
         $price_text_en  = \App\Data\NumberToText::vrati_string_en($reservation->anPrice);

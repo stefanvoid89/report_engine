@@ -30,10 +30,10 @@
                         <td>mesečni najam sa PDV-om</td>
                     </thead>
                     <tr>
-                        <td>FIAT 500 1.2 69KS POP</td>
-                        <td>1.200,00 €</td>
-                        <td>48</td>
-                        <td>210,00 €</td>
+                        <td>{{$databag->leasing->acCarName}}</td>
+                        <td>{{number_format($databag->leasing->anParticipation,2)}} {{$databag->currency}}</td>
+                        <td>{{$databag->leasing->anPeriod}}</td>
+                        <td>{{number_format($databag->leasing->anValueTotalMonth,2)}} {{$databag->currency}}</td>
                     </tr>
                 </table>
             </td>
@@ -51,8 +51,7 @@
                         <td style="font-size:12px">
                             Svi iznosi na ponudi
                             prikazani su u
-                            EUR pri čemu se koristio srednji kurs
-                            EUR za devize Narodne banke Srbije na dan izrade ponude.
+                            EUR.
 
                         </td>
                     </tr>
@@ -69,8 +68,9 @@
                     <tr>
                         <td>
 
-
+                            @if($databag->leasing->acCostsText != "")
                             *U iznos zakupnine su uračunati sledeći troškovi:
+                            @endif
 
 
                         </td>
@@ -79,13 +79,7 @@
 
                     <tr>
                         <td>
-                            - Zakup vozila na period od 48 meseci i ograničenom kilometražom do 80.000 km
-                            - Godišnja registracija i Kasko osiguranje 0% učešća za prve dve štete godišnje
-                            - 1 Set simskih guma sa sezonskom zamenom,čuvanjem i balansiranjem 2 puta godišnje za ceo
-                            period najma
-                            - Redovno i tekuće održavanje po specifikaciji proizvodjača
-                            - fabrička garancija i asistencija na putu 7/24h/365 dana u godini
-                            - Obavezna oprema na automobili po zakonu o bezbednosti saobraćaja
+                            {!!nl2br($databag->leasing->acCostsText)!!}
                         </td>
                     </tr>
 

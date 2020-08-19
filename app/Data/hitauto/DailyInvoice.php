@@ -57,7 +57,7 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
         inner join _SetItem si on si.anId = ii.anIdentId
         where 1=1 and ii.anInvoiceId	 =  :id", ['id' => $id]));
 
-            $value_text = \App\Data\NumberToText::vrati_string($invoice_header->anTotalValue);
+            $value_text = \App\Data\NumberToText::vrati_string(abs($invoice_header->anTotalValue));
 
             $positions_sum = (object) ['anValue' => $invoice_header->anValue, 'anVatValue' => $invoice_header->anVatValue, 'anTotalValue' => $invoice_header->anTotalValue, 'value_text' => $value_text];
         } else {
@@ -80,7 +80,7 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
                 ['id' => $id]
             ));
 
-            $value_text = \App\Data\NumberToText::vrati_string($invoice_header->anTotalValueRSD);
+            $value_text = \App\Data\NumberToText::vrati_string(abs($invoice_header->anTotalValueRSD));
 
 
             $positions_sum = (object) [

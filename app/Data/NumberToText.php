@@ -106,7 +106,7 @@ class NumberToText
         $celi_broj = self::vrati_celi_broj($broj);
         // return [$celi_broj, $broj];
 
-        return ceil(($broj - $celi_broj) * 100);
+        return ceil((round($broj - $celi_broj, 2)) * 100);
     }
 
 
