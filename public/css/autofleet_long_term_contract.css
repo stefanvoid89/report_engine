@@ -49,3 +49,7 @@ table#sr_en td {
 table#sr_en td:first-child {
     border-right: solid 1px black;
 }
+
+table#permission_table td {
+    line-height: 25px;
+}

@@ -1,4 +1,4 @@
-<table id="pozicije_table" class="parent"
+<table id="permission_table" class="parent"
     style="font-size:8pt;border-collapse: collapse; margin-top: -1px;table-layout: fixed; text-align:center;width:100%">
 
 
@@ -101,6 +101,12 @@
                 Ovo ovlašćenje se daje na korišćenje vozila u zemlji i inostranstvu.
             </td>
         </tr>
+
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
         <tr>
             <td style="text-align: justify;font-size:14px;">
                 Imenovani je dužan da se u navedenom periodu pridržava svih odredbi Ugovora o zakupu vozila.
@@ -118,24 +124,62 @@
         </tr>
         @endif
 
-
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
 
 
         @if($databag->permission->acIsUntilRegExp == "T")
         <tr>
-            <td>
+            <td style="text-align: justify;font-size:14px;">
                 Ovo Ovlašćenje važi od {{$databag->permission->adDateFrom}} do isteka registracije predmetnog vozila.
             </td>
         </tr>
 
         @else
         <tr>
-            <td>
+            <td style="text-align: justify;font-size:14px;">
                 Ovo Ovlašćenje važi od {{$databag->permission->adDateFrom}} do {{$databag->permission->adDateTo}}
             </td>
         </tr>
 
         @endif
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align: justify;font-size:14px;">
+                Beograd, {{$databag->permission->adDate}}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
+
+
+        <tr>
+            <td style="text-align: right;font-size:14px;">
+                AUTO FLEET MANAGEMENT D.O.O.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br class="spacer">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;font-size:14px;">
+                _________________________________
+            </td>
+        </tr>
 
     </tbody>
 

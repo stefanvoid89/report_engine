@@ -8,7 +8,7 @@
 
 
                 <div style="height:150px;text-align: center;">
-                    <img id="logo" src="/images/{{$databag->logo}}" style="height:150px;" />
+                    <img id="logo" src="/images/{{$databag->logo}}" style="height:140px;" />
                 </div>
 
 
@@ -22,15 +22,20 @@
         </tr>
         <tr>
             <td>
+                <br class="spacer">
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <table id="offer" style="font-size: 14px;margin: 0 auto;width:100%;text-align: center;">
-                    <thead>
-                        <td style="padding-top:10px;padding-bottom:10px;">vozilo</td>
-                        <td>depozit</td>
-                        <td>period najma u mesecima</td>
-                        <td>mesečni najam sa PDV-om</td>
+                    <thead style="background: lightgray;">
+                        <td style="padding-top:10px;padding-bottom:10px;">Vozilo</td>
+                        <td>Depozit</td>
+                        <td>Period najma u mesecima</td>
+                        <td>Mesečni najam sa PDV-om</td>
                     </thead>
                     <tr>
-                        <td>{{$databag->leasing->acCarName}}</td>
+                        <td style="line-height:25px">{{$databag->leasing->acCarName}}</td>
                         <td>{{number_format($databag->leasing->anParticipation,2)}} {{$databag->currency}}</td>
                         <td>{{$databag->leasing->anPeriod}}</td>
                         <td>{{number_format($databag->leasing->anValueTotalMonth,2)}} {{$databag->currency}}</td>
@@ -46,43 +51,44 @@
         <tr>
             <td style="border:1px solid black;padding-left:3px;padding-right:3px;">
 
-                <table style="width:100%;">
-                    <tr style="line-height: 1.2em">
+                <table style="width:100%;line-height:21px">
+                    <tr>
                         <td style="font-size:12px">
-                            Svi iznosi na ponudi
+                            Ova ponuda je informativnog karaktera. Svi iznosi na ponudi
                             prikazani su u
                             EUR.
 
                         </td>
                     </tr>
-                    <tr style="line-height: 1.2em">
-                        <td style="font-size:12px">
+                    <tr>
+                        <td style="font-size:14px">
                             Davalac zakupa zadržava isključivo pravo da odluči da li će zaključiti ugovor o dugoročnom
                             najmu nakon
                             prijema zahteva za finansiranje i kompletne
                             dokumentacije primaoca zakupa koja je potrebna za proveru informacija koje je dostavio
-                            primalac zakupa
+                            primalac zakupa.
                         </td>
                     </tr>
 
                     <tr>
                         <td>
+                            <br class="spacer">
+                        </td>
+                    </tr>
+                    @if($databag->leasing->acCostsText != "")
+                    <tr>
+                        <td style="font-size:14px">
 
-                            @if($databag->leasing->acCostsText != "")
-                            *U iznos zakupnine su uračunati sledeći troškovi:
-                            @endif
-
+                            U iznos zakupnine su uračunati sledeći troškovi:
 
                         </td>
                     </tr>
-
-
                     <tr>
-                        <td>
+                        <td style="font-size:14px">
                             {!!nl2br($databag->leasing->acCostsText)!!}
                         </td>
                     </tr>
-
+                    @endif
 
                 </table>
 
