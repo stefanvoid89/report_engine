@@ -19,7 +19,7 @@
         </tr>
         <tr>
             <td style="text-align:center;font-size:16px;font-weight:bold">
-                U ZEMLJI I INOSTRANSTVU
+                U ZEMLJI @if($databag->car->acType != "TERETNO") I INOSTRANSTVU @endif
             </td>
         </tr>
         <tr>
@@ -68,8 +68,8 @@
                 Ovim putem dajemo dozvolu-ovlašćenje primaocu zakupa iz Ugovora o zakupu, preduzeću
                 {{$databag->subject->acName}} {{$databag->subject->acCity}}
                 , {{$databag->subject->acAddress}}, , MB: {{$databag->subject->acRegNo}}, PIB:
-                {{$databag->subject->acCode}}, da može koristiti napred navedeni predmet zakupa – vozilo u zemlji i
-                inostranstvu .
+                {{$databag->subject->acCode}}, da može koristiti napred navedeni predmet zakupa – vozilo u zemlji
+                @if($databag->car->acType != "TERETNO") i inostranstvu @endif.
             </td>
         </tr>
 
@@ -98,7 +98,8 @@
         </tr>
         <tr>
             <td style="text-align: justify;font-size:14px;">
-                Ovo ovlašćenje se daje na korišćenje vozila u zemlji i inostranstvu.
+                Ovo ovlašćenje se daje na korišćenje vozila u zemlji @if($databag->car->acType != "TERETNO") i
+                inostranstvu @endif.
             </td>
         </tr>
 
