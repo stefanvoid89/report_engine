@@ -92,7 +92,7 @@
                 <tr>
 
                     <td colspan="4">
-                        <div style="text-align:left">Usluzio vas je:</div>
+                        <div style="text-align:left">Odgovorno lice:</div>
                         <div style="text-align:center">{{$databag->invoice_header->acUser}}</div>
                     </td>
 

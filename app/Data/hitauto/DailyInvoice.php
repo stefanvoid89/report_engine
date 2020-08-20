@@ -14,8 +14,10 @@ class DailyInvoice implements DataInterface
         $id = $params['id'];
         $_currency = $params['currency'];
         $_proforma = isset($params['proforma']) ? $params['proforma'] : null;
+        $_sum = isset($params['sum']) ? $params['sum'] : null;
 
         $proforma =  $_proforma  ?? "";
+
 
         $title = $_proforma   ? "Stampa predracuna" : "Stampa fakture";
 
@@ -50,11 +52,14 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
         if ($_currency == 'eur') {
             $currency = ' €';
 
-            $positions =  collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, 
-            ii.anQty, ii.anPrice,ii.anRebate,
-            ii.anValue  
+            $positions =  collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm,ii.anQty, 
+             r.acKey, r.acWorkOrder,c.acRegNo,
+            ii.anPrice,ii.anRebate,ii.anValue  
             from _InvoiceItems ii
         inner join _SetItem si on si.anId = ii.anIdentId
+        inner join _Invoices i on i.anId = ii.anInvoiceId
+        left join _Reservations r on r.anId = ii.anReservationId
+        left join _Cars c on c.anId = r.anCarId
         where 1=1 and ii.anInvoiceId	 =  :id", ['id' => $id]));
 
             $value_text = \App\Data\NumberToText::vrati_string(abs($invoice_header->anTotalValue));
@@ -62,8 +67,6 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
             $positions_sum = (object) ['anValue' => $invoice_header->anValue, 'anVatValue' => $invoice_header->anVatValue, 'anTotalValue' => $invoice_header->anTotalValue, 'value_text' => $value_text];
         } else {
             $currency = ' RSD';
-
-
 
             $positions =  collect(DB::connection($connection)->select(
                 "SELECT ROW_NUMBER() over (order by ii.anId) as anNo, si.acIdent, ii.acName, ii.acUm, ii.anQty,
@@ -79,6 +82,21 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
         and anInvoiceId	 =  :id",
                 ['id' => $id]
             ));
+
+
+            if ($_sum) {
+                $positions =  collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over (order by acWorkOrder) as anNo,* from ( 
+                    SELECT 	max(si.acIdent) as acIdent, max(ii.acName) as acName, max(ii.acUm) as acUm , max(ii.anQty) as anQty, 
+                        max(r.acKey) as acKey, r.acWorkOrder,max(c.acRegNo) as acRegNo,
+                        sum(ii.anPriceRSD) as anPrice,max(ii.anRebate) as anRebate,sum(ii.anValueRSD) as anValue  
+                         from _InvoiceItems ii
+                        inner join _SetItem si on si.anId = ii.anIdentId
+                        inner join _Invoices i on i.anId = ii.anInvoiceId
+                        left join _Reservations r on r.anId = ii.anReservationId
+                        left join _Cars c on c.anId = r.anCarId
+                        where 1=1 and ii.anInvoiceId	= 94
+                        group by r.acWorkOrder)q"));
+            }
 
             $value_text = \App\Data\NumberToText::vrati_string(abs($invoice_header->anTotalValueRSD));
 
