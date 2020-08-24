@@ -85,7 +85,8 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
 
 
             if ($_sum) {
-                $positions =  collect(DB::connection($connection)->select("SELECT ROW_NUMBER() over (order by acWorkOrder) as anNo,* from ( 
+                $positions =  collect(DB::connection($connection)->select(
+                    "SELECT ROW_NUMBER() over (order by acWorkOrder) as anNo,* from ( 
                     SELECT 	max(si.acIdent) as acIdent, max(ii.acName) as acName, max(ii.acUm) as acUm , max(ii.anQty) as anQty, 
                         max(r.acKey) as acKey, r.acWorkOrder,max(c.acRegNo) as acRegNo,
                         sum(ii.anPriceRSD) as anPrice,max(ii.anRebate) as anRebate,sum(ii.anValueRSD) as anValue  
@@ -94,8 +95,10 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
                         inner join _Invoices i on i.anId = ii.anInvoiceId
                         left join _Reservations r on r.anId = ii.anReservationId
                         left join _Cars c on c.anId = r.anCarId
-                        where 1=1 and ii.anInvoiceId	= 94
-                        group by r.acWorkOrder)q"));
+                        where 1=1 and ii.anInvoiceId	= :id
+                        group by r.acWorkOrder)q",
+                    ['id' => $id]
+                ));
             }
 
             $value_text = \App\Data\NumberToText::vrati_string(abs($invoice_header->anTotalValueRSD));
