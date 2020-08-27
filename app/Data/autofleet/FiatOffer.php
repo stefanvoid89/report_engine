@@ -41,9 +41,15 @@ class FiatOffer implements DataInterface
 
 
 
-        $leasing =  collect(DB::connection($connection)->select("SELECT  c.acCarNameShort as acCarName, l.anParticipation, 
-        l.anPeriod, l.anValueTotalMonth * 1.2 as anValueTotalMonth, isnull(acCostsText,'') as acCostsText
-        from _Leasing l inner join _v_CarExtended c on c.anId = l.anCarId where l.anId = ?", [$id]))->first();
+    //    $leasing =  collect(DB::connection($connection)->select("SELECT  c.acCarNameShort as acCarName, l.anParticipation, 
+    //   l.anPeriod, l.anValueTotalMonth * 1.2 as anValueTotalMonth, isnull(acCostsText,'') as acCostsText
+    //    from _Leasing l inner join _v_CarExtended c on c.anId = l.anCarId where l.anId = ?", [$id]))->first();
+
+    $leasing =  collect(DB::connection($connection)->select("SELECT isnull(acCarNameShort,m.acModel) as acCarName, l.anParticipation, 
+    l.anPeriod, l.anValueTotalMonth * 1.2 as anValueTotalMonth, isnull(acCostsText,'') as acCostsText
+    from _Leasing l left join _v_CarExtended c on c.anId = l.anCarId 
+    left join _CarModels m on l.anModelId=m.anid and l.anBrandId=m.anBrandId where l.anId = ?", [$id]))->first();
+
 
         $dodaci = '';
 
