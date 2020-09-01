@@ -10,7 +10,7 @@ return [
         "reports" => [
             'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => null],
             'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'hitauto/daily_invoice'],
-            'permission' => ["class" => App\Data\autofleet\Permission::class, "path" => 'autofleet/permission']
+            'permission' => ["class" => App\Data\hitauto\Permission::class, "path" => 'hitauto/permission']
         ]
     ],
     "QeJvjtrqGHafBsNNzYlC4jbkAVryldEudUkETAJsT2Sl8AU3gE" => [

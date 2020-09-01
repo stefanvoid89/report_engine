@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data\autofleet;
+namespace App\Data\hitauto;
 
 use Illuminate\Support\Facades\DB;
 use App\Data\DataInterface;
