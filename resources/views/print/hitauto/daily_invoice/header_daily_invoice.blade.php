@@ -93,7 +93,7 @@
 
                     </td>
                     <td colspan="3">
-                        <div style="text-align:left">Usluzio vas je:</div>
+                        <div style="text-align:left">Fakturu izdao:</div>
                         <div style="text-align:center">{{$databag->invoice_header->acUser}}</div>
                     </td>
 
