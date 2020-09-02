@@ -52,6 +52,32 @@
 
     </tr>
 
+    @if($databag->avans)
+    <tr style="line-height: 20px; ">
+
+        <td style="padding-left:50px;font-family:RenaultLife-Bold"> Avans </td>
+        <td> Broj: {{$databag->avans->acKey}} </td>
+        <td> </td>
+        <td style="text-align:right;padding-right:80px;font-weight: bold">
+            {{number_format($databag->avans->anTotalValue, 2) }} {{$databag->currency}}
+        </td>
+
+
+    </tr>
+    <tr style="line-height: 20px; ">
+
+        <td style="padding-left:50px;font-family:RenaultLife-Bold"> Ostatak za plaćanje </td>
+        <td> </td>
+        <td> </td>
+        <td style="text-align:right;padding-right:80px;font-weight: bold">
+            {{number_format($databag->positions_sum->anTotalValue - $databag->avans->anTotalValue, 2) }}
+            {{$databag->currency}}
+        </td>
+
+
+    </tr>
+    @endif
+
 
     <tr>
         <td colspan="8">

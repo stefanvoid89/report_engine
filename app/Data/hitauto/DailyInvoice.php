@@ -49,7 +49,7 @@ class DailyInvoice implements DataInterface
         }
 
         $car = collect(DB::connection($connection)->select("SELECT c.acCarNameShort as acName, c.acRegNo, c.acChasis	 from _v_CarExtended c inner join _Reservations r on r.anCarId = c.anId
-where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first();
+        where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first();
 
 
 
@@ -108,6 +108,9 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
 
             $value_text = \App\Data\NumberToText::vrati_string(abs($invoice_header->anTotalValueRSD));
 
+            $avans = collect(DB::connection($connection)->select("SELECT top 1 acKey,adDate, anValue, anVatValue, anTotalValue from _Avans where anInvoiceId = ?", [$id]))
+                ->first();
+
 
             $positions_sum = (object) [
                 'anValue' => $invoice_header->anValueRSD,
@@ -119,7 +122,8 @@ where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first(
 
         $databag = [
             'title' => $title, 'company_info' => $company_info, 'reservation_id' => $reservation_id, 'invoice_header' => $invoice_header,
-            'car' => $car, 'positions' => $positions, 'currency' => $currency, 'positions_sum' => $positions_sum, 'proforma' => $proforma
+            'car' => $car, 'positions' => $positions, 'currency' => $currency, 'positions_sum' => $positions_sum, 'proforma' => $proforma,
+            'avans' => $avans
         ];
 
 
