@@ -7,9 +7,9 @@
         </tr>
         <tr>
             <td style="width:50%;text-align: center"><span style="font-weight: bold">INDIVIDUAL VEHICLE LEASE AGREEMENT
-                    No.{{$databag->reservation->acWorkOrder}}</span> </td>
+                    No.{{$databag->reservation->acKey}}</span> </td>
             <td style="width:50%;text-align: center"><span style="font-weight: bold">POJEDINAČNI UGOVOR O ZAKUPU VOZILA
-                    br.{{$databag->reservation->acWorkOrder}}</span></td>
+                    br.{{$databag->reservation->acKey}}</span></td>
         </tr>
 
         <tr>
@@ -68,8 +68,8 @@
                 {{$databag->subject->acAddress}} street,
                 Company
                 registration No.
-                {{$databag->subject->acRegNo}}, TIN: {{$databag->subject->acCode}}, bank account No.
-                {{$databag->subject->acAccontNr}}  represented by Arno Gujon , director 
+                {{$databag->subject->acRegNo}}, TIN: {{$databag->subject->acCode}}
+                  represented by Arno Gujon , director 
                 (hereinafter
                 referred
                 to as <span style="font-weight: bold">“the Lessee”</span>)</td>
@@ -78,7 +78,7 @@
                 matični
                 broj:
                 {{$databag->subject->acRegNo}} ,
-                PIB: {{$databag->subject->acCode}}, broj tekućeg računa {{$databag->subject->acAccontNr}} 
+                PIB: {{$databag->subject->acCode}} 
                 koje zastupa direktor Arno Gujon (u daljem
                 tekstu:
                 <span style="font-weight: bold">Zakupac</span>)</td>

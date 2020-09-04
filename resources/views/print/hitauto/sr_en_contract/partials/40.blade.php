@@ -8,20 +8,15 @@
         </tr>
         <tr>
             <td>- Full warranty coverage for the vehicles as per the supplier’s (manufacturer’s) specifications and the
-                warranties specified by them, full-coverage auto insurance without franchise for the first two claims in
-                the premium year, third damage with a fixed participation of 150eur., fourth damage with a fixed
-                participation of 300eur, fifth and all other damages with a fixed participation of 500eur; compulsory
+                warranties specified by them, comprehensive insurance with a 5% share in the damage or an absolute 100 eur; compulsory
                 auto insurance; roadside assistance; full registration and technical inspection; complete vehicle
-                maintenance according to the manufacturer's specification,20 days per year for damage per vehicle; for
-                breakdown unlimited days; a set of mandatory vehicle equipment and seasonal replacement of tyres on the
+                maintenance according to the manufacturer's specification, a set of mandatory vehicle equipment and seasonal replacement of tyres on the
                 vehicle (plus winter tyres set).</td>
             <td>- Puna garancija na vozila u skladu sa specifikacijom isporučioca (proizvođača) i pripadajućim
-                garancijama definisanim od strane istih, kasko osiguranje bez učešća u šteti za prve dve štete u
-                premijskoj godini, treća šteta sa fiksnim učešćem od 150 eur.,četvrta šteta sa fiksnim učešćem od 300
-                eur,peta I sve ostale štete sa fiksnim učešćem od 500 eur, obavezno osiguranje, putna asistencija,
+                garancijama definisanim od strane istih, kasko osiguranje sa 5% učešća u šteti ili apsolutnih 100 eur, 
+                obavezno osiguranje, putna asistencija,
                 kompletna registracija, tehnički pregled,kompletno održavanje vozila po specifikaciji proizvođača,
-                zamensko vozilo 20 dana godišnje za limarijska oštećenja i neograničen broj dana za mehanička
-                oštećenja,set obavezne opreme,sezonska zamena guma na vozilu (uz dodatni set zimskuh guma ).</td>
+                set obavezne opreme,sezonska zamena guma na vozilu (uz dodatni set zimskuh guma).</td>
         </tr>
 
         <tr>
@@ -69,7 +64,19 @@
                 troškovi, koje bi Zakupodavac po osnovu ovog Ugovora mogao imati. Takođe, ugovorne strane su saglasne da
                 iznos zakupnine po ovom ugovoru ne obuhvata eventualne dodatne troškove koji mogu nastati u vezi sa
                 upotrebom predmeta zakupa (administrativne dozvole za korišćenje predmeta zakupa na određeni način i u
-                određenim područjima i sl.)</td>
+                određenim područjima i sl.) 
+            </td>
+            <tr>
+                <td style="font-size:1px;line-height:20px;">&nbsp;</td>
+                <td></td>
+            </tr>
+        <tr>
+            <td>
+                All parking bills and violations incurred during the lease period will be re-invoiced by the lessor to the lessee with additional VAT.
+            </td>
+            <td>
+                Sve parking kazne i prekršaje nastale u periodu zakupa zakupodavac će prefakturisati zakupcu sa dodatim pdv-om.
+            </td>
         </tr>
         <tr>
             <td style="font-size:1px;line-height:20px;">&nbsp;</td>

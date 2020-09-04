@@ -49,6 +49,7 @@
             <td>
                 <div style="font-weight:bold">{{$databag->car->marka}}</div>
                 <div>Chasis number: {{$databag->car->acChasis}}</div>
+                <div>Plate number: {{$databag->car->acRegNo}}</div>
                 <div>Engine number: {{$databag->car->acEngine}}</div>
                 <div>Engine power: {{$databag->car->acPower}}</div>
                 <div>Engine displacement: {{$databag->car->zapremina}}</div>
@@ -60,6 +61,7 @@
             <td>
                 <div style="font-weight:bold">{{$databag->car->marka}}</div>
                 <div>Broj šasije: {{$databag->car->acChasis}}</div>
+                <div>Registarski broj: {{$databag->car->acRegNo}}</div>
                 <div>Broj motora: {{$databag->car->acEngine}}</div>
                 <div>Snaga motora: {{$databag->car->acPower}}</div>
                 <div>Zapremina motora: {{$databag->car->zapremina}}</div>

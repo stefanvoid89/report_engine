@@ -24,23 +24,8 @@
             <td style="font-size:1px;line-height:20px;">&nbsp;</td>
             <td></td>
         </tr>
-        <tr>
-            <td>This Agreement constitutes an integral part of the General Vehicle Lease Agreement.</td>
-            <td>Ovaj ugovor je sastavni deo Opšteg ugovora o zakupu.</td>
-        </tr>
-        <tr>
-            <td style="font-size:1px;line-height:20px;">&nbsp;</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>All issues not defined by this Agreement shall be subject to the provisions of the General Vehicle Lease
-                Agreement</td>
-            <td>Za sve što nije definisano ovim ugovorom primenjuju se odredbe Opšteg ugovora o zakupu vozila.</td>
-        </tr>
-        <tr>
-            <td style="font-size:1px;line-height:20px;">&nbsp;</td>
-            <td></td>
-        </tr>
+      
+    
         <tr>
             <td>This Agreement shall come into force and take effect on the date of delivery of the leased item (as
                 evidenced by a separate document).</td>

@@ -69,21 +69,7 @@
             <td></td>
         </tr>
 
-        <tr>
-            <td style="width:50%;">The confidentiality duty provided for in the foregoing paragraph does not apply to
-                disclosure and presentation of data and documents in connection with this agreement and any data and
-                documents relating to the Lessee to CA Leasing Srbija as the owner of the leased Vehicles or any member
-                of the CA Group.</td>
-            <td style="width:50%;">Obaveza čuvanja podataka iz prethodnog stava ovog člana se ne odnosi na dostavljanje
-                i stavljanja na uvid podataka i dokumentacije u vezi sa ovim Ugovorom, kao i podataka i dokumentacije
-                koji se odnose na samog Zakupca, CA Leasing Srbija, kao vlasnika Vozila koje je predmet zakupa iz ovog
-                Ugovora, odnosno članici CA Grupe.</td>
-        </tr>
-        <tr>
-            <td style="font-size:1px;line-height:20px;">&nbsp;</td>
-            <td></td>
-        </tr>
-
+ 
         <tr>
             <td></td>
             <td></td>

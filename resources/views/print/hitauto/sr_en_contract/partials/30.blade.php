@@ -73,12 +73,11 @@
             <td>The monthly lease fee (“Lease Fee”) payable for the use of the leased Vehicles shall fall due on the
                 last day of the month for current month lease in the amount of
                 <span style="font-weight: bold"> EUR
-                    {{$databag->reservation->anPrice}}</span>({{$databag->price_text_en}}
-                ).</td>
+                    {{$databag->reservation->anPrice}}</span>({{$databag->price_text_en}}) add the corresponding VAT.</td>
             <td>Mesečna zakupnina (u daljem tekstu: Zakupnina) za korišćenje Vozila koja su predmet zakupa dospeva na
                 naplatu svakog poslednjeg dana u mesecu za tekući mesec u iznosu od<span style="font-weight: bold">
                     {{$databag->reservation->anPrice}} EUR</span>
-                (slovima:{{$databag->price_text}} ).</td>
+                (slovima:{{$databag->price_text}}) plus pripadajući PDV 20%.</td>
         </tr>
         <tr>
             <td style="font-size:1px;line-height:20px;">&nbsp;</td>
@@ -86,10 +85,10 @@
         </tr>
         <tr>
             <td>
-                Payment is in advance 12 months in advance to the currency account of Hit Aut from abroad for the first year, for the second
+                Payment is in advance 12 months in advance to the currency account of Hit Auto for the first year, for the second
                  year is an advance payment in 11-th month of the lease of the first year, and for the third year in 11-th month of the second year of the lease.
                  Amount to pay monthly rents is expressed in euros (EUR)</td>
-            <td>Plaćanje je avansno 12 meseci unapred na devizni račun Hit Auta iz inostranstva za prvu godinu, za drugu 
+            <td>Plaćanje je avansno 12 meseci unapred na devizni račun Hit Auta za prvu godinu, za drugu 
                 godinu je avansno plaćanje u 11 mesecu zakupa prve godine, a za treću godinu u 11 mesecu druge godine zakupa
                 Obaveza plaćanja mesečne zakupnine izražena je u evrima (EUR).</td>
         </tr>
