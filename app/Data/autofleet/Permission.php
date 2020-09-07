@@ -17,11 +17,11 @@ class Permission implements DataInterface
         convert(char(10),adDate,104)+'.' as  adDate,convert(char(10),adDateFrom,104)+'.' as  adDateFrom,convert(char(10),adDateTo,104)+'.' as  adDateTo,
         acIsUntilRegExp  from   _CarPermissions where anId =:id", ["id" => $id]))->first();
 
-
-        $company_info = collect(DB::connection($connection)->select("SELECT rtrim(acName) acName, rtrim(acAddress) acAddress, 
-        rtrim(acCode) acCode, rtrim(acRegNo) acRegNo, rtrim(acPhone) acPhone, rtrim(acPost) acPost, rtrim(acCity) acCity, 
-        rtrim(acFax) acFax, rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite
+        $company_info = collect(DB::connection($connection)->select("SELECT rtrim(acName) acName, rtrim(acAddress) acAddress, rtrim(acCode) acCode, 
+        rtrim(acRegNo) acRegNo, rtrim(acPhone) acPhone, rtrim(acPost) acPost, rtrim(acCity) acCity, rtrim(acFax) acFax, 
+        rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite, rtrim(acEmail) acEmail, rtrim(acPost) acPost
         from _Subjects where anId = 1"))->first();
+
 
 
         $car = collect(DB::connection($connection)->select("SELECT c.acRegNo, cb.acBrand + ' ' + cm.acModel + ' ' + cv.acVersion  as marka,
@@ -44,7 +44,7 @@ class Permission implements DataInterface
         where r.anId =  :id", ['id' => $permission->anReservationId]))->first();
 
 
-        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo ,isnull(acAccontNr,'') as acAccontNr
+        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo ,isnull(acAccontNr,'') as acAccontNr, anSubjectTypeId
         from _Subjects s inner join _Reservations r on r.anSubjectId = s.anId
         where 1=1 and r.anId =  :id", ['id' => $permission->anReservationId]))->first();
 

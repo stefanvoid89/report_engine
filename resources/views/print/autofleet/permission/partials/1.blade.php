@@ -40,7 +40,7 @@
                 <div>Kategorija vozila: <span style="font-weight: bold">{{$databag->car->acType}}</span></div>
                 <div>Marka: <span style="font-weight: bold">{{$databag->car->acBrand}}</span></div>
                 <div>Model: <span style="font-weight: bold">{{$databag->car->acModel}}</span></div>
-                <div> Broj šasije:<span style="font-weight: bold">{{$databag->car->acChasis}}</span> </div>
+                <div>Broj šasije:<span style="font-weight: bold">{{$databag->car->acChasis}}</span> </div>
                 <div>Broj motora: <span style="font-weight: bold">{{$databag->car->acEngine}}</span> </div>
                 <div>Snaga motora: <span style="font-weight: bold">{{$databag->car->acPower}}</span> </div>
                 <div>Zapremina motora: <span style="font-weight: bold">{{$databag->car->zapremina}}</span> </div>
@@ -63,15 +63,19 @@
             </td>
         </tr>
 
+        @if($databag->subject->anSubjectTypeId == 1)
         <tr>
             <td style="text-align: justify;font-size:14px;">
-                Ovim putem dajemo dozvolu-ovlašćenje primaocu zakupa iz Ugovora o zakupu, preduzeću
+                Ovim putem dajemo dozvolu-ovlašćenje primaocu zakupa iz Ugovora o zakupu
+                preduzeću
                 {{$databag->subject->acName}} {{$databag->subject->acCity}}
-                , {{$databag->subject->acAddress}}, , MB: {{$databag->subject->acRegNo}}, PIB:
-                {{$databag->subject->acCode}}, da može koristiti napred navedeni predmet zakupa – vozilo u zemlji
+                , {{$databag->subject->acAddress}}, MB:
+                {{$databag->subject->acRegNo}}, PIB:
+                {{$databag->subject->acCode}} da može koristiti napred navedeni predmet zakupa – vozilo u zemlji
                 @if($databag->car->acType != "TERETNO") i inostranstvu @endif.
             </td>
         </tr>
+        @endif
 
         <tr>
             <td>
@@ -91,9 +95,10 @@
                 Pravo upravljanja vozilom ima {{$databag->driver->acName}} : lični broj {{$databag->driver->acId}}, broj
                 vozačke dozvole:{{$databag->driver->acDriverLicence}}
                 , adresa {{$databag->driver->acAddress}} , broj telefona {{$databag->driver->acPhone}}
-
+                @if($databag->subject->anSubjectTypeId == 1)
                 zaposleni u preduzeću {{$databag->subject->acName}} {{$databag->subject->acCity}}, koji je deleregirani
-                od strane odgovornog lica u pravnom licu {{$databag->subject->acName}} {{$databag->subject->acCity}}.
+                od strane odgovornog lica u pravnom licu {{$databag->subject->acName}} {{$databag->subject->acCity}}
+                @endif.
             </td>
         </tr>
         <tr>
@@ -147,40 +152,6 @@
         </tr>
 
         @endif
-        <tr>
-            <td>
-                <br class="spacer">
-            </td>
-        </tr>
-
-        <tr>
-            <td style="text-align: justify;font-size:14px;">
-                Beograd, {{$databag->permission->adDate}}
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <br class="spacer">
-            </td>
-        </tr>
-
-
-        <tr>
-            <td style="text-align: right;font-size:14px;">
-                AUTO FLEET MANAGEMENT D.O.O.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <br class="spacer">
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: right;font-size:14px;">
-                _________________________________
-            </td>
-        </tr>
 
     </tbody>
 
