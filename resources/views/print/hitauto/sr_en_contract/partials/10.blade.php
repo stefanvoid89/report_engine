@@ -69,7 +69,7 @@
                 Company
                 registration No.
                 {{$databag->subject->acRegNo}}, TIN: {{$databag->subject->acCode}}
-                  represented by Arno Gujon , director 
+                represented by Arno Gujon , director
                 (hereinafter
                 referred
                 to as <span style="font-weight: bold">“the Lessee”</span>)</td>
@@ -78,7 +78,7 @@
                 matični
                 broj:
                 {{$databag->subject->acRegNo}} ,
-                PIB: {{$databag->subject->acCode}} 
+                PIB: {{$databag->subject->acCode}}
                 koje zastupa direktor Arno Gujon (u daljem
                 tekstu:
                 <span style="font-weight: bold">Zakupac</span>)</td>
@@ -118,11 +118,10 @@
         <tr>
             <td> WHEREAS the Lessor is a company whose core business activity is leasing motor vehicles and other
                 equipment to third parties (lessees) against consideration, while the Lessee is a company whose
-                business activity is retail sale in non-specialised stores.</td>
+                business activity is : {{$databag->subject->acCoreActivityEN}}.</td>
             <td>Ugovorne strane saglasno konstatuju da je Zakupodavac privredno društvo čija je delatnost
                 davanje u zakup motornih vozila i druge opreme trećim licima (korisnicima) uz određenu naknadu, a
-                Zakupac je privredno društvo čija je osnovna delatnost trgovina na malo u nespecijalizovanim
-                prodavnicama.</td>
+                Zakupac je privredno društvo čija je osnovna delatnost: {{$databag->subject->acCoreActivity}}.</td>
         </tr>
 
         <tr>

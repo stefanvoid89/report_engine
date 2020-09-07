@@ -13,7 +13,8 @@ class LongTermContract implements DataInterface
 
         $id = $params['id'];
 
-        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo ,isnull(acAccontNr,'') as acAccontNr
+        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo ,isnull(acAccontNr,'') as acAccontNr,
+        isnull(acCoreActivity,'') as acCoreActivity, isnull(acCoreActivityEN,'') as acCoreActivityEN
         from _Subjects s inner join _Reservations r on r.anSubjectId = s.anId
         where 1=1 and r.anId =  :id", ['id' => $id]))->first();
 
