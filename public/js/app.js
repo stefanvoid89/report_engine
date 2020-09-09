@@ -30174,12 +30174,26 @@ window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js")
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 window.addEventListener("load", function () {
-  console.log("_______________POCETAK______________________");
-  var report = new _report__WEBPACK_IMPORTED_MODULE_0__["default"](data);
-  window.report = report; //   report.get_page_height();
-  //report.mount_page();
+  var renaultLifeFont = new FontFace("RenaultLife", "url(/fonts/RenaultLife.ttf)", {
+    style: "normal",
+    weight: "400"
+  });
+  var renaultLifeBoldFont = new FontFace("RenaultLife-Bold", "url(/fonts/RenaultLife-Bold.ttf)", {
+    style: "normal",
+    weight: "400"
+  });
+  document.fonts.add(renaultLifeFont);
+  document.fonts.add(renaultLifeBoldFont);
+  renaultLifeFont.load();
+  renaultLifeBoldFont.load();
+  document.fonts.ready.then(function () {
+    console.log("_______________POCETAK______________________");
+    var report = new _report__WEBPACK_IMPORTED_MODULE_0__["default"](data);
+    window.report = report; //   report.get_page_height();
+    //report.mount_page();
 
-  report.render_report();
+    report.render_report();
+  });
 });
 
 /***/ }),
@@ -30344,8 +30358,10 @@ Report.prototype.parse_nodes = function () {
     } else if (element.classList.contains("whole_page")) {
       var tr = document.createElement("tr");
       var td = document.createElement("td");
+      var td2 = document.createElement("td");
       td.style.height = remained_page_height - node_height + "px";
       tr.appendChild(td);
+      tr.appendChild(td2);
       element.tBodies[0].appendChild(tr); // let height = this.page_height - 10;
       // element.style.height = height + "px";
 
@@ -30462,7 +30478,7 @@ Report.prototype.mount_page = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\dev\report_engine\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Stefan\Documents\development\report_engine\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })

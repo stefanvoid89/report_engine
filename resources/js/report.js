@@ -235,8 +235,10 @@ Report.prototype.parse_nodes = function() {
         } else if (element.classList.contains("whole_page")) {
             let tr = document.createElement("tr");
             let td = document.createElement("td");
+            let td2 = document.createElement("td");
             td.style.height = remained_page_height - node_height + "px";
             tr.appendChild(td);
+            tr.appendChild(td2);
             element.tBodies[0].appendChild(tr);
 
             // let height = this.page_height - 10;
