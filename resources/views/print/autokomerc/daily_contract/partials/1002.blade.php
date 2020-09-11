@@ -2,7 +2,7 @@
 
     <tr>
         <td>
-			&nbsp;
+            <div style="height:12px"></div>
         </td>
     </tr>
 

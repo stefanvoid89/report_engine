@@ -1,7 +1,7 @@
 <table class="parent" style="width:60%">
     <tr>
         <td>
-            <br>
+            <div class="spacer"></div>
         </td>
     </tr>
 

@@ -1,7 +1,9 @@
 <table class="parent" style="font-size:12px;width:100%">
     @if(isset($databag->car_damage->acKey))
     <tr>
-        <td colspan="3"><br></td>
+        <td colspan="3">
+            <div class="spacer"></div>
+        </td>
     </tr>
     <tr>
         <td style="font-size:13px; font-weight: bold; text-transform: uppercase;" colspan="3">PREGLED VOZILA
@@ -38,7 +40,9 @@
                 @endforeach
                 @endif
                 <tr>
-                    <td colspan="2"><br></td>
+                    <td colspan="2">
+                        <div class="spacer"></div>
+                    </td>
                 </tr>
 
                 <tr>

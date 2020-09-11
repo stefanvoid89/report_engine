@@ -4,3 +4,7 @@ hr.thin_without_margin {
     color: #333;
     background-color: #333;
 }
+
+div.spacer {
+    height: 12px;
+}

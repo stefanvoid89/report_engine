@@ -2,7 +2,7 @@
 
     <tr>
         <td>
-            &nbsp;
+            <div class="spacer"></div>
         </td>
     </tr>
 

@@ -8,7 +8,7 @@
             </td>
         </tr>
         <td>
-            <br class="spacer">
+            <div class="spacer"></div>
         </td>
         <tr>
             <td>
@@ -19,7 +19,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -66,7 +66,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -77,7 +77,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -89,7 +89,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -100,7 +100,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -240,7 +240,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         @if($databag->reservation->anExpenses && $databag->reservation->anExpenses != 0 )
@@ -255,7 +255,7 @@
         @endif
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -267,7 +267,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>

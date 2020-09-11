@@ -20,3 +20,7 @@ table.td_margin td {
 table.reservation_items th {
     background: #e1e1e1;
 }
+
+div.spacer {
+    height: 12px;
+}

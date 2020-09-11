@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <td>
-                <br style=" line-height: 25px;">
+                <div style="height: 25px;"> </div>
             </td>
         </tr>
 

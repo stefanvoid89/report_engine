@@ -677,7 +677,9 @@ border-spacing:0 2px;">
     </tr>
 
     <tr>
-        <td colspan="7"><br></td>
+        <td colspan="7">
+            <div style="height:12px"></div>
+        </td>
     </tr>
     <!-- DAMAGES -->
     <tr>

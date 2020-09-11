@@ -9,7 +9,7 @@
 
     <tr>
         <td colspan="2">
-            <br style="line-height: 10px;">
+            <div style="height:10px"></div>
         </td>
     </tr>
     <tr>
@@ -28,7 +28,7 @@
 
     <tr>
         <td colspan="2">
-            <br style="line-height: 10px;">
+            <div style="height:10px"></div>
         </td>
     </tr>
 

@@ -9,7 +9,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -36,7 +36,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -64,7 +64,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -79,7 +79,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -93,7 +93,7 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
 
@@ -106,7 +106,7 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
 
@@ -118,7 +118,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -178,7 +178,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>
@@ -188,7 +188,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
 
@@ -199,7 +199,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div class="spacer"></div>
             </td>
         </tr>
         <tr>

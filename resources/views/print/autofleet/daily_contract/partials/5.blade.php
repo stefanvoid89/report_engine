@@ -44,8 +44,8 @@
             <td colspan="4" rowspan="6" style="vertical-align: top;
             padding-top: 5px;">
 
-                <span style="font-weight:bold">Depozit</span>
-                <br>Vrednost depozita: {{$databag->reservation->anDeposit}} {{$databag->currency}}
+                <div><span style="font-weight:bold">Depozit</span></div>
+                <div>Vrednost depozita: {{$databag->reservation->anDeposit}} {{$databag->currency}}</div>
 
             </td>
             <td colspan=" 2">&nbsp;</td>

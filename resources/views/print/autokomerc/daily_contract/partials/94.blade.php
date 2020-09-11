@@ -36,7 +36,7 @@
 
     <tr>
         <td>
-            <br style="line-height: 10px;">
+            <div style="height:10px"></div>
         </td>
     </tr>
 </table>

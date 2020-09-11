@@ -50,7 +50,7 @@
 
         <tr>
             <td>
-                <br style="line-height: 30px">
+                <div style="height:30px"></div>
             </td>
         </tr>
 

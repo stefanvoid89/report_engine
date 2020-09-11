@@ -81,7 +81,7 @@
 
     <tr>
         <td colspan="8">
-            <br>
+            <div class="spacer"></div>
         </td>
     </tr>
     <tr>
@@ -115,7 +115,7 @@
 
     <tr>
         <td colspan="8">
-            <br>
+            <div class="spacer"></div>
         </td>
     </tr>
 </table>

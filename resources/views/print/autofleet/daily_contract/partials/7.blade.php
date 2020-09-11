@@ -19,12 +19,12 @@
 
     <tr>
         <td>
-            <br>
+            <div class="spacer"></div>
         </td>
     </tr>
     <tr>
         <td>
-            <br>
+            <div class="spacer"></div>
         </td>
     </tr>
 

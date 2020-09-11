@@ -75,12 +75,12 @@
 
     <tr>
         <td>
-            <br style="line-height: 15px;">
+            <div style="height:15px"></div>
         </td>
     </tr>
     <tr>
         <td>
-            <br style="line-height: 15px;">
+            <div style="height:15px"></div>
         </td>
     </tr>
 

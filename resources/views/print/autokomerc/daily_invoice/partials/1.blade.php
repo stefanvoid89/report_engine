@@ -1,5 +1,5 @@
 <table id="pozicije_table" class="parent"
-    style="font-size:8pt;border-collapse: collapse; margin-top: -1px;table-layout: fixed; text-align:center;width:100%">
+    style="font-size:8pt;border-collapse: collapse;table-layout: fixed; text-align:center;width:100%">
 
 
     <colgroup>
@@ -18,9 +18,9 @@
 
 
         <tr>
-            <th colspan="3" style="text-align:left">Broj fiskalnog isečka:
+            <th colspan="4" style="text-align:left">Broj fiskalnog isečka:
             </th>
-            <th colspan="4" style="width:350px"> &nbsp;
+            <th colspan="4">
             </th>
         </tr>
 
@@ -42,7 +42,8 @@
 
         <tr>
             <td>
-                <br>
+                <div style="height:12px"></div>
+
             </td>
         </tr>
 

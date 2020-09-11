@@ -6,23 +6,23 @@
                     <img id="logo" src="/images/{{$databag->logo}}" style="height:55px" />
                 </td>
                 <td style="font-size: 12px;text-align: right;vertical-align: top ">
-                    <span style="font-size: 22px;font-weight: bold;">{{$databag->company_info->acName}}</span>
+                    <div><span style="font-size: 17px;font-weight: bold;">{{$databag->company_info->acName}}</span>
+                    </div>
+                    <div>Matični broj: {{$databag->company_info->acRegNo}}</div>
+                    <div>PIB: {{$databag->company_info->acCode}}</div>
+                    <div>{{$databag->company_info->acAddress}},{{$databag->company_info->acPost}}
+                        {{$databag->company_info->acCity}}</div>
+                    <div>Tel: {{$databag->company_info->acPhone}}</div>
+                    <div>Fax: {{$databag->company_info->acFax}}</div>
+                    <div>TR:{{$databag->company_info->acAccontNr}}</div>
 
-
-                    <br />Matični broj: {{$databag->company_info->acRegNo}}
-                    <br />PIB: {{$databag->company_info->acCode}}
-                    <br />{{$databag->company_info->acAddress}},{{$databag->company_info->acPost}}
-                    {{$databag->company_info->acCity}}
-                    <br />Tel: {{$databag->company_info->acPhone}}
-                    <br />Fax: {{$databag->company_info->acFax}}
-                    <br />TR:{{$databag->company_info->acAccontNr}}
                 </td>
             </tr>
         </table>
     </tr>
     <tr>
         <td>
-            <br style="line-height: 10px;">
+            <div style="height: 10px;"></div>
         </td>
     </tr>
 
@@ -58,7 +58,7 @@
 
                     </td>
 
-                    <td colspan="4" style="font-size:16pt;padding-top: 7px;">RAČUN &nbsp;&nbsp;&nbsp;
+                    <td colspan="3" style="font-size:16pt;padding-top: 7px;">RAČUN &nbsp;&nbsp;&nbsp;
                         {{$databag->invoice_header->acKey}}
                     </td>
 
