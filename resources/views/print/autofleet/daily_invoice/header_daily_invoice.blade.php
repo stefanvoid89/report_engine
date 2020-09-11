@@ -30,7 +30,7 @@
     <tr style="margin-top:1px">
         <td>
 
-            <table id="kupac_table" style="font-size:8pt; margin-top: -1px;table-layout: fixed;width:100%;"
+            <table id="kupac_table" style="font-size:8pt;table-layout: fixed;width:100%;border-collapse: collapse;"
                 class="table_border">
 
                 <colgroup>
@@ -58,7 +58,7 @@
 
                     </td>
 
-                    <td colspan="4" style="font-size:16pt;padding-top: 7px;">{{$databag->proforma}}RAČUN
+                    <td colspan="3" style="font-size:16pt;padding-top: 7px;">{{$databag->proforma}}RAČUN
                         &nbsp;&nbsp;&nbsp;
                         {{$databag->invoice_header->acKey}}
                     </td>
@@ -91,7 +91,7 @@
 
                 <tr>
 
-                    <td colspan="4">
+                    <td colspan="3">
                         <div style="text-align:left">Odgovorno lice:</div>
                         <div style="text-align:center">{{$databag->invoice_header->acUser}}</div>
                     </td>

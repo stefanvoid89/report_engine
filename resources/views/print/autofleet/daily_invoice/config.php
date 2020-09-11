@@ -3,7 +3,7 @@
 return [
     "header" => "print.autofleet.daily_invoice.header_daily_invoice",
     "style" => "hitauto_daily_invoice.css",
-    "footer" => "print.common.footers.empty",
+    "footer" => "print.autofleet.daily_contract.footer_daily_contract",
     "title" => "Racun"
 
 ];
