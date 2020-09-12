@@ -41,14 +41,11 @@
         </tr>
         @endforeach
         <tr>
-            <td colspan="4" rowspan="6">
+            <td colspan="4" rowspan="6" style="vertical-align: top;
+            padding-top: 5px;">
 
-                <span style="font-weight:bold">Depozit</span>
-                <br>Vrednost depozita: {{$databag->reservation->anDeposit}} {{$databag->currency}}
-                <br>Tip kreditne kartice:{{$databag->reservation->acCreditCard}}
-                <br>Broj kreditne kartice:{{$databag->reservation->acCreditCardNo}}
-                <br>Vazi do: {{$databag->reservation->adDateExpCreditCard}}
-                <br>CVV broj:{{$databag->reservation->acCVV}}
+                <div><span style="font-weight:bold">Depozit</span></div>
+                <div>Vrednost depozita: {{$databag->reservation->anDeposit}} {{$databag->currency}}</div>
 
             </td>
             <td colspan=" 2">&nbsp;</td>
@@ -64,7 +61,7 @@
         </tr>
         <tr>
 
-            <td style="text-align:center;font-weight: bold"> PDV {{$databag->total_value->acVat}}%: </td>
+            <td style="text-align:center;font-weight: bold"> PDV: {{$databag->total_value->acVat}}% </td>
             <td style=" text-align:center;font-weight: bold">{{$databag->total_value->anVatValue}}{{$databag->currency}}
             </td>
         </tr>

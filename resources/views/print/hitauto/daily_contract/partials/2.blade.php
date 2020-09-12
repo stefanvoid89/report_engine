@@ -1,6 +1,6 @@
 <table class="parent" style="width:100%">
     <tr>
-        <td style="width:48%">
+        <td style="width:48%;vertical-align: top;">
             <table style="width:100%;font-size:12px">
                 <tr>
                     <td style="font-weight:bold">Klijent
@@ -37,7 +37,7 @@
             </table>
         </td>
         <td style="width:4%"></td>
-        <td style="width:48%">
+        <td style="width:48%;vertical-align: top;">
             <table style="width:100%;font-size:12px">
                 <tr>
                     <td style="font-weight:bold">Vozač
@@ -82,7 +82,7 @@
     </tr>
     <tr>
         <td colspan="3">
-            <hr>
+            <hr class="thin">
         </td>
     </tr>
 </table>

@@ -11,10 +11,22 @@
         </td>
     </tr>
     <tr>
-        <td style="width:30%;padding-left:20px">
-            ____________________________________</td>
+        <td style="width:30%;padding-left:20px;font-size:8px">
+            _______________________________________________________________</td>
         <td style="width:40%;text-align: center"></td>
-        <td style="width:30%;padding-left:20px">____________________________________</td>
+        <td style="width:30%;padding-left:20px;font-size:8px">
+            _______________________________________________________________</td>
+    </tr>
+
+    <tr>
+        <td>
+            <div class="spacer"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="spacer"></div>
+        </td>
     </tr>
 
 </table>

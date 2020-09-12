@@ -8,7 +8,7 @@ return [
         "db" => "mirent_hitauto",
         'logo' => "hitauto_logo.png",
         "reports" => [
-            'daily_contract' => ["class" => App\Data\common\DailyContract::class, "path" => null],
+            'daily_contract' => ["class" => App\Data\hitauto\DailyContract::class, "path" => 'hitauto/daily_contract'],
             'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'hitauto/daily_invoice'],
             'permission' => ["class" => App\Data\hitauto\Permission::class, "path" => 'hitauto/permission'],
             'sr_en_contract' => ["class" => App\Data\hitauto\LongTermContract::class, "path" =>  'hitauto/sr_en_contract'],
@@ -20,8 +20,8 @@ return [
         'logo' => "autokomerc_logo.png",
         "reports" => [
             'daily_contract' => ["class" => App\Data\autokomerc\DailyContract::class, "path" => 'autokomerc/daily_contract'],
-            'daily_invoice' => ["class" => App\Data\common\DailyInvoice::class, "path" => "autokomerc/daily_invoice"],
-            'permission' => ["class" => App\Data\autofleet\Permission::class, "path" => 'autofleet/permission']
+            'daily_invoice' => ["class" => App\Data\autokomerc\DailyInvoice::class, "path" => "autokomerc/daily_invoice"],
+            'permission' => ["class" => App\Data\autokomerc\Permission::class, "path" => 'autofleet/permission']
         ]
     ],
 

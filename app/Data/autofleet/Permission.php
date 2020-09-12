@@ -23,7 +23,6 @@ class Permission implements DataInterface
         from _Subjects where anId = 1"))->first();
 
 
-
         $car = collect(DB::connection($connection)->select("SELECT c.acRegNo, cb.acBrand + ' ' + cm.acModel + ' ' + cv.acVersion  as marka,
         cb.acBrand + ' ' + cm.acModel  as brand
         ,isnull(c.acColor,'') acColor, cat.acCategory

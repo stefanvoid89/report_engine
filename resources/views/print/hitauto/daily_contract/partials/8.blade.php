@@ -9,7 +9,9 @@
         </tr>
         <tr>
 
-            <td colspan=3><br /> </td>
+            <td colspan=3>
+                <div class="spacer"></div>
+            </td>
         </tr>
         <tr>
             <td style="width:48%;vertical-align:top">
@@ -48,7 +50,7 @@
                     dokumentacije,
                     a
                     zakupac se odriče prava na državinsku zaštitu. </p>
-                <br>
+                <div class="spacer"></div>
 
                 <div style="font-weight:bold">2. Zakupnina i način plaćanja</div>
                 <p>
@@ -81,7 +83,7 @@
                     preuzimanja
                     vozila
                     položi traženi iznos avansa.</p>
-                <br>
+                <div class="spacer"></div>
 
                 <div style="font-weight:bold">3. Korišćenje i upravljanje vozilom</div>
                 <p style="text-align: justify;">
@@ -102,7 +104,7 @@
                     Kada vozilo nije u funkciji vrata i prozori moraju biti zatvoreni odnosno
                     zaključani.
                 </p>
-                <br>
+                <div class="spacer"></div>
 
                 <div style="font-weight:bold">4. Zabrana korišćenja </div>
 
@@ -133,7 +135,7 @@
                     </div>
                     <div style="margin-left:20px;font-size:11px"> f) zabranjeno je pušenje u vozilu</div>
                 </p>
-                <br>
+                <div class="spacer"></div>
                 <div style="font-weight:bold">5. Popravke</div>
 
                 <p style="text-align: justify;">
@@ -184,7 +186,7 @@
                     od
                     požara, naleta divljači, i sl., moraju se neodložno prijaviti zakupodavcu i policiji.
                 </p>
-                <br>
+                <div class="spacer"></div>
 
                 <div style="font-weight:bold">7. Osiguranje</div>
 
@@ -196,12 +198,9 @@
                     zavisi
                     od
                     uslova
-                    koje je Zakupac dogovorio sa Zakupodavcem i to u pisanoj formi. Zakupac može uzeti
-                    dodatne
-                    proizvode
-                    SCDW ili PCDW koji dalje regulišu učešće u šteti Zakupca.
+                    koje je Zakupac dogovorio sa Zakupodavcem i to u pisanoj formi.
                 </p>
-                <br>
+                <div class="spacer"></div>
                 <div style="font-weight:bold">8. Odgovornost zakupca</div>
                 <p style="text-align: justify;">
 
@@ -246,7 +245,7 @@
                     uslova.
 
                 </p>
-                <br>
+                <div class="spacer"></div>
                 <div style="font-weight:bold">9. Odgovornost zakupodavca</div>
                 <p style="text-align: justify;">
 
@@ -256,7 +255,7 @@
                     vozila.
 
                 </p>
-                <br>
+                <div class="spacer"></div>
                 <div style="font-weight:bold">10. Izmene i dopune ugovora/dostava</div>
                 <p style="text-align: justify;">
 
@@ -265,18 +264,18 @@
                     preporučenom poštom
 
                 </p>
-                <br>
+                <div class="spacer"></div>
                 <div style="font-weight:bold"> 11. Nadležan sud</div>
                 <p style="text-align: justify;">
 
                     Stvarno i mesno je nadležan sud u mestu sedišta zakupodavca.
                 </p>
-                <br>
+                <div class="spacer"></div>
                 <div style="font-weight:bold">12. Završne odredbe</div>
                 <p style="text-align: justify;">
 
 
-                    Ovaj ugovor je zaključen u prostorijama zakupodavca u dva (2) ravnoglasna primerka,
+                    Ovaj ugovor je zaključen u prostorijama zakupodavca u dva (2) istovetna primerka,
                     od
                     kojih
                     svaka

@@ -1,6 +1,6 @@
 <table class="parent" style="width:100%;font-size:12px">
     <tr>
-        <td style="width:68%">
+        <td style="width:68%;vertical-align: top;">
             <table style="width:100%;font-size:12px">
                 <tr>
                     <td style="font-weight:bold">Vozilo</td>
@@ -24,7 +24,7 @@
         </td>
         <td style="width:4%"></td>
 
-        <td style="width:38%">
+        <td style="width:38%;vertical-align: top;">
             <table style="width:100%;font-size:12px">
                 <tr>
                     <td style="font-weight:bold">Stanje izdavanja</td>
@@ -46,7 +46,7 @@
     </tr>
     <tr>
         <td colspan="3">
-            <hr>
+            <hr class="thin">
         </td>
     </tr>
 

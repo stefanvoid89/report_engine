@@ -22,14 +22,12 @@ class DailyInvoice implements DataInterface
         $title = $_proforma   ? "Stampa predracuna" : "Stampa fakture";
 
 
-        $company_info = collect(DB::connection($connection)->select("SELECT rtrim(acName) acName, rtrim(acAddress) acAddress, rtrim(acCode) acCode, rtrim(acRegNo) acRegNo, rtrim(acPhone) acPhone, rtrim(acPost) acPost, rtrim(acCity) acCity, rtrim(acFax) acFax, rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite
+        $company_info = collect(DB::connection($connection)->select("SELECT rtrim(acName) acName, rtrim(acAddress) acAddress, rtrim(acCode) acCode, 
+        rtrim(acRegNo) acRegNo, rtrim(acPhone) acPhone, rtrim(acPost) acPost, rtrim(acCity) acCity, rtrim(acFax) acFax, 
+        rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite, rtrim(acEmail) acEmail, rtrim(acPost) acPost
         from _Subjects where anId = 1"))->first();
 
-
-
         $positions = null;
-
-
 
         $invoice_header = collect(DB::connection($connection)->select("SELECT i.acKey, convert(varchar(20),i.adDate,104) as adDate, s.acName, s.acAddress, s.acCity, s.acPost,s.acPhone, s.acRegNo,s.acCode, pc.acPayCondition, pt.acName as acPayType
         , u.acName + ' ' +isnull(u.acSurname,'') as acUser	, i.anReservationId, i.anValue, i.anVatValue, i.anTotalValue, i.anValueRSD, i.anVatValueRSD, i.anTotalValueRSD,i.anFxRate,i.acComment,cast(v.anVat as int) as anVat

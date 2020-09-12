@@ -1,6 +1,6 @@
 <table class="parent" style="font-size:12px">
     <tr>
-        <td style="font-weight:bold">Preuzimanje</td>
+        <td style="font-weight:bold;width:72%">Preuzimanje</td>
         <td>{{$databag->reservation->adDateFrom}}</td>
     </tr>
     <tr>
@@ -9,7 +9,7 @@
     </tr>
     <tr>
         <td colspan="2">
-            <hr>
+            <hr class="thin">
         </td>
     </tr>
 </table>

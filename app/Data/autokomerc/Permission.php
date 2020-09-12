@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data\hitauto;
+namespace App\Data\autokomerc;
 
 use Illuminate\Support\Facades\DB;
 use App\Data\DataInterface;

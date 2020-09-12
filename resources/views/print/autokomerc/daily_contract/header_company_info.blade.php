@@ -12,7 +12,6 @@
                 {{$databag->company_info->acCity}}</div>
             <div>Tel: {{$databag->company_info->acPhone}}</div>
             <div>Fax: {{$databag->company_info->acFax}}</div>
-            <div>E-mail: {{$databag->company_info->acEmail}}</div>
             <div>TR:{{$databag->company_info->acAccontNr}}</div>
 
         </td>

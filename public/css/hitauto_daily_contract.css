@@ -1,0 +1,26 @@
+hr.thin {
+    height: 1px;
+    border: 0;
+    color: #333;
+    background-color: #333;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table.reservation_items th,
+table.reservation_items td {
+    border: 1px solid black;
+}
+
+table.td_margin td {
+    height: 20px;
+}
+
+table.reservation_items th {
+    background: #e1e1e1;
+}
+
+div.spacer {
+    height: 12px;
+}

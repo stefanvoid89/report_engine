@@ -15,9 +15,9 @@ class FiatOffer implements DataInterface
 
 
 
-        $company_info = collect(DB::connection($connection)->select("SELECT rtrim(acName) acName, rtrim(acAddress) acAddress, 
-        rtrim(acCode) acCode, rtrim(acRegNo) acRegNo, rtrim(acPhone) acPhone, rtrim(acPost) acPost, rtrim(acCity) acCity, 
-        rtrim(acFax) acFax, rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite
+        $company_info = collect(DB::connection($connection)->select("SELECT rtrim(acName) acName, rtrim(acAddress) acAddress, rtrim(acCode) acCode, 
+        rtrim(acRegNo) acRegNo, rtrim(acPhone) acPhone, rtrim(acPost) acPost, rtrim(acCity) acCity, rtrim(acFax) acFax, 
+        rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite, rtrim(acEmail) acEmail, rtrim(acPost) acPost
         from _Subjects where anId = 1"))->first();
 
         $car = [];
@@ -41,11 +41,11 @@ class FiatOffer implements DataInterface
 
 
 
-    //    $leasing =  collect(DB::connection($connection)->select("SELECT  c.acCarNameShort as acCarName, l.anParticipation, 
-    //   l.anPeriod, l.anValueTotalMonth * 1.2 as anValueTotalMonth, isnull(acCostsText,'') as acCostsText
-    //    from _Leasing l inner join _v_CarExtended c on c.anId = l.anCarId where l.anId = ?", [$id]))->first();
+        //    $leasing =  collect(DB::connection($connection)->select("SELECT  c.acCarNameShort as acCarName, l.anParticipation, 
+        //   l.anPeriod, l.anValueTotalMonth * 1.2 as anValueTotalMonth, isnull(acCostsText,'') as acCostsText
+        //    from _Leasing l inner join _v_CarExtended c on c.anId = l.anCarId where l.anId = ?", [$id]))->first();
 
-    $leasing =  collect(DB::connection($connection)->select("SELECT isnull(acCarNameShort,m.acModel) as acCarName, l.anParticipation, 
+        $leasing =  collect(DB::connection($connection)->select("SELECT isnull(acCarNameShort,m.acModel) as acCarName, l.anParticipation, 
     l.anPeriod, l.anValueTotalMonth * 1.2 as anValueTotalMonth, isnull(acCostsText,'') as acCostsText
     from _Leasing l left join _v_CarExtended c on c.anId = l.anCarId 
     left join _CarModels m on l.anModelId=m.anid and l.anBrandId=m.anBrandId where l.anId = ?", [$id]))->first();

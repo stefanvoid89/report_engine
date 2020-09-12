@@ -20,10 +20,6 @@ class DailyContract implements DataInterface
         rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite, rtrim(acEmail) acEmail, rtrim(acPost) acPost
         from _Subjects where anId = 1"))->first();
 
-
-
-
-
         $reservation = collect(DB::connection($connection)->select("SELECT r.acKey, r.anSubjectId
         ,convert(varchar(20),r.adDateFrom,104) as adDate
         ,convert(varchar(20),r.adDateFrom,104)+' '+convert(varchar(5),convert(time,r.adDateFrom,108)) as adDateFrom
