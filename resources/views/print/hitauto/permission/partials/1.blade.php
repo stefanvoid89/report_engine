@@ -6,7 +6,7 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
 
@@ -24,12 +24,12 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
         <tr>
@@ -54,12 +54,12 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
 
@@ -75,12 +75,12 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
 
@@ -105,7 +105,7 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
         <tr>
@@ -127,7 +127,7 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
 
@@ -149,7 +149,7 @@
         @endif
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
 
@@ -161,7 +161,7 @@
 
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
 
@@ -173,7 +173,7 @@
         </tr>
         <tr>
             <td>
-                <br class="spacer">
+                <div style="height: 12px"></div>
             </td>
         </tr>
         <tr>

@@ -439,7 +439,9 @@
 
                     </tr>
                     <tr>
-                        <td colspan="3"><br style="line-height: 20px"></td>
+                        <td colspan="3">
+                            <div style="height: 20px"></div>
+                        </td>
                     </tr>
                     <tr>
                         <td style="text-align: center">___________________________________ </td>

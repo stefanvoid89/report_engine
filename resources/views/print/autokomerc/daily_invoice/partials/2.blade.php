@@ -44,7 +44,7 @@
 
     <tr>
         <td colspan="8">
-            <br>
+            <div style="height: 12px"></div>
         </td>
     </tr>
     <tr>
@@ -78,7 +78,7 @@
 
     <tr>
         <td colspan="8">
-            <br>
+            <div style="height: 12px"></div>
         </td>
     </tr>
 </table>

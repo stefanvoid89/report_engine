@@ -43,7 +43,7 @@
 
         <tr>
             <td>
-                <br>
+                <div style="height: 12px"></div>
             </td>
         </tr>
 
