@@ -106,11 +106,44 @@
     @endif
 
     @if($databag->proforma == "")
+
+    @if($databag->invoice_header->anTypeId == 3)
+    <tr>
+        <td colspan="8">
+            <div style="height:25px"></div>
+        </td>
+    </tr>
+    <tr>
+
+        <td colspan=" 8">
+
+            <table style="width:100%">
+                <tr>
+                    <td style="width:40%;padding-left:20px;vertical-align:top;height:30px;font-size:12px">
+                    <td style="width:30%;text-align: center;vertical-align:top;height:30px;font-size:12px">MP</td>
+                    <td style="width:30%;padding-left:20px;vertical-align:top;height:30px;font-size:12px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:40%;padding-left:20px">
+                    </td>
+                    <td style="width:30%;text-align: center"></td>
+                    <td style="width:30%;padding-left:20px">____________________________________</td>
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+
+
+    @else
     <tr>
         <td colspan="8" style="text-align: center">
             Račun je validan bez pečata i potpisa
         </td>
     </tr>
+    @endif
     @endif
 
     <tr>
