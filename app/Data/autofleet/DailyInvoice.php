@@ -75,7 +75,8 @@ class DailyInvoice implements DataInterface
         inner join _Reservations r on r.anCarId	= c.anId
         where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first();
 
-
+        $avans = collect(DB::connection($connection)->select("SELECT top 1 acKey,adDate, anValue, anVatValue, anTotalValue from _Avans where anInvoiceId = ?", [$id]))
+            ->first();
 
 
         if ($_currency == 'eur') {
@@ -131,9 +132,6 @@ class DailyInvoice implements DataInterface
             }
 
             $value_text = \App\Data\NumberToText::vrati_string(abs($invoice_header->anTotalValueRSD));
-
-            $avans = collect(DB::connection($connection)->select("SELECT top 1 acKey,adDate, anValue, anVatValue, anTotalValue from _Avans where anInvoiceId = ?", [$id]))
-                ->first();
 
 
             $positions_sum = (object) [
