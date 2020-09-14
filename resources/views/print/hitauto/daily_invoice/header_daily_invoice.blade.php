@@ -6,6 +6,7 @@
                     <img id="logo" src="/images/{{$databag->logo}}" style="height:55px" />
                 </td>
                 <td style="font-size: 12px;text-align: right;vertical-align: top ">
+
                     <div><span style="font-size: 17px;font-weight: bold;">{{$databag->company_info->acName}}</span>
                     </div>
                     <div>Matični broj: {{$databag->company_info->acRegNo}}</div>
@@ -30,7 +31,7 @@
     <tr style="margin-top:1px">
         <td>
 
-            <table id="kupac_table" style="font-size:8pt; margin-top: -1px;table-layout: fixed;width:100%;"
+            <table id="kupac_table" style="font-size:8pt;table-layout: fixed;width:100%;border-collapse: collapse;"
                 class="table_border">
 
                 <colgroup>
@@ -42,7 +43,7 @@
 
                 <tr>
 
-                    <td rowspan="3" style="vertical-align: top;border-bottom:none">
+                    <td rowspan="5" style="vertical-align: top;border-bottom:none">
 
                         <div
                             style="font-size:10pt;border-collapse: collapse; width:100% ;padding-left: 5px;padding-top: 5px;">
@@ -58,7 +59,8 @@
 
                     </td>
 
-                    <td colspan="3" style="font-size:16pt;padding-top: 7px;">RAČUN &nbsp;&nbsp;&nbsp;
+                    <td colspan="3" style="font-size:16pt;padding-top: 7px;">{{$databag->proforma}}RAČUN
+                        &nbsp;&nbsp;&nbsp;
                         {{$databag->invoice_header->acKey}}
                     </td>
 
@@ -77,7 +79,7 @@
                         <div style="text-align:center">{{$databag->invoice_header->acPayType}}</div>
                     </td>
                     <td>
-                        <div style="text-align:left">Uslov plaćanja:</div>
+                        <div style="text-align:left">Valuta:</div>
                         <div style="text-align:center">{{$databag->invoice_header->acPayCondition}}</div>
                     </td>
                     <td>
@@ -89,34 +91,30 @@
 
 
                 <tr>
-                    <td style="vertical-align: bottom;border-top: none;">
 
-                    </td>
                     <td colspan="3">
-                        <div style="text-align:left">Fakturu izdao:</div>
+                        <div style="text-align:left">Odgovorno lice:</div>
                         <div style="text-align:center">{{$databag->invoice_header->acUser}}</div>
                     </td>
 
 
                 </tr>
 
-
-
                 <tr>
-                    <td style=";width:45%; padding-left:5px">
-                        <div style="text-align:left">Vozilo:</div>
-                        <div style="text-align:center">{{$databag->car->acName}}</div>
+                    <td colspan="2">
+                        <div style="text-align:left">Datum prometa dobara i usluga:</div>
+                        <div style="text-align:center">{{$databag->invoice_header->adDate}}</div>
                     </td>
-                    <td style=";width:25%">
-                        <div style="text-align:left">Registarska oznaka:</div>
-                        <div style="text-align:center">{{$databag->car->acRegNo}}</div>
-                    </td style=";width:20%">
-
                     <td>
-                        <div style="text-align:left">Sasija:</div>
-                        <div style="text-align:center">{{$databag->car->acChasis}}</div>
+                        <div style="text-align:left">Broj fiskalnog isečka:</div>
+                        <div style="text-align:center">&nbsp; </div>
                     </td>
+
                 </tr>
+
+
+
+
 
             </table>
 

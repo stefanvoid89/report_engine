@@ -34,17 +34,54 @@
         <td style="padding-left:50px;font-family:RenaultLife-Bold"> UKUPNO ZA NAPLATU </td>
         <td> </td>
         <td> </td>
-        <td style="text-align:right;padding-right:80px;">
+        <td style="text-align:right;padding-right:80px;font-weight: bold">
             {{number_format($databag->positions_sum->anTotalValue, 2) }} {{$databag->currency}}
         </td>
 
 
     </tr>
+    <tr style="line-height: 20px; ">
+
+        <td style="padding-left:50px;font-family:RenaultLife-Bold"> Slovima </td>
+        <td> </td>
+        <td> </td>
+        <td style="text-align:right;padding-right:80px;">
+            {{$databag->positions_sum->value_text}}
+        </td>
+
+
+    </tr>
+
+    @if($databag->avans)
+    <tr style="line-height: 20px; ">
+
+        <td style="padding-left:50px;font-family:RenaultLife-Bold"> Avans </td>
+        <td> Broj: {{$databag->avans->acKey}} </td>
+        <td> </td>
+        <td style="text-align:right;padding-right:80px;font-weight: bold">
+            {{number_format($databag->avans->anTotalValue, 2) }} {{$databag->currency}}
+        </td>
+
+
+    </tr>
+    <tr style="line-height: 20px; ">
+
+        <td style="padding-left:50px;font-family:RenaultLife-Bold"> Ostatak za plaćanje </td>
+        <td> </td>
+        <td> </td>
+        <td style="text-align:right;padding-right:80px;font-weight: bold">
+            {{number_format($databag->positions_sum->anTotalValue - $databag->avans->anTotalValue, 2) }}
+            {{$databag->currency}}
+        </td>
+
+
+    </tr>
+    @endif
 
 
     <tr>
         <td colspan="8">
-            <div style="height: 12px"></div>
+            <div class="spacer"></div>
         </td>
     </tr>
     <tr>
@@ -68,17 +105,17 @@
 
     @endif
 
-    {{-- <tr>
-        <td colspan="8">Račun je izdat na osnovu člana 5. stav 3, tačka 1 Zakona o PDV-u, a u skladu sa članom 4a
-            Pravilnika o određivanju slučajeva u
-            kojima nema obaveze izdavanja računa i o računima kod kojih se mogu izostaviti pojedini podaci
+    @if($databag->proforma == "")
+    <tr>
+        <td colspan="8" style="text-align: center">
             Račun je validan bez pečata i potpisa
         </td>
-    </tr> --}}
+    </tr>
+    @endif
 
     <tr>
         <td colspan="8">
-            <div style="height: 12px"></div>
+            <div class="spacer"></div>
         </td>
     </tr>
 </table>
