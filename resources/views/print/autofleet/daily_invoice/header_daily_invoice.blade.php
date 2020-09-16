@@ -107,7 +107,8 @@
                     </td>
                     <td>
                         <div style="text-align:left">Broj fiskalnog isečka:</div>
-                        <div style="text-align:center">&nbsp; </div>
+                        <div style="text-align:center"> @if($databag->invoice_header->anBI)
+                            {{$databag->invoice_header->anBI}} @else &nbsp; @endif</div>
                     </td>
 
                 </tr>

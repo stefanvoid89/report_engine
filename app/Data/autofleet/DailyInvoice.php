@@ -35,7 +35,7 @@ class DailyInvoice implements DataInterface
 
         $invoice_header = collect(DB::connection($connection)->select("SELECT i.acKey, convert(varchar(20),i.adDate,104) as adDate, s.acName, s.acAddress, s.acCity, s.acPost,s.acPhone, s.acRegNo,s.acCode, pc.acPayCondition, pt.acName as acPayType
         , u.acName + ' ' +isnull(u.acSurname,'') as acUser	, i.anReservationId, i.anValue, i.anVatValue, i.anTotalValue, i.anValueRSD, i.anVatValueRSD, i.anTotalValueRSD,i.anFxRate,i.acComment,cast(v.anVat as int) as anVat
-        ,i.anTypeId
+        ,i.anTypeId, i.anBI
         from _Invoices i
         inner join _Subjects s on i.anSubjectId	 = s.anId
         inner join _Users	 u on i.anUserIns = u.anId
