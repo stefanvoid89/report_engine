@@ -20,9 +20,7 @@
                 </tr>
                 <tr>
                     <td>@if($databag->subject->anSubjectTypeId == 1) PIB @else JMBG @endif: </td>
-                    <td>@if($databag->subject->anSubjectTypeId == 1) {{$databag->subject->acCode}} @else
-                        {{$databag->subject->acId}}
-                        @endif: </td>
+                    <td>{{$databag->subject->acCode}} </td>
                 </tr>
                 @if($databag->subject->anSubjectTypeId == 1) <tr>
                     <td>Matični broj:</td>
@@ -56,7 +54,7 @@
                 </tr>
 
                 <tr>
-                    <td>LK.br./Pasoš:</td>
+                    <td>Lični broj:</td>
                     <td>{{$databag->driver->acId}}</td>
                 </tr>
 
