@@ -75,18 +75,6 @@
                 @if($databag->car->acType != "TERETNO") i inostranstvu @endif.
             </td>
         </tr>
-        @endif
-
-        <tr>
-            <td>
-                <div class="spacer"></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="spacer"></div>
-            </td>
-        </tr>
 
 
         @if($databag->permission->acIsOnSubject == "F")
@@ -119,16 +107,42 @@
             </td>
         </tr>
 
-
         @else
-
         <tr>
             <td style="text-align: justify;font-size:14px;">
-                Pravo upravljanja vozilom imaja iključivo zaposleni u preduzeću DELHAIZE SERBIA d.o.o. Beograd, koji su
-                deleregirani od strane odgovornog lica u pravnom licu DELHAIZE SERBIA d.o.o. Beograd.
+                Pravo upravljanja vozilom imaja iključivo zaposleni u {{$databag->subject->acName}}
+                {{$databag->subject->acCity}}, koji su
+                deleregirani od strane odgovornog lica u pravnom licu {{$databag->subject->acName}}
+                {{$databag->subject->acCity}}.
             </td>
         </tr>
         @endif
+
+        @else
+        <tr>
+            <td style="text-align: justify;font-size:14px;">
+                Pravo upravljanja vozilom ima {{$databag->driver->acName}} : lični broj {{$databag->driver->acId}}, broj
+                vozačke dozvole:{{$databag->driver->acDriverLicence}}
+                , adresa {{$databag->driver->acAddress}} , broj telefona {{$databag->driver->acPhone}}
+
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: justify;font-size:14px;">
+                Ovo ovlašćenje se daje na korišćenje vozila u zemlji @if($databag->car->acType != "TERETNO") i
+                inostranstvu @endif.
+            </td>
+        </tr>
+
+        @endif
+
+
+        <tr>
+            <td>
+                <div class="spacer"></div>
+            </td>
+        </tr>
+
 
         <tr>
             <td>

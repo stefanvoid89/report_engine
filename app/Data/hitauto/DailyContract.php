@@ -20,6 +20,7 @@ class DailyContract implements DataInterface
         from _Subjects where anId = 1"))->first();
 
         $reservation = collect(DB::connection($connection)->select("SELECT r.acKey, r.anSubjectId
+         ,convert(varchar(20),r.adDateFrom,104) as adDate
         ,convert(varchar(20),r.adDateFrom,104)+' '+convert(varchar(5),convert(time,r.adDateFrom,108)) as adDateFrom
         ,convert(varchar(20),r.adDateTo,104)+' '+convert(varchar(5),convert(time,r.adDateTo,108))  as adDateTo
         ,r.anCarId , u.acName + ' ' + u.acSurname as acUser, right(convert(char(10),adDateExpCreditCard,103),7) as adDateExpCreditCard

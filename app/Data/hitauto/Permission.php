@@ -43,7 +43,7 @@ class Permission implements DataInterface
         where r.anId =  :id", ['id' => $permission->anReservationId]))->first();
 
 
-        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo ,isnull(acAccontNr,'') as acAccontNr
+        $subject = collect(DB::connection($connection)->select("SELECT s.acName, s.acAddress , s.acCity , s.acCode ,s.acRegNo ,isnull(acAccontNr,'') as acAccontNr, anSubjectTypeId
         from _Subjects s inner join _Reservations r on r.anSubjectId = s.anId
         where 1=1 and r.anId =  :id", ['id' => $permission->anReservationId]))->first();
 

@@ -6,10 +6,14 @@
             <td></td>
         </tr>
         <tr>
-            <td style="width:50%;text-align: center"><span style="font-weight: bold">INDIVIDUAL VEHICLE LEASE AGREEMENT
-                    No.{{$databag->reservation->acKey}}</span> </td>
-            <td style="width:50%;text-align: center"><span style="font-weight: bold">POJEDINAČNI UGOVOR O ZAKUPU VOZILA
-                    br.{{$databag->reservation->acKey}}</span></td>
+            <td style="width:50%;text-align: center">
+                <div style="font-weight: bold">INDIVIDUAL VEHICLE LEASE AGREEMENT</div>
+                <div style="font-weight: bold"> No.{{$databag->reservation->acKey}}</div>
+            </td>
+            <td style="width:50%;text-align: center">
+                <div style="font-weight: bold">POJEDINAČNI UGOVOR O ZAKUPU VOZILA </div>
+                <div style="font-weight: bold"> br.{{$databag->reservation->acKey}}</div>
+            </td>
         </tr>
 
         <tr>
@@ -66,20 +70,23 @@
         <tr>
             <td>1. <span style="font-weight: bold">{{$databag->subject->acName}}</span> {{$databag->subject->acCity}},
                 {{$databag->subject->acAddress}} street,
+                @if( $databag->subject->anSubjectTypeId == "1")
                 Company
                 registration No.
                 {{$databag->subject->acRegNo}}, TIN: {{$databag->subject->acCode}}
-                represented by Arno Gujon , director
+                @else
+                ID: {{$databag->subject->acCode}}
+                @endif
                 (hereinafter
                 referred
                 to as <span style="font-weight: bold">“the Lessee”</span>)</td>
             <td>1. <span style="font-weight: bold">{{$databag->subject->acName}}</span> {{$databag->subject->acCity}},
                 {{$databag->subject->acAddress}},
-                matični
-                broj:
-                {{$databag->subject->acRegNo}} ,
-                PIB: {{$databag->subject->acCode}}
-                koje zastupa direktor Arno Gujon (u daljem
+                @if( $databag->subject->anSubjectTypeId == "1")
+                Matični broj:{{$databag->subject->acRegNo}}, PIB: {{$databag->subject->acCode}}
+                @else JMBG: {{$databag->subject->acCode}}
+                @endif
+                (u daljem
                 tekstu:
                 <span style="font-weight: bold">Zakupac</span>)</td>
         </tr>
