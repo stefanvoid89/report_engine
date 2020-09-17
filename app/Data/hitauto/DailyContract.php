@@ -55,7 +55,11 @@ class DailyContract implements DataInterface
         r.anPrice * ((100.00-isnull(r.anRebate,0))/100.00) as anPrice ,r.anPrice * ((100.00-isnull(r.anRebate,0))/100.00)  * r.anQty as anValue
         from _Reservations r
         inner join _Vat	 v on v.anId = r.anVatId
-        cross apply (SELECT anId, acName ,acUm from _SetItem where acIdent = 'Najam')q
+        cross apply (select si.anId, si.acName ,p.acUm from _SetItem si inner join _SysParams sp on sp.anReservationIdentId = si.anId cross apply(
+        select top 1 plt.acUnit as acUm from _Reservations rr 
+        inner join _SubDocTypes sdt on rr.anSubDocTypeId = sdt.anId 
+        inner join _PriceListTypes plt on plt.anId= sdt.anPriceListTypeId
+        where rr.anId = r.anId)p)q
         where r.anId = :reservation_id1
         union all
         SELECT row_number() over(order by rer.acName) as anNo, rer.acName , case when u.acName = 'dan' then r.anQty else 1 end as anQty, u.acName as acUm,
@@ -66,7 +70,7 @@ class DailyContract implements DataInterface
         inner join _ReservationExtrasReigster rer	on rer.anId = re.anReservationExtraId
         inner join _Vat	 v on v.anId = r.anVatId
         inner join _Um u on u.anId=  re.anUmId
-        cross apply (SELECT anId from _SetItem where acIdent = 'Dodatna oprema')q
+        cross apply (SELECT si.anId from _SetItem si inner join _SysParams sp on sp.anReservationExtraIdentId = si.anId)q
         where r.anId = :reservation_id2
         )q
         ", ['reservation_id1' => $id, 'reservation_id2' => $id]));
