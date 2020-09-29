@@ -53,8 +53,13 @@
                             <div>{{$databag->invoice_header->acPost}}
                                 {{$databag->invoice_header->acCity}}
                             </div>
-                            <div>PIB: {{$databag->invoice_header->acCode}}</div>
+
+                            @if($databag->invoice_header->anSubjectTypeId == 1)
                             <div>Matični broj: {{$databag->invoice_header->acRegNo}}</div>
+                            <div>PIB: {{$databag->invoice_header->acCode}}</div>
+                            @else
+                            <div>JMBG: {{$databag->invoice_header->acCode}}</div>
+                            @endif
                         </div>
 
                     </td>
