@@ -9,6 +9,7 @@ return [
         'logo' => "hitauto_logo.png",
         "reports" => [
             'daily_contract' => ["class" => App\Data\hitauto\DailyContract::class, "path" => 'hitauto/daily_contract'],
+            'daily_contract_with_permission' => ["class" => App\Data\hitauto\DailyContract::class, "path" => 'hitauto/daily_contract_with_permission'],
             'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'hitauto/daily_invoice'],
             'permission' => ["class" => App\Data\hitauto\Permission::class, "path" => 'hitauto/permission'],
             'sr_en_contract' => ["class" => App\Data\hitauto\LongTermContract::class, "path" =>  'hitauto/sr_en_contract'],

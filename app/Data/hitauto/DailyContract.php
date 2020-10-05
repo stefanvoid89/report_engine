@@ -21,6 +21,7 @@ class DailyContract implements DataInterface
 
         $reservation = collect(DB::connection($connection)->select("SELECT r.acKey, r.anSubjectId
          ,convert(varchar(20),r.adDateFrom,104) as adDate
+         ,convert(varchar(5),convert(time,r.adDateFrom,108))  as adTime
         ,convert(varchar(20),r.adDateFrom,104)+' '+convert(varchar(5),convert(time,r.adDateFrom,108)) as adDateFrom
         ,convert(varchar(20),r.adDateTo,104)+' '+convert(varchar(5),convert(time,r.adDateTo,108))  as adDateTo
         ,r.anCarId , u.acName + ' ' + u.acSurname as acUser, right(convert(char(10),adDateExpCreditCard,103),7) as adDateExpCreditCard
@@ -37,12 +38,11 @@ class DailyContract implements DataInterface
         where s.anId = :subject_id", ['subject_id' => $reservation->anSubjectId]))->first();
 
         $driver = collect(DB::connection($connection)->select("SELECT acName ,acId, acDriverLicence,acAddress,acPhone,
-        convert(varchar(20),adDateOfBirth,104) as adDateOfBirth from _Drivers
+        convert(varchar(20),adDateOfBirth,104) as adDateOfBirth, convert(varchar(20),adDriverLicenceExpDate,104) as adDriverLicenceExpDate  from _Drivers
         where anId = :driver_id", ['driver_id' => $reservation->anDriverId]))->first();
 
-        $car =  collect(DB::connection($connection)->select("SELECT acCarNameShort, acChasis,acRegNo 
+        $car =  collect(DB::connection($connection)->select("SELECT acCarNameShort, acChasis,acRegNo ,acBrand, anFuelTypeId
           ,convert(varchar(20),adDateRegistrationExpiration,104) as adDateRegistrationExpiration from _v_CarExtended
-    
         where anId = :car_id", ['car_id' => $reservation->anCarId]))->first();
 
 

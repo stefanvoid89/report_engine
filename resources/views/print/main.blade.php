@@ -88,6 +88,15 @@
             padding: 5mm 10mm 5mm;
         }
 
+        .sheet.padding-5-20-5mm {
+            padding: 5mm 20mm 5mm;
+        }
+
+        .sheet.padding-5-15-5mm {
+            padding: 5mm 15mm 5mm;
+        }
+
+
         .sheet.padding-5mm {
             padding: 5mm;
         }
