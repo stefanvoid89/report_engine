@@ -94,7 +94,8 @@
         </tr>
         <tr>
             <td class="indent">
-                Zakupac je u potpunosti upoznat sa gore navedenim i voljan da uđe u pravni odnos sa Zakupcem, u skladu
+                Zakupac je u potpunosti upoznat sa gore navedenim i voljan da uđe u pravni odnos sa Zakupodavcem, u
+                skladu
                 sa odredbama ovog Ugovora.
             </td>
         </tr>

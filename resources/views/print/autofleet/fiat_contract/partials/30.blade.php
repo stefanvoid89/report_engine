@@ -142,7 +142,7 @@
         </tr>
         <tr>
             <td>
-                (II) ako je Vozilo oštećeno u saobraćajnoj nesreći ili ako je na drugi
+                (II) ako je Vozilo oštećeno u saobraćajnoj nezgodi ili ako je na drugi
                 način uništeno ali ga nije moguće u okviru razumnih troškova vratiti u
                 prvobitno stanje;
             </td>
@@ -198,10 +198,9 @@
             <td>
                 <ul>
                     <li>Iznos koji je jednak iznosu koji je položen u namenski depozit shodno Članu 9 ovog ugovora
-                        odnosno u skladu sa Ugovor o namenskom depozitu zajedno sa;</li>
-                    <li>
-                        Iznosom koji predstavlja zbir od 9 mesečnih rata zakupnine iz ovog Ugovora;
-                    </li>
+                        odnosno u skladu sa Ugovorom o namenskom depozitu zajedno sa znosom koji predstavlja zbir od 9
+                        mesečnih rata zakupnine iz ovog Ugovora</li>
+
                 </ul>
             </td>
         </tr>
@@ -236,7 +235,7 @@
                 Ukoliko Zakupac otkaže Ugovor shodno tački (I) ovog člana Ugovora nakon proteka perioda od 24 meseca,
                 bez namere i bez podnošenja novog zahteva za zaključenje Ugovora o zakupu sa Zakupodavcem za novi
                 predmet zakupa, dužan je da Zakupodavcu plati penal-novčani iznos koji predstavlja iznos koji je jednak
-                iznosu koji je položen u namenski depozit shodno Članu 9 ovog ugovora odnosno u skladu sa Ugovor o
+                iznosu koji je položen u namenski depozit shodno Članu 9 ovog ugovora odnosno u skladu sa Ugovorom o
                 namenskom depozitu koji čini sastavni deo ovog ugovora i to najkasnije u roku od 15 dana od dana kada ga
                 je Zakupodavac pozvao da to učini uz poštovanje napred navedenog otkaznog roka, pri čemu Zakupodovac ima
                 pravo da ovaj iznos naplati iz depozita shodno Članu 9 ovog Ugovora;
