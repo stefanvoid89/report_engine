@@ -36,7 +36,7 @@
             <td style="text-align:left;font-size:14px;">
 
 
-
+                <div>Registarske oznake: <span style="font-weight: bold">{{$databag->car->acRegNo}}</span></div>
                 <div>Kategorija vozila: <span style="font-weight: bold">{{$databag->car->acType}}</span></div>
                 <div>Marka: <span style="font-weight: bold">{{$databag->car->acBrand}}</span></div>
                 <div>Model: <span style="font-weight: bold">{{$databag->car->acModel}}</span></div>
