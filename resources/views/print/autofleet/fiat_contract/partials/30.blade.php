@@ -233,12 +233,12 @@
         <tr>
             <td>
                 Ukoliko Zakupac otkaže Ugovor shodno tački (I) ovog člana Ugovora nakon proteka perioda od 24 meseca,
-                bez namere i bez podnošenja novog zahteva za zaključenje Ugovora o zakupu sa Zakupodavcem za novi
-                predmet zakupa, dužan je da Zakupodavcu plati penal-novčani iznos koji predstavlja iznos koji je jednak
-                iznosu koji je položen u namenski depozit shodno Članu 9 ovog ugovora odnosno u skladu sa Ugovorom o
-                namenskom depozitu koji čini sastavni deo ovog ugovora i to najkasnije u roku od 15 dana od dana kada ga
-                je Zakupodavac pozvao da to učini uz poštovanje napred navedenog otkaznog roka, pri čemu Zakupodovac ima
-                pravo da ovaj iznos naplati iz depozita shodno Članu 9 ovog Ugovora;
+                bez namere i bez podnošenja novog
+                zahteva za zaključenje Ugovora o zakupu sa Zakupodavcem za novi predmet zakupa, dužan je da Zakupodavcu
+                plati penal-novčani iznos koji
+                predstavlja zbir od 6 mesečnih rata zakupnine iz ovog Ugovora i to najkasnije u roku od 15 dana od dana
+                kada ga je Zakupodavac
+                pozvao da to učini uz poštovanje napred navedenog otkaznog roka
             </td>
         </tr>
         <tr>
