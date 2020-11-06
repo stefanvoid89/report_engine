@@ -60,8 +60,9 @@
 
         <tr>
             <td style="font-weight: bold">
-                Ovlašćenje važi od {{$databag->reservation->adDate}}. god od {{$databag->reservation->adTime}} h do
-                isteka registracije na teritoriji Republike Srbije.
+                Ovlašćenje važi od {{$databag->reservation->adDate}}. god od {{$databag->reservation->adTime}} h
+                @if($databag->is_until_reg_end)do isteka registracije @else do {{$databag->reservation->adDateTo2}}h
+                @endif na teritoriji Republike Srbije.
             </td>
         </tr>
 

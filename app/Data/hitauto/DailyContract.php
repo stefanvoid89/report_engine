@@ -11,6 +11,7 @@ class DailyContract implements DataInterface
     {
 
         $id = $params['id'];
+        $is_until_reg_end = isset($params['is_until_reg_end']) ? $params['is_until_reg_end'] : null;
 
         $title = "Stampa dnevnog ugovora";
 
@@ -24,6 +25,7 @@ class DailyContract implements DataInterface
          ,convert(varchar(5),convert(time,r.adDateFrom,108))  as adTime
         ,convert(varchar(20),r.adDateFrom,104)+' '+convert(varchar(5),convert(time,r.adDateFrom,108)) as adDateFrom
         ,convert(varchar(20),r.adDateTo,104)+' '+convert(varchar(5),convert(time,r.adDateTo,108))  as adDateTo
+        ,convert(varchar(20),r.adDateTo,104)+'. god '+convert(varchar(5),convert(time,r.adDateTo,108))  as adDateTo2
         ,r.anCarId , u.acName + ' ' + u.acSurname as acUser, right(convert(char(10),adDateExpCreditCard,103),7) as adDateExpCreditCard
         ,isnull(cct.acName,'') as acCreditCard, r.acCreditCardNo, r.acCVV,r.acCreditCardHolder, r.anDeposit, r.anDriverId
         , FORMAT(anMilleageFrom,'#,0') as anMilleageFrom ,acTankFrom
@@ -118,7 +120,7 @@ class DailyContract implements DataInterface
             'car' => $car, 'items' => $items, 'currency' => $currency, 'total_value' => $total_value,
             'selected_ext_car_damages' => $selected_ext_car_damages, 'car_damage' => $car_damage,
             'selected_ext_car_damages_full' => $selected_ext_car_damages_full,
-            'selected_int_car_damages_full' => $selected_int_car_damages_full
+            'selected_int_car_damages_full' => $selected_int_car_damages_full, 'is_until_reg_end' => $is_until_reg_end
         ];
 
 
