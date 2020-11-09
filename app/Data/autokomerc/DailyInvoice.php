@@ -41,6 +41,10 @@ class DailyInvoice implements DataInterface
 
 
         $reservation_id = $invoice_header->anReservationId;
+        if (!$reservation_id) {
+            $reservation_id = collect(DB::connection($connection)->select("SELECT top 1 anReservationId  from _InvoiceItems where anInvoiceId = ?", [$id]))
+                ->first()->anReservationId;
+        }
 
         $car = collect(DB::connection($connection)->select("SELECT c.acCarNameShort as acName, c.acRegNo, c.acChasis	 from _v_CarExtended c inner join _Reservations r on r.anCarId = c.anId
         where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first();
