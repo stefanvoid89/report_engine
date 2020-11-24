@@ -5,9 +5,12 @@ function Report(data) {
         "text/html"
     ).body.firstChild;
 
-    this.nodes = data.nodes.map(
-        node => dom_parser.parseFromString(node, "text/html").body.firstChild
+
+    this.nodes = []
+     data.nodes.forEach(
+        node => {this.nodes.push(...dom_parser.parseFromString(node, "text/html").body.children) }
     );
+
     this.config = data.config;
 
     this.elements = [];
@@ -327,6 +330,7 @@ Report.prototype.mount_nodes = function() {
         var _elements = this.elements.filter(element => element.page == i);
         let page = this.page.cloneNode(true);
         page.innerHTML = page.innerHTML.replace("#strana#", i);
+        page.innerHTML = page.innerHTML.replace("#uk_strana#", page_count);
         var content_node = page.querySelector("#content");
         _elements.map(element => {
             // broj strane

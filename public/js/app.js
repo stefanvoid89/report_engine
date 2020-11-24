@@ -30207,11 +30207,28 @@ window.addEventListener("load", function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function Report(data) {
+  var _this = this;
+
   var dom_parser = new DOMParser();
   this.page = dom_parser.parseFromString(data.page, "text/html").body.firstChild;
-  this.nodes = data.nodes.map(function (node) {
-    return dom_parser.parseFromString(node, "text/html").body.firstChild;
+  this.nodes = [];
+  data.nodes.forEach(function (node) {
+    var _this$nodes;
+
+    (_this$nodes = _this.nodes).push.apply(_this$nodes, _toConsumableArray(dom_parser.parseFromString(node, "text/html").body.children));
   });
   this.config = data.config;
   this.elements = [];
@@ -30427,7 +30444,7 @@ Report.prototype.parse_nodes = function () {
 };
 
 Report.prototype.mount_nodes = function () {
-  var _this = this;
+  var _this2 = this;
 
   //drugi deo renderovanje nodova
   //var uveden zbog footer reda
@@ -30444,12 +30461,13 @@ Report.prototype.mount_nodes = function () {
 
     var page = this.page.cloneNode(true);
     page.innerHTML = page.innerHTML.replace("#strana#", i);
+    page.innerHTML = page.innerHTML.replace("#uk_strana#", page_count);
     var content_node = page.querySelector("#content");
 
     _elements.map(function (element) {
       // broj strane
       element.node.innerHTML = element.node.innerHTML.replace("#strana#", i);
-      content_node.style.height = _this.page_height;
+      content_node.style.height = _this2.page_height;
       content_node.appendChild(element.node);
     });
 

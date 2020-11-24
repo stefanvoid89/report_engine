@@ -20,13 +20,15 @@ class PrintController extends Controller
         $all_config = config('report');
         $main_config = [];
 
+        // dd($query);
+
         try {
             $hash = $query['hash'];
             $report = $query['report'];
             $main_config = $all_config[$hash];
-            $params = $query['params'];
+            $params = array_key_exists("params", $query) ? $query['params'] : [];
         } catch (\Exception $ex) {
-            return;
+            return $ex;
         }
         $connection = $main_config['connection'];
 
@@ -35,7 +37,7 @@ class PrintController extends Controller
         $service = new $service_name();
         $databag = (object) $service->getData($params, $connection);
 
-        //dd($databag);
+        //dd($databag->invoices);
 
         $report_path = $main_config['reports'][$report]['path'] ?? 'common/' . $report;
 
@@ -84,19 +86,19 @@ class PrintController extends Controller
 
         //   dd($partials);
 
-        $test = [];
+        // $test = [];
 
         foreach ($partials as $partial) {
 
 
-            array_push($test, $partial);
+            //array_push($test, $partial);
 
             // $rendered = view('print.reports.' . $report . '.partials.' . $partial, ['databag' => $databag])->render();
             $rendered = view('print.' . str_replace('/', '.', $report_path) . '.partials.' . $partial, ['databag' => $databag])->render();
 
             array_push($nodes, $rendered);
         }
-        //  dd($test);
+        //   dd($nodes);
 
 
         $data = ["config" => $config, "nodes" => $nodes, "page" => $page];
