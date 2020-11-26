@@ -26,6 +26,7 @@
                 </tr>
                 <tr>
                     <td>Parametri:</td>
+                    <td>{{$databag->parameters}}</td>
                 </tr>
             </table>
 
