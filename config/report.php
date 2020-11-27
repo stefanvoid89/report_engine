@@ -13,6 +13,7 @@ return [
             'daily_invoice' => ["class" => App\Data\hitauto\DailyInvoice::class, "path" => 'hitauto/daily_invoice'],
             'permission' => ["class" => App\Data\hitauto\Permission::class, "path" => 'hitauto/permission'],
             'sr_en_contract' => ["class" => App\Data\hitauto\LongTermContract::class, "path" =>  'hitauto/sr_en_contract'],
+            'longterm_contract' => ["class" => App\Data\hitauto\LongTermContract::class, "path" =>  'hitauto/longterm_contract'],
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
         ]
