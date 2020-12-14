@@ -47,7 +47,7 @@
         <tr>
             <th style="width:65px;text-align: center">Datum </th>
             <th style="width:90px;text-align: left"> Račun </th>
-            <th style="width:90px;text-align: left"> Ugovor</th>
+            <th style="width:90px;text-align: left"> Vozilo</th>
             <th style=";text-align: left"> Klijent </th>
             <th style="width:60px;text-align: right">Kurs</th>
             <th style="width:60px;text-align: right">Vrednost</th>
@@ -66,7 +66,7 @@
         <tr>
             <td style="width:65px;text-align: center"> {{$invoice->adDate}} </td>
             <td style="width:90px;text-align: left"> {{$invoice->acKey	}} </td>
-            <td style="width:90px;text-align: left"> {{$invoice->acContract}} </td>
+            <td style="width:90px;text-align: left"> {{$invoice->acRegNo}} </td>
             <td style=";text-align: left"> {{$invoice->acName}} </td>
             <td style="width:60px;text-align: right"> {{number_format($invoice->anFxRate,2)}} </td>
             <td style="width:60px;text-align: right"> {{number_format($invoice->anValue,2)}} </td>

@@ -16,6 +16,7 @@ return [
             'longterm_contract' => ["class" => App\Data\hitauto\LongTermContract::class, "path" =>  'hitauto/longterm_contract'],
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
+            'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
         ]
     ],
     "QeJvjtrqGHafBsNNzYlC4jbkAVryldEudUkETAJsT2Sl8AU3gE" => [
@@ -28,6 +29,7 @@ return [
             'permission' => ["class" => App\Data\autokomerc\Permission::class, "path" => 'autofleet/permission'],
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
+            'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
         ]
     ],
 
@@ -47,6 +49,7 @@ return [
             'permission' => ["class" => App\Data\autofleet\Permission::class, "path" => 'autofleet/permission'],
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
+            'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
         ]
     ],
 
