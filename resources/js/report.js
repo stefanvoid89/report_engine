@@ -7,8 +7,8 @@ function Report(data) {
 
 
     this.nodes = []
-     data.nodes.forEach(
-        node => {this.nodes.push(...dom_parser.parseFromString(node, "text/html").body.children) }
+    data.nodes.forEach(
+        node => { this.nodes.push(...dom_parser.parseFromString(node, "text/html").body.children) }
     );
 
     this.config = data.config;
@@ -18,7 +18,7 @@ function Report(data) {
     this.page_height = this.get_page_height();
 }
 
-Report.prototype.get_page_height = function() {
+Report.prototype.get_page_height = function () {
     var base_element = this.page;
     var element = base_element.cloneNode(true);
     var dom_element = document.body.appendChild(element);
@@ -100,11 +100,11 @@ Report.prototype.get_page_height = function() {
     return height;
 };
 
-Report.prototype.showmessage = function() {
+Report.prototype.showmessage = function () {
     console.log(this);
 };
 
-Report.prototype.get_element_height = function(id) {
+Report.prototype.get_element_height = function (id) {
     var base_element = this.nodes[id];
     var element = base_element.cloneNode(true);
 
@@ -127,7 +127,7 @@ Report.prototype.get_element_height = function(id) {
     return height;
 };
 
-Report.prototype.test = function(id) {
+Report.prototype.test = function (id) {
     var base_element = this.nodes[id];
     var element = base_element.cloneNode(true);
 
@@ -164,7 +164,7 @@ Report.prototype.test = function(id) {
     return height;
 };
 
-Report.prototype.parse_nodes = function() {
+Report.prototype.parse_nodes = function () {
     let remained_page_height = this.page_height;
     let page_counter = 1;
     let elements = [];
@@ -179,25 +179,13 @@ Report.prototype.parse_nodes = function() {
         let node_height = this.get_element_height(index);
 
         console.log(
-            `Node no. ${index + 1} od ${
-                this.nodes.length
+            `Node no. ${index + 1} od ${this.nodes.length
             } nodova je visina ${node_height}`
         );
 
         // svaki element je tabela sa klasom parent koja moze da bude renderovana iscela ili podeljena na vise strana u okvirima headera i footera
         let element = this.nodes[index].cloneNode(true);
 
-        // if (node_height > this.page_height) {
-        //     console.log(
-        //         `Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!! ----> page height je ${
-        //             this.page_height
-        //         } a node no. ${index + 1} od ${
-        //             this.nodes.length
-        //         } nodova je visina ${node_height}`
-        //     );
-
-        //     return;
-        // }
 
         if (element.classList.contains("footer")) {
             if (remained_page_height > node_height) {
@@ -261,54 +249,92 @@ Report.prototype.parse_nodes = function() {
             } else {
                 // sa new_element se "skidaju" redovi i dodaju na  _new_element ; prvo se _new_element brise do headera i onda se puni redovima iz new_element
 
-                var new_element = element.cloneNode(true);
-                var _new_element = element.cloneNode(true);
+                window._node = element;
+                console.log(
+                    `   Node ima vecu visinu od strane - deljenje`
+                );
 
-                _new_element.removeChild(_new_element.tBodies[0]);
+                var _element = element.cloneNode(true);
+                let elementForPush = element.cloneNode(true);
+    
+                elementForPush.removeChild(elementForPush.tBodies[0]);
                 let tBody = document.createElement("tBody");
-                _new_element.appendChild(tBody);
+                elementForPush.appendChild(tBody);
+
+
 
                 // page_for_measure sluzi za pakovanje contenta kako bi se videlo koliko mesta je ostalo na strani
 
-                var page_for_measure = this.page.cloneNode(true);
-                document.body.appendChild(page_for_measure);
+                var pageElement = this.page.cloneNode(true);
+                document.body.appendChild(pageElement);
 
-                var dom_element = page_for_measure
+                var pageElementForPush = this.page.cloneNode(true);
+                document.body.appendChild(pageElementForPush);
+
+ 
+
+                    var elementForPushDOM = pageElementForPush
                     .querySelector("#content")
-                    .appendChild(new_element);
+                    .appendChild(elementForPush.cloneNode(true));
 
-                for (
-                    var i = new_element.tBodies[0].rows.length - 1;
-                    i >= 0;
-                    i--
-                ) {
-                    var height = new_element.offsetHeight;
+    
 
-                    if (height > remained_page_height) {
-                        var row = new_element.tBodies[0].rows[i].cloneNode(
-                            true
-                        );
-                        _new_element.tBodies[0].insertBefore(
-                            row,
-                            _new_element.tBodies[0].rows[0]
-                        );
-                        new_element.tBodies[0].deleteRow(i);
-                    } else {
-                        break;
+                for (var i = 0; i <=_element.tBodies[0].rows.length - 1; i++) {
+                                
+                    var row = _element.tBodies[0].rows[i].cloneNode(true);
+                    let child = elementForPushDOM.tBodies[0].appendChild(row) 
+                    var elementForPushHeight = elementForPushDOM.offsetHeight;
+
+
+                    if (elementForPushHeight > remained_page_height){
+                        if((elementForPushHeight > remained_page_height) && (i == 0)){
+                            console.log("ovde glavim")
+                                page_counter++;
+                                elements.push({
+                                    node: elementForPushDOM.cloneNode(true),
+                                    page: page_counter
+                                });
+                                remained_page_height = this.page_height;
+                                continue;
+                            }
+
+                            elementForPushDOM.tBodies[0].removeChild(child);
+                            elements.push({
+                                node: elementForPushDOM.cloneNode(true),
+                                page: page_counter
+                            });
+                            i--;
+                            page_counter++;
+                            remained_page_height = this.page_height;
+
+                            
+                        elementForPushDOM.removeChild(elementForPushDOM.tBodies[0]);
+                        let tBody = document.createElement("tBody");
+                        elementForPushDOM.appendChild(tBody);
+                            continue;
                     }
+
+
+                    if (i == (_element.tBodies[0].rows.length - 1) ) {
+        
+                        elements.push({
+                            node: elementForPushDOM.cloneNode(true),
+                            page: page_counter
+                        });
+
+                        remained_page_height = this.page_height - elementForPushDOM.offsetHeight
+      
+                        }
+
+          
+
+                
                 }
 
-                document.body.removeChild(page_for_measure);
+                document.body.removeChild(pageElement);
+                document.body.removeChild(pageElementForPush);
+                
 
-                // ovo je glavna caka -- this.nodes je lista svih parent nodova; ovde se "umece" novi node koji u ovoj istoj petlji dolazi naredni na obradu
-                // i tako fakticki rekurzivno dok se ne "potrosi"
-                this.nodes.splice(index + 1, 0, _new_element);
-                elements.push({
-                    node: new_element,
-                    page: page_counter
-                });
-                page_counter++;
-                remained_page_height = this.page_height;
             }
         }
     }
@@ -318,7 +344,7 @@ Report.prototype.parse_nodes = function() {
     this.elements = elements;
 };
 
-Report.prototype.mount_nodes = function() {
+Report.prototype.mount_nodes = function () {
     //drugi deo renderovanje nodova
 
     //var uveden zbog footer reda
@@ -345,12 +371,12 @@ Report.prototype.mount_nodes = function() {
     }
 };
 
-Report.prototype.render_report = function() {
+Report.prototype.render_report = function () {
     this.parse_nodes();
     this.mount_nodes();
 };
 
-Report.prototype.mount_page = function() {
+Report.prototype.mount_page = function () {
     var page = this.page.cloneNode(true);
     document.body.appendChild(page);
 };

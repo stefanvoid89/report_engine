@@ -30327,16 +30327,7 @@ Report.prototype.parse_nodes = function () {
     var node_height = this.get_element_height(index);
     console.log("Node no. ".concat(index + 1, " od ").concat(this.nodes.length, " nodova je visina ").concat(node_height)); // svaki element je tabela sa klasom parent koja moze da bude renderovana iscela ili podeljena na vise strana u okvirima headera i footera
 
-    var element = this.nodes[index].cloneNode(true); // if (node_height > this.page_height) {
-    //     console.log(
-    //         `Renderovanje se ne moze nastaviti!!!!!!!!!!!!!!!! ----> page height je ${
-    //             this.page_height
-    //         } a node no. ${index + 1} od ${
-    //             this.nodes.length
-    //         } nodova je visina ${node_height}`
-    //     );
-    //     return;
-    // }
+    var element = this.nodes[index].cloneNode(true);
 
     if (element.classList.contains("footer")) {
       if (remained_page_height > node_height) {
@@ -30396,45 +30387,67 @@ Report.prototype.parse_nodes = function () {
         remained_page_height -= node_height;
       } else {
         // sa new_element se "skidaju" redovi i dodaju na  _new_element ; prvo se _new_element brise do headera i onda se puni redovima iz new_element
-        var new_element = element.cloneNode(true);
+        window._node = element;
+        console.log("   Node ima vecu visinu od strane - deljenje");
 
-        var _new_element = element.cloneNode(true);
+        var _element = element.cloneNode(true);
 
-        _new_element.removeChild(_new_element.tBodies[0]);
-
+        var elementForPush = element.cloneNode(true);
+        elementForPush.removeChild(elementForPush.tBodies[0]);
         var tBody = document.createElement("tBody");
+        elementForPush.appendChild(tBody); // page_for_measure sluzi za pakovanje contenta kako bi se videlo koliko mesta je ostalo na strani
 
-        _new_element.appendChild(tBody); // page_for_measure sluzi za pakovanje contenta kako bi se videlo koliko mesta je ostalo na strani
+        var pageElement = this.page.cloneNode(true);
+        document.body.appendChild(pageElement);
+        var pageElementForPush = this.page.cloneNode(true);
+        document.body.appendChild(pageElementForPush);
+        var elementForPushDOM = pageElementForPush.querySelector("#content").appendChild(elementForPush.cloneNode(true));
 
+        for (var i = 0; i <= _element.tBodies[0].rows.length - 1; i++) {
+          var row = _element.tBodies[0].rows[i].cloneNode(true);
 
-        var page_for_measure = this.page.cloneNode(true);
-        document.body.appendChild(page_for_measure);
-        var dom_element = page_for_measure.querySelector("#content").appendChild(new_element);
+          var child = elementForPushDOM.tBodies[0].appendChild(row);
+          var elementForPushHeight = elementForPushDOM.offsetHeight;
 
-        for (var i = new_element.tBodies[0].rows.length - 1; i >= 0; i--) {
-          var height = new_element.offsetHeight;
+          if (elementForPushHeight > remained_page_height) {
+            if (elementForPushHeight > remained_page_height && i == 0) {
+              console.log("ovde glavim");
+              page_counter++;
+              elements.push({
+                node: elementForPushDOM.cloneNode(true),
+                page: page_counter
+              });
+              remained_page_height = this.page_height;
+              continue;
+            }
 
-          if (height > remained_page_height) {
-            var row = new_element.tBodies[0].rows[i].cloneNode(true);
+            elementForPushDOM.tBodies[0].removeChild(child);
+            elements.push({
+              node: elementForPushDOM.cloneNode(true),
+              page: page_counter
+            });
+            i--;
+            page_counter++;
+            remained_page_height = this.page_height;
+            elementForPushDOM.removeChild(elementForPushDOM.tBodies[0]);
 
-            _new_element.tBodies[0].insertBefore(row, _new_element.tBodies[0].rows[0]);
+            var _tBody = document.createElement("tBody");
 
-            new_element.tBodies[0].deleteRow(i);
-          } else {
-            break;
+            elementForPushDOM.appendChild(_tBody);
+            continue;
+          }
+
+          if (i == _element.tBodies[0].rows.length - 1) {
+            elements.push({
+              node: elementForPushDOM.cloneNode(true),
+              page: page_counter
+            });
+            remained_page_height = this.page_height - elementForPushDOM.offsetHeight;
           }
         }
 
-        document.body.removeChild(page_for_measure); // ovo je glavna caka -- this.nodes je lista svih parent nodova; ovde se "umece" novi node koji u ovoj istoj petlji dolazi naredni na obradu
-        // i tako fakticki rekurzivno dok se ne "potrosi"
-
-        this.nodes.splice(index + 1, 0, _new_element);
-        elements.push({
-          node: new_element,
-          page: page_counter
-        });
-        page_counter++;
-        remained_page_height = this.page_height;
+        document.body.removeChild(pageElement);
+        document.body.removeChild(pageElementForPush);
       }
     }
   }
