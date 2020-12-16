@@ -247,7 +247,6 @@ Report.prototype.parse_nodes = function () {
                 });
                 remained_page_height -= node_height;
             } else {
-                // sa new_element se "skidaju" redovi i dodaju na  _new_element ; prvo se _new_element brise do headera i onda se puni redovima iz new_element
 
                 window._node = element;
                 console.log(
@@ -265,8 +264,6 @@ Report.prototype.parse_nodes = function () {
 
                 // page_for_measure sluzi za pakovanje contenta kako bi se videlo koliko mesta je ostalo na strani
 
-                var pageElement = this.page.cloneNode(true);
-                document.body.appendChild(pageElement);
 
                 var pageElementForPush = this.page.cloneNode(true);
                 document.body.appendChild(pageElementForPush);
@@ -288,13 +285,15 @@ Report.prototype.parse_nodes = function () {
 
                     if (elementForPushHeight > remained_page_height){
                         if((elementForPushHeight > remained_page_height) && (i == 0)){
-                            console.log("ovde glavim")
                                 page_counter++;
                                 elements.push({
                                     node: elementForPushDOM.cloneNode(true),
                                     page: page_counter
                                 });
                                 remained_page_height = this.page_height;
+                                elementForPushDOM.removeChild(elementForPushDOM.tBodies[0]);
+                                let tBody = document.createElement("tBody");
+                                elementForPushDOM.appendChild(tBody);
                                 continue;
                             }
 
@@ -330,8 +329,6 @@ Report.prototype.parse_nodes = function () {
 
                 
                 }
-
-                document.body.removeChild(pageElement);
                 document.body.removeChild(pageElementForPush);
                 
 
