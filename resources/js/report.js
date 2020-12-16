@@ -321,7 +321,8 @@ Report.prototype.parse_nodes = function () {
                             page: page_counter
                         });
 
-                        remained_page_height = this.page_height - elementForPushDOM.offsetHeight
+                        remained_page_height -= elementForPushDOM.offsetHeight;
+                     
       
                         }
 
