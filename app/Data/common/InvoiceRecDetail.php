@@ -51,11 +51,16 @@ class InvoiceRecDetail implements DataInterface
 
         $_invoices = collect(DB::connection($connection)->select("SELECT i.acKey, c.acRegNo,s.acName,i.acCurrency, i.anFxRate
         , convert(varchar(20),i.adDate,104) as adDate, v.anVat
-        , sum(ii.anValue) as anValue,sum(ii.anVatValue) as anVatValue, sum(ii.anTotalValue) as anTotalValue
-        , sum(ii.anValueRSD) as anValueRSD,sum(ii.anVatValueRSD) as anVatValueRSD ,sum(ii.anTotalValueRSD) as anTotalValueRSD
+        , sum(case when irt.acType = 'lizing' then cast(ii.anValue * 0.8333 as decimal(19,2)) else ii.anValue end)  as anValue
+		, sum(case when irt.acType = 'lizing' then cast(ii.anValue * 0.1666 as decimal(19,2)) else ii.anVatValue end) as anVatValue
+		, sum(ii.anTotalValue) as anTotalValue
+        , sum(case when irt.acType = 'lizing' then cast(ii.anValueRSD * 0.8333 as decimal(19,2)) else ii.anValueRSD end) as anValueRSD
+		,sum(case when irt.acType = 'lizing' then cast(ii.anValueRSD * 0.1666 as decimal(19,2)) else ii.anVatValueRSD end) as anVatValueRSD 
+		,sum(ii.anTotalValueRSD) as anTotalValueRSD
         from _InvoicesRec i inner join _InvoiceRecItems ii on ii.anInvoiceRecId = i.anId
         inner join _Subjects s on s.anId = i.anSubjectId
         inner join _Vat v on v.anId = i.anVatId
+        inner join _InvoicesReceivedTypes irt on irt.anId = i.anTypeId
         left join dbo._f_CarExtended() c on c.anId = ii.anCarId
         where 1=1
 		and (i.adDate >=  :_date_from or :date_from is null)
