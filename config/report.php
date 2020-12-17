@@ -17,6 +17,7 @@ return [
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
+            'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
         ]
     ],
     "QeJvjtrqGHafBsNNzYlC4jbkAVryldEudUkETAJsT2Sl8AU3gE" => [
@@ -30,6 +31,7 @@ return [
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
+            'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
         ]
     ],
 
@@ -50,6 +52,7 @@ return [
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
+            'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
         ]
     ],
 
