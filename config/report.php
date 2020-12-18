@@ -16,6 +16,7 @@ return [
             'longterm_contract' => ["class" => App\Data\hitauto\LongTermContract::class, "path" =>  'hitauto/longterm_contract'],
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
+            'invoice_ident_sum' => ["class" => App\Data\common\InvoiceIdentSum::class, "path" =>  'common/invoice_ident_sum'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
             'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
         ]
@@ -30,6 +31,7 @@ return [
             'permission' => ["class" => App\Data\autokomerc\Permission::class, "path" => 'autofleet/permission'],
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
+            'invoice_ident_sum' => ["class" => App\Data\common\InvoiceIdentSum::class, "path" =>  'common/invoice_ident_sum'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
             'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
         ]
@@ -51,6 +53,7 @@ return [
             'permission' => ["class" => App\Data\autofleet\Permission::class, "path" => 'autofleet/permission'],
 
             'invoice_detail' => ["class" => App\Data\common\InvoiceDetail::class, "path" =>  'common/invoice_detail'],
+            'invoice_ident_sum' => ["class" => App\Data\common\InvoiceIdentSum::class, "path" =>  'common/invoice_ident_sum'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
             'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
         ]
