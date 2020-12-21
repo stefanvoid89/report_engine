@@ -19,6 +19,12 @@ return [
             'invoice_ident_sum' => ["class" => App\Data\common\InvoiceIdentSum::class, "path" =>  'common/invoice_ident_sum'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
             'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
+            'subject_invoice' => ["class" => App\Data\common\SubjectInvoice::class, "path" =>  'common/subject_invoice'],
+            'subject_invoice_rec' => ["class" => App\Data\common\SubjectInvoiceRec::class, "path" =>  'common/subject_invoice_rec'],
+            'contract_detail' => ["class" => App\Data\common\ContractDetail::class, "path" =>  'common/contract_detail'],
+            'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
+
+
         ]
     ],
     "QeJvjtrqGHafBsNNzYlC4jbkAVryldEudUkETAJsT2Sl8AU3gE" => [
@@ -34,6 +40,10 @@ return [
             'invoice_ident_sum' => ["class" => App\Data\common\InvoiceIdentSum::class, "path" =>  'common/invoice_ident_sum'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
             'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
+            'subject_invoice' => ["class" => App\Data\common\SubjectInvoice::class, "path" =>  'common/subject_invoice'],
+            'subject_invoice_rec' => ["class" => App\Data\common\SubjectInvoiceRec::class, "path" =>  'common/subject_invoice_rec'],
+            'contract_detail' => ["class" => App\Data\common\ContractDetail::class, "path" =>  'common/contract_detail'],
+            'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
         ]
     ],
 
@@ -56,6 +66,10 @@ return [
             'invoice_ident_sum' => ["class" => App\Data\common\InvoiceIdentSum::class, "path" =>  'common/invoice_ident_sum'],
             'invoice_rec_detail' => ["class" => App\Data\common\InvoiceRecDetail::class, "path" =>  'common/invoice_rec_detail'],
             'invoice_rec_pay' => ["class" => App\Data\common\InvoiceRecPay::class, "path" =>  'common/invoice_rec_pay'],
+            'subject_invoice' => ["class" => App\Data\common\SubjectInvoice::class, "path" =>  'common/subject_invoice'],
+            'subject_invoice_rec' => ["class" => App\Data\common\SubjectInvoiceRec::class, "path" =>  'common/subject_invoice_rec'],
+            'contract_detail' => ["class" => App\Data\common\ContractDetail::class, "path" =>  'common/contract_detail'],
+            'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
         ]
     ],
 
