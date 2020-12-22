@@ -51,8 +51,8 @@ class InvoiceRecPay implements DataInterface
         rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite, rtrim(acEmail) acEmail, rtrim(acPost) acPost
         from _Subjects where anId = 1"))->first();
 
-        $_invoices = collect(DB::connection($connection)->select("SELECT i.acKey, c.acRegNo,s.acName,i.acCurrency, i.anFxRate
-		,irt.acType,irp.anValue,irp.anValueRSD, convert(varchar(20),irp.adDateDue,104) as adDateDue
+        $_invoices = collect(DB::connection($connection)->select("SELECT i.acKey as Racun, c.acRegNo as Vozilo,s.acName as Dobavljac,i.acCurrency as Valuta, i.anFxRate as Kurs
+		,irt.acType as Tip,irp.anValue as Total,irp.anValueRSD as Total_RSD, convert(varchar(20),irp.adDateDue,104) as Datum
 		from _InvoicesRec i
 		inner join  _InvoiceRecPays irp on i.anId = irp.anInvoiceRecId
 		      inner join _Subjects s on s.anId = i.anSubjectId
@@ -90,7 +90,7 @@ class InvoiceRecPay implements DataInterface
 
 
         $invoices = $_invoices;
-        $sum = $invoices->sum("anValueRSD");
+        $sum = $invoices->sum("Total_RSD");
 
 
         $date_from_param = $date_from ? 'Datum od: ' . date('d.m.yy', strtotime($date_from))  : '';
@@ -110,7 +110,7 @@ class InvoiceRecPay implements DataInterface
 
 
         $databag = [
-            'title' => $title, 'company_info' => $company_info, 'invoices' => $invoices, "sum" => $sum, 'parameters' => $parameters
+            'title' => $title, 'company_info' => $company_info, 'invoices' => $invoices, "sum" => $sum, 'parameters' => $parameters, 'data' => $invoices
         ];
 
 

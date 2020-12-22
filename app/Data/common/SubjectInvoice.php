@@ -49,7 +49,7 @@ class SubjectInvoice implements DataInterface
         rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite, rtrim(acEmail) acEmail, rtrim(acPost) acPost
         from _Subjects where anId = 1"))->first();
 
-        $_invoices = collect(DB::connection($connection)->select("SELECT s.acName,st.acSubjectType,sum(ii.anTotalValueRSD) as anTotalValueRSD
+        $_invoices = collect(DB::connection($connection)->select("SELECT s.acName as Klijent,st.acSubjectType as Tip,sum(ii.anTotalValueRSD) as Total_RSD
         from _invoices i inner join _InvoiceItems ii on ii.anInvoiceId = i.anId
         inner join _Subjects s on s.anId = i.anSubjectId
 		inner join _SubjectTypes st on st.anId = s.anSubjectTypeId
@@ -69,7 +69,7 @@ class SubjectInvoice implements DataInterface
 		and (s.anId = :_subject_id or :subject_id is null)
 		and (s.anSubjectTypeId = :_subject_type or :subject_type is null)
         group by  s.acname,st.acSubjectType
-		 order by anTotalValueRSD desc", [
+		 order by Total_RSD desc", [
             '_date_from' => $date_from, 'date_from' => $date_from,
             '_date_to' => $date_to, 'date_to' => $date_to,
             '_car_id' => $car_id, 'car_id' => $car_id,
@@ -87,7 +87,7 @@ class SubjectInvoice implements DataInterface
         ]));
 
         $invoices = $_invoices;
-        $sum = $invoices->sum("anTotalValueRSD");
+        $sum = $invoices->sum("Total_RSD");
 
 
         $date_from_param = $date_from ? 'Datum od: ' . date('d.m.yy', strtotime($date_from))  : '';
@@ -106,7 +106,7 @@ class SubjectInvoice implements DataInterface
 
 
         $databag = [
-            'title' => $title, 'company_info' => $company_info, 'invoices' => $invoices, "sum" => $sum, 'parameters' => $parameters
+            'title' => $title, 'company_info' => $company_info, 'invoices' => $invoices, "sum" => $sum, 'parameters' => $parameters, 'data' => $invoices
         ];
 
 

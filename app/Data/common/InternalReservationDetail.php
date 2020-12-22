@@ -114,7 +114,7 @@ class InternalReservationDetail implements DataInterface
 
 
         $databag = [
-            'title' => $title, 'company_info' => $company_info, 'contracts' => $contracts, 'parameters' => $parameters
+            'title' => $title, 'company_info' => $company_info, 'contracts' => $contracts, 'parameters' => $parameters, 'data' => $contracts
         ];
 
 

@@ -106,6 +106,38 @@ class PrintController extends Controller
         return view("print.main", ['title' => $title, 'data' => collect($data), 'style' => $style, 'size' => $size]);
     }
 
+    public function api(Request $request)
+    {
+
+        $query = $request->all();
+
+        //   return $query;
+
+        $hash = "";
+        $params = [];
+        $all_config = config('report');
+        $main_config = [];
+
+        // dd($query);
+
+        try {
+            $hash = $query['hash'];
+            $report = $query['report'];
+            $main_config = $all_config[$hash];
+            $params = array_key_exists("params", $query) ? $query['params'] : [];
+        } catch (\Exception $ex) {
+            return $ex;
+        }
+        $connection = $main_config['connection'];
+
+        $service_name = $main_config['reports'][$report]['class'];
+        // dd($service_name);
+        $service = new $service_name();
+        $databag = (object) $service->getData($params, $connection);
+
+        return response()->json($databag);
+    }
+
     public function test()
     {
         return "hello from report_engine";

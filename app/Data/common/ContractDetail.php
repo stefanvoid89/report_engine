@@ -122,7 +122,7 @@ class ContractDetail implements DataInterface
 
 
         $databag = [
-            'title' => $title, 'company_info' => $company_info, 'contracts' => $contracts, 'parameters' => $parameters, "sum" => $sum
+            'title' => $title, 'company_info' => $company_info, 'contracts' => $contracts, 'parameters' => $parameters, "sum" => $sum, 'data' => $contracts
         ];
 
 

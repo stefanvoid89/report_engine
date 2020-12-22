@@ -49,7 +49,8 @@ class InvoiceIdentSum implements DataInterface
         rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite, rtrim(acEmail) acEmail, rtrim(acPost) acPost
         from _Subjects where anId = 1"))->first();
 
-        $_invoices = collect(DB::connection($connection)->select("SELECT si.acIdent, si.acName, ii.acUm,sum(ii.anQty) as anQty,sum(ii.anTotalValueRSD) as anTotalValueRSD
+        $_invoices = collect(DB::connection($connection)->select("SELECT si.acIdent as Ident, si.acName as Naziv, ii.acUm as JM
+        ,sum(ii.anQty) as Kolicina,sum(ii.anTotalValueRSD) as Total
         from _invoices i inner join _InvoiceItems ii on ii.anInvoiceId = i.anId
         inner join _SetItem si on ii.anIdentId = si.anId
         inner join _Subjects s on s.anId = i.anSubjectId
@@ -106,7 +107,7 @@ class InvoiceIdentSum implements DataInterface
 
 
         $databag = [
-            'title' => $title, 'company_info' => $company_info, 'invoices' => $invoices, "sum" => $sum, 'parameters' => $parameters
+            'title' => $title, 'company_info' => $company_info, 'invoices' => $invoices, "sum" => $sum, 'parameters' => $parameters, 'data' => $invoices
         ];
 
 

@@ -58,12 +58,12 @@
 
         <tr>
 
-            <td style="width:90px;text-align: left"> {{$invoice->acIdent}} </td>
-            <td style=";text-align: left"> {{$invoice->acName}} </td>
-            <td style="width:60px;text-align: right"> {{number_format($invoice->anQty,2)}} </td>
-            <td style=";text-align: center"> {{$invoice->acUm}} </td>
+            <td style="width:90px;text-align: left"> {{$invoice->Ident}} </td>
+            <td style=";text-align: left"> {{$invoice->Naziv}} </td>
+            <td style="width:60px;text-align: right"> {{number_format($invoice->Kolicina,2)}} </td>
+            <td style=";text-align: center"> {{$invoice->JM}} </td>
 
-            <td style="width:90px;text-align: right"> {{number_format($invoice->anTotalValueRSD,2)	}} </td>
+            <td style="width:90px;text-align: right"> {{number_format($invoice->Total,2)	}} </td>
 
         </tr>
         @endforeach

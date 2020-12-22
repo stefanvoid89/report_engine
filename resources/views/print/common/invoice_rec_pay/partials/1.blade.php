@@ -55,17 +55,17 @@
         @foreach($databag->invoices as $invoice)
 
         <tr>
-            <td style="width:65px;text-align: center"> {{$invoice->adDateDue}} </td>
-            <td style="width:90px;text-align: left"> {{$invoice->acKey	}} </td>
-            <td style="width:90px;text-align: left"> {{$invoice->acRegNo}} </td>
-            <td style=";text-align: left"> {{$invoice->acType}} </td>
-            <td style=";text-align: left"> {{$invoice->acName}} </td>
-            <td style=";text-align: left"> {{$invoice->acCurrency}} </td>
+            <td style="width:65px;text-align: center"> {{$invoice->Datum}} </td>
+            <td style="width:90px;text-align: left"> {{$invoice->Racun	}} </td>
+            <td style="width:90px;text-align: left"> {{$invoice->Vozilo}} </td>
+            <td style=";text-align: left"> {{$invoice->Tip}} </td>
+            <td style=";text-align: left"> {{$invoice->Dobavljac}} </td>
+            <td style=";text-align: left"> {{$invoice->Valuta}} </td>
 
-            <td style="width:60px;text-align: right"> {{number_format($invoice->anFxRate,2)}} </td>
+            <td style="width:60px;text-align: right"> {{number_format($invoice->Kurs,2)}} </td>
 
-            <td style="width:90px;text-align: right"> {{number_format($invoice->anValue,2)	}} </td>
-            <td style="width:90px;text-align: right"> {{number_format($invoice->anValueRSD,2)	}} </td>
+            <td style="width:90px;text-align: right"> {{number_format($invoice->Total,2)	}} </td>
+            <td style="width:90px;text-align: right"> {{number_format($invoice->Total_RSD,2)	}} </td>
 
         </tr>
         @endforeach

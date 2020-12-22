@@ -49,10 +49,10 @@ class InvoiceDetail implements DataInterface
         rtrim(acAccontNr) acAccontNr, rtrim(acWebSite) acWebSite, rtrim(acEmail) acEmail, rtrim(acPost) acPost
         from _Subjects where anId = 1"))->first();
 
-        $_invoices = collect(DB::connection($connection)->select("SELECT i.acKey, r.acKey as acContract,s.acName,i.acCurrency, i.anFxRate
-        , convert(varchar(20),i.adDate,104) as adDate, v.anVat
-        , sum(ii.anValue) as anValue,sum(ii.anVatValue) as anVatValue, sum(ii.anTotalValue) as anTotalValue
-        , sum(ii.anValueRSD) as anValueRSD,sum(ii.anVatValueRSD) as anVatValueRSD ,sum(ii.anTotalValueRSD) as anTotalValueRSD
+        $_invoices = collect(DB::connection($connection)->select("SELECT i.acKey as Racun, r.acKey as Ugovor,s.acName as Klijent,i.acCurrency as Valuta, i.anFxRate as Kurs
+        , convert(varchar(20),i.adDate,104)  as Datum, v.anVat as Stopa
+        , sum(ii.anValue) as Vrednost,sum(ii.anVatValue) as PDV, sum(ii.anTotalValue) as Total
+        , sum(ii.anValueRSD) as  Vrednost_RSD,sum(ii.anVatValueRSD) as PDV_RSD ,sum(ii.anTotalValueRSD) as Total_RSD
         from _invoices i inner join _InvoiceItems ii on ii.anInvoiceId = i.anId
         inner join _Subjects s on s.anId = i.anSubjectId
         inner join _Vat v on v.anId = i.anVatId
@@ -90,7 +90,7 @@ class InvoiceDetail implements DataInterface
         ]));
 
         $invoices = $_invoices->mapToGroups(function ($item, $key) {
-            return [$item->acCurrency => $item];
+            return [$item->Valuta => $item];
         })->all();
 
 
@@ -110,7 +110,7 @@ class InvoiceDetail implements DataInterface
 
 
         $databag = [
-            'title' => $title, 'company_info' => $company_info, 'invoices' => $invoices, 'parameters' => $parameters
+            'title' => $title, 'company_info' => $company_info, 'invoices' => $invoices, 'parameters' => $parameters, 'data' => $_invoices
         ];
 
 

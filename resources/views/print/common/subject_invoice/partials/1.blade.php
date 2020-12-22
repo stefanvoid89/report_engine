@@ -55,10 +55,10 @@
 
         <tr>
 
-            <td style=";text-align: left"> {{$invoice->acName}} </td>
-            <td style="width:65px;text-align: left"> {{$invoice->acSubjectType}} </td>
+            <td style=";text-align: left"> {{$invoice->Klijent}} </td>
+            <td style="width:65px;text-align: left"> {{$invoice->Tip}} </td>
 
-            <td style="width:90px;text-align: right"> {{number_format($invoice->anTotalValueRSD,2)	}} </td>
+            <td style="width:90px;text-align: right"> {{number_format($invoice->Total_RSD,2)	}} </td>
 
         </tr>
         @endforeach

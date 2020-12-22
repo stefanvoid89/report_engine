@@ -62,43 +62,42 @@
     <tbody>
 
         @foreach($currency as $invoice)
-
         <tr>
-            <td style="width:65px;text-align: center"> {{$invoice->adDate}} </td>
-            <td style="width:90px;text-align: left"> {{$invoice->acKey	}} </td>
-            <td style="width:90px;text-align: left"> {{$invoice->acContract}} </td>
-            <td style=";text-align: left"> {{$invoice->acName}} </td>
-            <td style="width:60px;text-align: right"> {{number_format($invoice->anFxRate,2)}} </td>
-            <td style="width:60px;text-align: right"> {{number_format($invoice->anValue,2)}} </td>
-            <td style="width:60px;text-align: right"> {{number_format($invoice->anVatValue,2)	}} </td>
-            <td style="width:60px;text-align: right"> {{number_format($invoice->anTotalValue,2)	}} </td>
-            <td style="width:90px;text-align: right"> {{number_format($invoice->anValueRSD,2)	}} </td>
-            <td style="width:90px;text-align: right"> {{number_format($invoice->anVatValueRSD,2)	}} </td>
-            <td style="width:90px;text-align: right"> {{number_format($invoice->anTotalValueRSD,2)	}} </td>
+            <td style="width:65px;text-align: center"> {{$invoice->Datum}} </td>
+            <td style="width:90px;text-align: left"> {{$invoice->Racun	}} </td>
+            <td style="width:90px;text-align: left"> {{$invoice->Ugovor}} </td>
+            <td style=";text-align: left"> {{$invoice->Klijent}} </td>
+            <td style="width:60px;text-align: right"> {{number_format($invoice->Kurs,2)}} </td>
+            <td style="width:60px;text-align: right"> {{number_format($invoice->Vrednost,2)}} </td>
+            <td style="width:60px;text-align: right"> {{number_format($invoice->PDV,2)	}} </td>
+            <td style="width:60px;text-align: right"> {{number_format($invoice->Total,2)	}} </td>
+            <td style="width:90px;text-align: right"> {{number_format($invoice->Vrednost_RSD,2)	}} </td>
+            <td style="width:90px;text-align: right"> {{number_format($invoice->PDV_RSD,2)	}} </td>
+            <td style="width:90px;text-align: right"> {{number_format($invoice->Total_RSD,2)	}} </td>
         </tr>
         @endforeach
 
         @php
-        $anValueRSD = (isset($anValueRSD) ? $anValueRSD : 0) + $currency->sum('anValueRSD') ;
-        $anVatValueRSD = (isset($anVatValueRSD) ? $anVatValueRSD : 0) + $currency->sum('anVatValueRSD') ;
-        $anTotalValueRSD = (isset($anTotalValueRSD) ? $anTotalValueRSD : 0) + $currency->sum('anTotalValueRSD') ;
+        $anValueRSD = (isset($anValueRSD) ? $anValueRSD : 0) + $currency->sum('Vrednost_RSD') ;
+        $anVatValueRSD = (isset($anVatValueRSD) ? $anVatValueRSD : 0) + $currency->sum('PDV_RSD') ;
+        $anTotalValueRSD = (isset($anTotalValueRSD) ? $anTotalValueRSD : 0) + $currency->sum('Total_RSD') ;
         @endphp
         <tr>
             <td colspan="3"></td>
             <td style="text-align: left;font-weight:bold">Ukupno {{$key}}:</td>
             <td> </td>
-            <td style="width:60px;text-align: right;font-weight:bold"> {{number_format($currency->sum('anValue'),2)}}
+            <td style="width:60px;text-align: right;font-weight:bold"> {{number_format($currency->sum('Vrednost'),2)}}
             </td>
             <td style="width:60px;text-align: right;font-weight:bold">
-                {{number_format($currency->sum('anVatValue'),2)	}} </td>
+                {{number_format($currency->sum('PDV'),2)	}} </td>
             <td style="width:60px;text-align: right;font-weight:bold">
-                {{number_format($currency->sum('anTotalValue'),2)	}} </td>
+                {{number_format($currency->sum('Total'),2)	}} </td>
             <td style="width:90px;text-align: right;font-weight:bold">
-                {{number_format($currency->sum('anValueRSD'),2)	}} </td>
+                {{number_format($currency->sum('Vrednost_RSD'),2)	}} </td>
             <td style="width:90px;text-align: right;font-weight:bold">
-                {{number_format($currency->sum('anVatValueRSD'),2)	}} </td>
+                {{number_format($currency->sum('PDV_RSD'),2)	}} </td>
             <td style="width:90px;text-align: right;font-weight:bold">
-                {{number_format($currency->sum('anTotalValueRSD'),2)	}} </td>
+                {{number_format($currency->sum('Total_RSD'),2)	}} </td>
         </tr>
     </tbody>
 </table>
