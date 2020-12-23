@@ -89,7 +89,7 @@ class InvoiceIdentSum implements DataInterface
         ]));
 
         $invoices = $_invoices;
-        $sum = $invoices->sum("anTotalValueRSD");
+        $sum = $invoices->sum("Total");
 
         $date_from_param = $date_from ? 'Datum od: ' . date('d.m.yy', strtotime($date_from))  : '';
         $date_to_param = $date_to ? ' Datum do: ' . date('d.m.y', strtotime($date_to))  : '';
