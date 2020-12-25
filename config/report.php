@@ -23,6 +23,7 @@ return [
             'subject_invoice_rec' => ["class" => App\Data\common\SubjectInvoiceRec::class, "path" =>  'common/subject_invoice_rec'],
             'contract_detail' => ["class" => App\Data\common\ContractDetail::class, "path" =>  'common/contract_detail'],
             'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
+            'car_invoice_km' => ["class" => App\Data\common\CarInvoiceKm::class, "path" =>  'common/car_invoice_km'],
 
 
         ]
@@ -44,6 +45,7 @@ return [
             'subject_invoice_rec' => ["class" => App\Data\common\SubjectInvoiceRec::class, "path" =>  'common/subject_invoice_rec'],
             'contract_detail' => ["class" => App\Data\common\ContractDetail::class, "path" =>  'common/contract_detail'],
             'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
+            'car_invoice_km' => ["class" => App\Data\common\CarInvoiceKm::class, "path" =>  'common/car_invoice_km'],
         ]
     ],
 
@@ -70,6 +72,7 @@ return [
             'subject_invoice_rec' => ["class" => App\Data\common\SubjectInvoiceRec::class, "path" =>  'common/subject_invoice_rec'],
             'contract_detail' => ["class" => App\Data\common\ContractDetail::class, "path" =>  'common/contract_detail'],
             'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
+            'car_invoice_km' => ["class" => App\Data\common\CarInvoiceKm::class, "path" =>  'common/car_invoice_km'],
         ]
     ],
 
