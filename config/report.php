@@ -76,4 +76,14 @@ return [
         ]
     ],
 
+    "ZKfPuxUDXrS82JkqPY8STlJOQhmcWVebhc3QXVmM3IUNSTCVPv" => [
+        "connection" => "miservice",
+        "db" => "ICARDMS",
+        'logo' => "hitauto_logo.png",
+        "reports" => [
+            'invoice' => ["class" => App\Data\miservice\Invoice::class, "path" => "miservice/invoice"],
+
+        ]
+    ],
+
 ];

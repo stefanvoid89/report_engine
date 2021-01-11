@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/reports', 'PrintController@index');
+Route::get('/reports', 'PrintController@html')->name("html");
+
+Route::get('/pdf', 'PrintController@pdf')->name("pdf");
 
 Route::get('/test', 'PrintController@test');
 

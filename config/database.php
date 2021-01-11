@@ -89,6 +89,19 @@ return [
             'prefix_indexes' => true,
             'options' => [PDO::SQLSRV_ATTR_FORMAT_DECIMALS => true]
         ],
+        'miservice' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_MISERVICE_HOST', 'localhost'),
+            'port' => env('DB_MISERVICE_PORT', '1433'),
+            'database' => 'ICARDMS',
+            'username' => env('DB_MISERVICE_USERNAME', 'forge'),
+            'password' => env('DB_MISERVICE_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'options' => [PDO::SQLSRV_ATTR_FORMAT_DECIMALS => true]
+        ],
 
 
         'sqlite' => [

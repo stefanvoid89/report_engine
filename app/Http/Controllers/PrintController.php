@@ -6,12 +6,37 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use VerumConsilium\Browsershot\Facades\PDF;
 
 class PrintController extends Controller
 {
 
 
-    public function index(Request $request)
+
+    public function html(Request $request)
+    {
+        $view = $this->generateView($request);
+        return $view;
+    }
+
+    public function pdf(Request $request)
+    {
+
+        $path = route("html", $request->all());
+
+        return   PDF::loadUrl($path)
+            ->timeout(60)
+            ->noSandbox()
+            ->setOption('waitUntil', 'networkidle2')
+            ->setOption('printBackground', true)
+            ->margins(0, 0, 0, 0)
+            ->format("A4")
+            ->inline('', []);
+    }
+
+
+
+    public function generateView(Request $request)
     {
 
         $query = $request->query();
@@ -20,7 +45,7 @@ class PrintController extends Controller
         $all_config = config('report');
         $main_config = [];
 
-        // dd($query);
+        //dd($query);
 
         try {
             $hash = $query['hash'];
@@ -37,7 +62,7 @@ class PrintController extends Controller
         $service = new $service_name();
         $databag = (object) $service->getData($params, $connection);
 
-        //dd($databag->invoices);
+        //dd($databag);
 
         $report_path = $main_config['reports'][$report]['path'] ?? 'common/' . $report;
 
@@ -50,7 +75,7 @@ class PrintController extends Controller
         $report_config = require(resource_path('views/print/' . $report_path . '/config.php'));
         $config = (object) array_merge($dafault_config, $report_config);
 
-        // dd($config);
+        //    dd($config);
 
         $title = $config->title ?? $databag->title;
 
@@ -72,6 +97,7 @@ class PrintController extends Controller
 
         $page = view('print.page', ['header' => $header, 'footer' => $footer, 'padding' => $config->padding, 'size' => $size])->render();
 
+        //   dd($page);
 
         $partials = [];
         $nodes = [];
@@ -84,7 +110,7 @@ class PrintController extends Controller
 
         sort($partials);
 
-        //   dd($partials);
+        //     dd($partials);
 
         // $test = [];
 
@@ -98,13 +124,14 @@ class PrintController extends Controller
 
             array_push($nodes, $rendered);
         }
-        //   dd($nodes);
+        //       dd($nodes);
 
 
         $data = ["config" => $config, "nodes" => $nodes, "page" => $page];
 
         return view("print.main", ['title' => $title, 'data' => collect($data), 'style' => $style, 'size' => $size]);
     }
+
 
     public function api(Request $request)
     {
