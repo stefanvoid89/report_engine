@@ -78,7 +78,7 @@
     </tr>
     <tr>
 
-        <td> UKUPNO ZA NAPLATU </td>
+        <td> UKUPNO ZA NAPLATU {{$databag->content->curr_sufix}}</td>
         <td> </td>
         <td> </td>
         <td style="text-align:right;padding-right:80px;"> {{$databag->content->positions_sum->UkupnoRacun }}</td>

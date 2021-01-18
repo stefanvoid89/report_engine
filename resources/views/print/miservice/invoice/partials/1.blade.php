@@ -29,10 +29,10 @@
             <th style="width:120px">Šifra</th>
             <th style="width:50px">Količina</th>
             <th>Opis</th>
-            <th style="width:100px">Jedinična cena</th>
+            <th style="width:100px">Jedinična cena {{$databag->content->curr_sufix}}</th>
             <th style="width:50px">Pop%</th>
-            <th style="width:100px">Neto cena</th>
-            <th style="width:100px">Ukupna vrednost </th>
+            <th style="width:100px">Neto cena {{$databag->content->curr_sufix}}</th>
+            <th style="width:100px">Ukupna vrednost {{$databag->content->curr_sufix}}</th>
 
         </tr>
 
