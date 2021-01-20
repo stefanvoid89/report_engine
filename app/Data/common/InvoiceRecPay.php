@@ -95,15 +95,15 @@ class InvoiceRecPay implements DataInterface
 
         $date_from_param = $date_from ? 'Datum od: ' . date('d.m.yy', strtotime($date_from))  : '';
         $date_to_param = $date_to ? ' Datum do: ' . date('d.m.y', strtotime($date_to))  : '';
-        $brand_param = $brand ? ' Marka: ' . collect(DB::select("SELECT top 1 acBrand from _CarBrands where anId = ?", [$brand]))->first()->acBrand : "";
-        $model_param = $model ? ' Model: ' . collect(DB::select("SELECT top 1 acModel from _CarModels where anId = ?", [$model]))->first()->acModel : "";
-        $car_type_param = $car_type ? ' Tip vozila: ' . collect(DB::select("SELECT top 1 acType from _CarTypes where anId = ?", [$car_type]))->first()->acType : "";
-        $car_param = $car_id ? ' Vozilo: ' . collect(DB::select("SELECT top 1 acRegNo from _Cars where anId = ?", [$car_id]))->first()->acRegNo : "";
+        $brand_param = $brand ? ' Marka: ' . collect(DB::connection($connection)->select("SELECT top 1 acBrand from _CarBrands where anId = ?", [$brand]))->first()->acBrand : "";
+        $model_param = $model ? ' Model: ' . collect(DB::connection($connection)->select("SELECT top 1 acModel from _CarModels where anId = ?", [$model]))->first()->acModel : "";
+        $car_type_param = $car_type ? ' Tip vozila: ' . collect(DB::connection($connection)->select("SELECT top 1 acType from _CarTypes where anId = ?", [$car_type]))->first()->acType : "";
+        $car_param = $car_id ? ' Vozilo: ' . collect(DB::connection($connection)->select("SELECT top 1 acRegNo from _Cars where anId = ?", [$car_id]))->first()->acRegNo : "";
         $invoice_rec_doc_param = $invoice_rec_doc ? ' Racun dobavljac: ' . $invoice_rec_doc : "";
-        $invoice_param = $invoice_rec ? ' Racun: ' . collect(DB::select("SELECT top 1 acKey from _InvoicesRec where anId = ?", [$invoice_rec]))->first()->acKey : "";
-        $invoice_type_param  = $invoice_rec_type ? ' Tip racuna: ' . collect(DB::select("SELECT top 1 acType from _InvoiceTypes where anId = ?", [$invoice_rec_type]))->first()->acType : "";
-        $subject_type_param = $subject_type ? ' Tip subjekta: ' . collect(DB::select("SELECT top 1 acSubjectType from _SubjectTypes where anId = ?", [$subject_type]))->first()->acSubjectType : "";
-        $subject_param = $subject_id ? ' Subjekat: ' . collect(DB::select("SELECT top 1 acName from _Subjects where anId = ?", [$subject_id]))->first()->acName : "";
+        $invoice_param = $invoice_rec ? ' Racun: ' . collect(DB::connection($connection)->select("SELECT top 1 acKey from _InvoicesRec where anId = ?", [$invoice_rec]))->first()->acKey : "";
+        $invoice_type_param  = $invoice_rec_type ? ' Tip racuna: ' . collect(DB::connection($connection)->select("SELECT top 1 acType from _InvoiceTypes where anId = ?", [$invoice_rec_type]))->first()->acType : "";
+        $subject_type_param = $subject_type ? ' Tip subjekta: ' . collect(DB::connection($connection)->select("SELECT top 1 acSubjectType from _SubjectTypes where anId = ?", [$subject_type]))->first()->acSubjectType : "";
+        $subject_param = $subject_id ? ' Subjekat: ' . collect(DB::connection($connection)->select("SELECT top 1 acName from _Subjects where anId = ?", [$subject_id]))->first()->acName : "";
 
         $parameters =   $date_from_param  .  $date_to_param . $brand_param . $model_param . $car_type_param . $car_param . $invoice_rec_doc_param . $invoice_param . $invoice_type_param . $subject_type_param . $subject_param;
 
