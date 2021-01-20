@@ -71,6 +71,7 @@ class CarInvoiceKm implements DataInterface
         inner join _Reservations res on res.anId = r.anId
         inner join _Subjects s on s.anId = res.anSubjectId
         where 1=1
+        --and c.anStatusId = 1
         and (r.acKey = :_contract or :contract is null)
         and (c.anId = :_car_id or :car_id is null)
         and (c.anTypeId = :_car_type or :car_type is null)
