@@ -87,12 +87,12 @@ class CarInvoiceKm implements DataInterface
         inner join (
         select r.anId as anReservationId
         ,case when datediff(MINUTE,r.adDateFrom,r.addateto) = 0 then 0 
-         else cast(sum(ii.anTotalValue / case when i.acCurrency = 'EUR' then 1 else fx.anFxRate end )as decimal(17,4))/datediff(MINUTE,r.adDateFrom,r.addateto) end as vrednost_eur_koef
+         else cast(sum(ii.anTotalValue / case when i.acCurrency = 'EUR' then 1 else isnull(fx.anFxRate,117.5) end )as decimal(17,4))/datediff(MINUTE,r.adDateFrom,r.addateto) end as vrednost_eur_koef
         ,case when datediff(MINUTE,r.adDateFrom,r.addateto)  = 0 then 0 
          else sum(ii.anTotalValueRSD)/datediff(MINUTE,r.adDateFrom,r.addateto) end as vrednost_rsd_koef
         from _InvoiceItems ii 
         inner join _Invoices i on ii.anInvoiceId = i.anId 
-        cross apply (select top 1 isnull(nullif(anFxRate,1),117.5) as anFxRate  from _FxRate where adDate = i.adDate)fx
+        outer apply (select top 1 isnull(nullif(anFxRate,1),117.5) as anFxRate  from _FxRate where adDate = i.adDate)fx
         inner join 
         (select distinct r.anId, df.adDateFrom, dt.adDateTo from _f_Reservations() r 
         cross apply(select top 1 adDateFrom from _f_Reservations() where anId = r.anId order by adDateFrom)df

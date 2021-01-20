@@ -56,14 +56,14 @@ class CarRUC implements DataInterface
             left join (
             --trosak
             SELECT 
-                    cast(sum(irp.anValue / case when i.acCurrency <> 'RSD' then 1 else fx.anFxRate end )as decimal(17,4)) as vrednost_eur 
+                    cast(sum(irp.anValue / case when i.acCurrency <> 'RSD' then 1 else isnull(fx.anFxRate,117.5) end )as decimal(17,4)) as vrednost_eur 
                     ,cast(sum(irp.anValueRSD )as decimal(17,4)) as vrednost_rsd
                     ,irp.anCarId
                     from _InvoicesRec i
                     inner join  _InvoiceRecPays irp on i.anId = irp.anInvoiceRecId
                           inner join _Subjects s on s.anId = i.anSubjectId
                     inner join _Vat v on v.anId = i.anVatId
-                    cross apply (select top 1 isnull(nullif(anFxRate,1),117.5) as anFxRate  from _FxRate where adDate = i.adDate)fx
+                    outer apply (select top 1 isnull(nullif(anFxRate,1),117.5) as anFxRate  from _FxRate where adDate = i.adDate)fx
                     where 1=1
                     and irp.adDateDue between :date_from1 and :date_to1 
                     group by anCarId
