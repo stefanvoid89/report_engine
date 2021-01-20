@@ -51,11 +51,11 @@ class InvoiceRecDetail implements DataInterface
 
         $_invoices = collect(DB::connection($connection)->select("SELECT i.acKey as Racun, c.acRegNo as Vozilo,s.acName as Dobavljac,i.acCurrency as Valuta, i.anFxRate as Kurs
         , convert(varchar(20),i.adDate,104) as Datum, v.anVat as Stopa
-        , sum(case when irt.acType = 'lizing' then cast(ii.anValue * 0.8333 as decimal(19,2)) else ii.anValue end)  as Vrednost
-		, sum(case when irt.acType = 'lizing' then cast(ii.anValue * 0.1666 as decimal(19,2)) else ii.anVatValue end) as PDV
+        , sum(case when irt.acType = 'lizing' then cast(ii.anTotalValue * 0.8333 as decimal(19,2)) else ii.anValue end)  as Vrednost
+		, sum(case when irt.acType = 'lizing' then cast(ii.anTotalValue * 0.1666 as decimal(19,2)) else ii.anVatValue end) as PDV
 		, sum(ii.anTotalValue) as Total
-        , sum(case when irt.acType = 'lizing' then cast(ii.anValueRSD * 0.8333 as decimal(19,2)) else ii.anValueRSD end) as Vrednost_RSD
-		,sum(case when irt.acType = 'lizing' then cast(ii.anValueRSD * 0.1666 as decimal(19,2)) else ii.anVatValueRSD end) as PDV_RSD 
+        , sum(case when irt.acType = 'lizing' then cast(ii.anTotalValueRSD * 0.8333 as decimal(19,2)) else ii.anValueRSD end) as Vrednost_RSD
+		,sum(case when irt.acType = 'lizing' then cast(ii.anTotalValueRSD * 0.1666 as decimal(19,2)) else ii.anVatValueRSD end) as PDV_RSD 
 		,sum(ii.anTotalValueRSD) as Total_RSD
         from _InvoicesRec i inner join _InvoiceRecItems ii on ii.anInvoiceRecId = i.anId
         inner join _Subjects s on s.anId = i.anSubjectId
