@@ -13,7 +13,8 @@
         <td style="padding-left:50px;font-family:RenaultLife-Bold"> Osnova za PDV </td>
         <td> </td>
         <td> </td>
-        <td style="text-align:right;padding-right:80px;">{{number_format($databag->positions_sum->anValue, 2) }}
+        <td style="text-align:right;padding-right:80px;font-family:RenaultLife-Bold">
+            {{number_format($databag->positions_sum->anValue, 2) }}
             {{$databag->currency}} </td>
 
 
@@ -24,7 +25,8 @@
         </td>
         <td> </td>
         <td> </td>
-        <td style="text-align:right;padding-right:80px;"> {{number_format($databag->positions_sum->anVatValue, 2) }}
+        <td style="text-align:right;padding-right:80px;font-family:RenaultLife-Bold">
+            {{number_format($databag->positions_sum->anVatValue, 2) }}
             {{$databag->currency}}</td>
 
 
@@ -34,7 +36,7 @@
         <td style="padding-left:50px;font-family:RenaultLife-Bold"> UKUPNO ZA NAPLATU </td>
         <td> </td>
         <td> </td>
-        <td style="text-align:right;padding-right:80px;">
+        <td style="text-align:right;padding-right:80px;font-family:RenaultLife-Bold">
             {{number_format($databag->positions_sum->anTotalValue, 2) }} {{$databag->currency}}
         </td>
 
