@@ -98,7 +98,7 @@ class InvoiceIdentSum implements DataInterface
         $car_type_param = $car_type ? ' Tip vozila: ' . collect(DB::connection($connection)->select("SELECT top 1 acType from _CarTypes where anId = ?", [$car_type]))->first()->acType : "";
         $car_param = $car_id ? ' Vozilo: ' . collect(DB::connection($connection)->select("SELECT top 1 acRegNo from _Cars where anId = ?", [$car_id]))->first()->acRegNo : "";
         $contract_param = $contract ? ' Ugovor: ' . collect(DB::connection($connection)->select("SELECT top 1 acKey from _Reservations where anId = ?", [$contract]))->first()->acKey : "";
-        $invoice_param = $invoice ? ' Racun: ' . collect(DB::connection($connection)->select("SELECT top 1 acKey from _Invoices where anId = ?", [$invoice]))->first()->acKey : "";
+        $invoice_param = $invoice ? ' Racun: ' . $invoice : "";
         $invoice_type_param  = $invoice_type ? ' Tip racuna: ' . collect(DB::connection($connection)->select("SELECT top 1 acType from _InvoiceTypes where anId = ?", [$invoice_type]))->first()->acType : "";
         $subject_type_param = $subject_type ? ' Tip subjekta: ' . collect(DB::connection($connection)->select("SELECT top 1 acSubjectType from _SubjectTypes where anId = ?", [$subject_type]))->first()->acSubjectType : "";
         $subject_param = $subject_id ? ' Subjekat: ' . collect(DB::connection($connection)->select("SELECT top 1 acName from _Subjects where anId = ?", [$subject_id]))->first()->acName : "";

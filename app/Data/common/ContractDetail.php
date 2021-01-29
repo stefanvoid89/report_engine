@@ -74,15 +74,15 @@ class ContractDetail implements DataInterface
         inner join _ReservationStatus rs on rs.anId	= r.anStatusId
         where 1=1
         and r.anDocTypeId = 1
-       and (c.anId = :_car or :car is null)
+        and (c.anId = :_car or :car is null)
 		and (ct.anId = :_car_type or :car_type is null)
 		and (sd.anId = :_reservation_type or :reservation_type is null)
 		and (cb.anId = :_brand or :brand is null)
 		and (cm.anId = :_model or :model is null)
 		and (s.anId = :_subject or :subject is null)
-        and (r.anId = :_contract or :contract is null)
-        and (r.adDateFrom >=  :_date_from or :date_from is null)
-        and (r.adDateTo <=    :_date_to or :date_to is null)
+        and (r.acKey = :_contract or :contract is null)
+        and (r.adDateTo >= :_date_from or :date_from is null  ) 
+        and (r.adDateFrom <= :_date_to or :date_to is null) 
         and (r.anStatusId = :_status or :status is null)
         order by  r.adDateFrom", [
             '_car' => $car_id, 'car' => $car_id,
@@ -112,7 +112,7 @@ class ContractDetail implements DataInterface
         $model_param = $model ? ' Model: ' . collect(DB::connection($connection)->select("SELECT top 1 acModel from _CarModels where anId = ?", [$model]))->first()->acModel : "";
         $car_type_param = $car_type ? ' Tip vozila: ' . collect(DB::connection($connection)->select("SELECT top 1 acType from _CarTypes where anId = ?", [$car_type]))->first()->acType : "";
         $car_param = $car_id ? ' Vozilo: ' . collect(DB::connection($connection)->select("SELECT top 1 acRegNo from _Cars where anId = ?", [$car_id]))->first()->acRegNo : "";
-        $contract_param = $contract ? ' Ugovor: ' . collect(DB::connection($connection)->select("SELECT top 1 acKey from _Reservations where anId = ?", [$contract]))->first()->acKey : "";
+        $contract_param = $contract ? ' Ugovor: ' . $contract : "";
         $contract_status_param = $contract_status ? ' Status: ' . collect(DB::connection($connection)->select("SELECT top 1 acStatus from _ReservationStatus where anId = ?", [$contract_status]))->first()->acStatus : "";
         $contract_type_param  = $contract_type ? ' Tip ugovora: ' . collect(DB::connection($connection)->select("SELECT top 1 acType from _InvoiceTypes where anId = ?", [$contract_type]))->first()->acType : "";
         $subject_type_param = $subject_type ? ' Tip subjekta: ' . collect(DB::connection($connection)->select("SELECT top 1 acSubjectType from _SubjectTypes where anId = ?", [$subject_type]))->first()->acSubjectType : "";
