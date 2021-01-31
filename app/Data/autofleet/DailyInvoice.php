@@ -53,8 +53,6 @@ class DailyInvoice implements DataInterface
                 ->first()->anReservationId;
         }
 
-        // $car = collect(DB::connection($connection)->select("SELECT c.acCarNameShort as acName, c.acRegNo, c.acChasis	 from _v_CarExtended c inner join _Reservations r on r.anCarId = c.anId
-        // where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first();
 
 
 
@@ -62,7 +60,7 @@ class DailyInvoice implements DataInterface
         cb.acBrand   as brand
 		,cm.acModel as model
 		,cv.acVersion as version
-        ,isnull(c.acColor,'') acColor, cat.acCategory as category
+        ,isnull(c.acColor,'') acColor, isnull(cat.acCategory,'') as category
         ,isnull(ltrim(rtrim(cast(c.anPower as char))),'')+ ' kW' as acPower
         ,ltrim(rtrim(cast(c.anVolume as char)))+ ' cm3'  as zapremina
         ,c.acChasis
@@ -73,9 +71,9 @@ class DailyInvoice implements DataInterface
         inner join _CarBrands cb on cb.anId = c.anBrandId
         inner join _CarModels cm on cm.anId = c.anModelId
         inner join _CarModelVersion cv on cv.anId = c.anVersionId
-        inner join _Categories cat on cat.anId = cm.anCategoryId
-        inner join _Reservations r on r.anCarId	= c.anId
-        where r.anId = :reservation_id", ['reservation_id' => $reservation_id]))->first();
+        left join _Categories cat on cat.anId = cm.anCategoryId
+        inner join _Invoices i on i.anCarId	= c.anId
+        where i.anId =:id", ['id' => $id]))->first();
 
         $avans = collect(DB::connection($connection)->select("SELECT top 1 acKey,adDate, anValue, anVatValue, anTotalValue from _Avans where anInvoiceId = ?", [$id]))
             ->first();
@@ -91,7 +89,7 @@ class DailyInvoice implements DataInterface
         inner join _SetItem si on si.anId = ii.anIdentId
         inner join _Invoices i on i.anId = ii.anInvoiceId
         left join _Reservations r on r.anId = ii.anReservationId
-        left join _Cars c on c.anId = r.anCarId
+        left join _Cars c on c.anId = case when i.anTypeId = 3 then i.anCarId else  r.anCarId end
         where 1=1 and ii.anInvoiceId	 =  :id", ['id' => $id]));
 
             $value_text = \App\Data\NumberToText::vrati_string(abs($invoice_header->anTotalValue));
@@ -109,7 +107,7 @@ class DailyInvoice implements DataInterface
         inner join _SetItem si on si.anId = ii.anIdentId
         inner join _Invoices i on i.anId = ii.anInvoiceId
         left join _Reservations r on r.anId = ii.anReservationId
-        left join _Cars c on c.anId = r.anCarId
+        left join _Cars c on c.anId = case when i.anTypeId = 3 then i.anCarId else  r.anCarId end
         where 1=1
         and anInvoiceId	 =  :id",
                 ['id' => $id]
@@ -126,7 +124,7 @@ class DailyInvoice implements DataInterface
                         inner join _SetItem si on si.anId = ii.anIdentId
                         inner join _Invoices i on i.anId = ii.anInvoiceId
                         left join _Reservations r on r.anId = ii.anReservationId
-                        left join _Cars c on c.anId = r.anCarId
+                        left join _Cars c on c.anId = case when i.anTypeId = 3 then i.anCarId else  r.anCarId end
                         where 1=1 and ii.anInvoiceId	= :id
                         group by r.acWorkOrder)q",
                     ['id' => $id]

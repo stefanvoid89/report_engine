@@ -15,6 +15,7 @@ class CarInvoiceKm implements DataInterface
         $brand              =   $params['brand']  ??  null;
         $model              =   $params['model'] ??  null;
         $car_type           =   $params['car_type'] ??  null;
+        $car_category       =   $params['car_category']  ??  null;
         $car_id             =   $params['car_id'] ?? null;
         $contract           =   $params['contract'] ??  null;
 
@@ -34,6 +35,8 @@ class CarInvoiceKm implements DataInterface
         $brand = $brand == 0 ? null : $brand;
         $model = $model == 0 ? null : $model;
         $car_type = $car_type == 0 ? null : $car_type;
+        $car_category = $car_category == 0 ? null : $car_category;
+
         $contract = $contract == "" ? null : $contract;
 
         $contract_type = $contract_type == 0 ? null : $contract_type;
@@ -77,6 +80,7 @@ class CarInvoiceKm implements DataInterface
         and (c.anTypeId = :_car_type or :car_type is null)
         and (c.anModelId = :_model or :model is null)
         and (c.anBrandId = :_brand or :brand is null)
+        and (c.anCategoryId = :_car_category or :car_category is null)
         and (res.anSubjectId = :_subject_id or :subject_id is null)
         and (res.anStatusId = :_status or :status is null)
         and (res.anSubDocTypeId = :_contract_type or :contract_type is null)
@@ -115,6 +119,7 @@ class CarInvoiceKm implements DataInterface
                 '_status' => $contract_status, 'status' => $contract_status,
                 '_contract_type' => $contract_type, 'contract_type' => $contract_type,
                 '_subject_type' => $subject_type, 'subject_type' => $subject_type,
+                '_car_category' => $car_category, 'car_category' => $car_category,
 
             ]
         ));
@@ -129,6 +134,7 @@ class CarInvoiceKm implements DataInterface
         $brand_param = $brand ? ' Marka: ' . collect(DB::connection($connection)->select("SELECT top 1 acBrand from _CarBrands where anId = ?", [$brand]))->first()->acBrand : "";
         $model_param = $model ? ' Model: ' . collect(DB::connection($connection)->select("SELECT top 1 acModel from _CarModels where anId = ?", [$model]))->first()->acModel : "";
         $car_type_param = $car_type ? ' Tip vozila: ' . collect(DB::connection($connection)->select("SELECT top 1 acType from _CarTypes where anId = ?", [$car_type]))->first()->acType : "";
+        $car_category_param = $car_category ? ' Kategorija vozila: ' . collect(DB::connection($connection)->select("SELECT top 1 acCategory from _CarCategory where anId = ?", [$car_category]))->first()->acCategory : "";
         $car_param = $car_id ? ' Vozilo: ' . collect(DB::connection($connection)->select("SELECT top 1 acRegNo from _Cars where anId = ?", [$car_id]))->first()->acRegNo : "";
         $contract_param = $contract ? ' Ugovor: ' . $contract : "";
         $contract_status_param = $contract_status ? ' Status: ' . collect(DB::connection($connection)->select("SELECT top 1 acStatus from _ReservationStatus where anId = ?", [$contract_status]))->first()->acStatus : "";
@@ -136,7 +142,7 @@ class CarInvoiceKm implements DataInterface
         $subject_type_param = $subject_type ? ' Tip subjekta: ' . collect(DB::connection($connection)->select("SELECT top 1 acSubjectType from _SubjectTypes where anId = ?", [$subject_type]))->first()->acSubjectType : "";
         $subject_param = $subject_id ? ' Subjekat: ' . collect(DB::connection($connection)->select("SELECT top 1 acName from _Subjects where anId = ?", [$subject_id]))->first()->acName : "";
 
-        $parameters =   $date_from_param  .  $date_to_param . $brand_param . $model_param . $car_type_param . $car_param . $contract_param . $contract_status_param . $contract_type_param . $subject_type_param . $subject_param;
+        $parameters =   $date_from_param  .  $date_to_param . $brand_param . $model_param . $car_type_param . $car_category_param  . $car_param . $contract_param . $contract_status_param . $contract_type_param . $subject_type_param . $subject_param;
 
 
         $databag = [

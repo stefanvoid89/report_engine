@@ -17,6 +17,7 @@ class InvoiceRecPay implements DataInterface
         $brand              =   $params['brand']  ??  null;
         $model              =   $params['model'] ??  null;
         $car_type           =   $params['car_type'] ??  null;
+        $car_category       =   $params['car_category']  ??  null;
         $car_id             =   $params['car_id'] ?? null;
         $contract           =   $params['contract'] ??  null;
 
@@ -38,6 +39,7 @@ class InvoiceRecPay implements DataInterface
         $brand = $brand == 0 ? null : $brand;
         $model = $model == 0 ? null : $model;
         $car_type = $car_type == 0 ? null : $car_type;
+        $car_category = $car_category == 0 ? null : $car_category;
         $invoice_rec_doc = $invoice_rec_doc == "" ? null : $invoice_rec_doc;
         $invoice_rec = $invoice_rec == "" ? null : $invoice_rec;
         $invoice_rec_type = $invoice_rec_type == 0 ? null : $invoice_rec_type;
@@ -64,6 +66,7 @@ class InvoiceRecPay implements DataInterface
         and (irp.adDateDue <=    :_date_to or :date_to is null)
 		and (c.anId = :_car_id or :car_id is null)
 		and (c.anTypeId = :_car_type or :car_type is null)
+        and (c.anCategoryId = :_car_category or :car_category is null)
 		and (c.anBrandId = :_brand or :brand is null)
 		and (c.anModelId = :_model or :model is null)
 		and (i.acDoc = :_invoice_rec_doc or :invoice_rec_doc is null)
@@ -78,6 +81,7 @@ class InvoiceRecPay implements DataInterface
             '_car_type' => $car_type, 'car_type' => $car_type,
             '_brand' => $brand, 'brand' => $brand,
             '_model' => $model, 'model' => $model,
+            '_car_category' => $car_category, 'car_category' => $car_category,
 
             '_invoice_rec_doc' => $invoice_rec_doc, 'invoice_rec_doc' => $invoice_rec_doc,
             '_invoice' => $invoice_rec, 'invoice' => $invoice_rec,
@@ -97,6 +101,7 @@ class InvoiceRecPay implements DataInterface
         $date_to_param = $date_to ? ' Datum do: ' . date('d.m.y', strtotime($date_to))  : '';
         $brand_param = $brand ? ' Marka: ' . collect(DB::connection($connection)->select("SELECT top 1 acBrand from _CarBrands where anId = ?", [$brand]))->first()->acBrand : "";
         $model_param = $model ? ' Model: ' . collect(DB::connection($connection)->select("SELECT top 1 acModel from _CarModels where anId = ?", [$model]))->first()->acModel : "";
+        $car_category_param = $car_category ? ' Kategorija vozila: ' . collect(DB::connection($connection)->select("SELECT top 1 acCategory from _CarCategory where anId = ?", [$car_category]))->first()->acCategory : "";
         $car_type_param = $car_type ? ' Tip vozila: ' . collect(DB::connection($connection)->select("SELECT top 1 acType from _CarTypes where anId = ?", [$car_type]))->first()->acType : "";
         $car_param = $car_id ? ' Vozilo: ' . collect(DB::connection($connection)->select("SELECT top 1 acRegNo from _Cars where anId = ?", [$car_id]))->first()->acRegNo : "";
         $invoice_rec_doc_param = $invoice_rec_doc ? ' Racun dobavljac: ' . $invoice_rec_doc : "";
@@ -105,7 +110,7 @@ class InvoiceRecPay implements DataInterface
         $subject_type_param = $subject_type ? ' Tip subjekta: ' . collect(DB::connection($connection)->select("SELECT top 1 acSubjectType from _SubjectTypes where anId = ?", [$subject_type]))->first()->acSubjectType : "";
         $subject_param = $subject_id ? ' Subjekat: ' . collect(DB::connection($connection)->select("SELECT top 1 acName from _Subjects where anId = ?", [$subject_id]))->first()->acName : "";
 
-        $parameters =   $date_from_param  .  $date_to_param . $brand_param . $model_param . $car_type_param . $car_param . $invoice_rec_doc_param . $invoice_param . $invoice_type_param . $subject_type_param . $subject_param;
+        $parameters =   $date_from_param  .  $date_to_param . $brand_param . $model_param . $car_type_param . $car_category_param . $car_param . $invoice_rec_doc_param . $invoice_param . $invoice_type_param . $subject_type_param . $subject_param;
 
 
 
