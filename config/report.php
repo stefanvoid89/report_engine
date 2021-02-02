@@ -84,7 +84,8 @@ return [
         "db" => "ICARDMS",
         'logo' => "hitauto_logo.png",
         "reports" => [
-            'invoice' => ["class" => App\Data\miservice\Invoice::class, "path" => "miservice/invoice"],
+            'invoice' => ["class" => App\Data\miservice\ServiceInvoice::class, "path" => "miservice/service_invoice"],
+            'parts_invoice' => ["class" => App\Data\miservice\PartsInvoice::class, "path" => "miservice/parts_invoice"],
 
         ]
     ],

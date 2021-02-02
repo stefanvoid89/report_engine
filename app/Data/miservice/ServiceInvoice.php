@@ -5,7 +5,7 @@ namespace App\Data\miservice;
 use Illuminate\Support\Facades\DB;
 use App\Data\DataInterface;
 
-class Invoice implements DataInterface
+class ServiceInvoice implements DataInterface
 {
     public  function getData($params, $connection)
     {
