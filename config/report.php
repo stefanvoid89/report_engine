@@ -25,6 +25,7 @@ return [
             'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
             'car_invoice_km' => ["class" => App\Data\common\CarInvoiceKm::class, "path" =>  'common/car_invoice_km'],
             'car_ruc' => ["class" => App\Data\common\CarRUC::class, "path" =>  'common/car_ruc'],
+            'car_ruc_detail' => ["class" => App\Data\common\CarRUCDetail::class, "path" =>  'common/car_ruc_detail'],
 
 
         ]
@@ -48,6 +49,7 @@ return [
             'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
             'car_invoice_km' => ["class" => App\Data\common\CarInvoiceKm::class, "path" =>  'common/car_invoice_km'],
             'car_ruc' => ["class" => App\Data\common\CarRUC::class, "path" =>  'common/car_ruc'],
+            'car_ruc_detail' => ["class" => App\Data\common\CarRUCDetail::class, "path" =>  'common/car_ruc_detail'],
         ]
     ],
 
@@ -76,6 +78,7 @@ return [
             'int_res_detail' => ["class" => App\Data\common\InternalReservationDetail::class, "path" =>  'common/int_res_detail'],
             'car_invoice_km' => ["class" => App\Data\common\CarInvoiceKm::class, "path" =>  'common/car_invoice_km'],
             'car_ruc' => ["class" => App\Data\common\CarRUC::class, "path" =>  'common/car_ruc'],
+            'car_ruc_detail' => ["class" => App\Data\common\CarRUCDetail::class, "path" =>  'common/car_ruc_detail'],
         ]
     ],
 
