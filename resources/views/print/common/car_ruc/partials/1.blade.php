@@ -47,9 +47,9 @@
             <th style="width:80px;text-align: right">Trosak EUR</th>
             <th style="width:80px;text-align: right">Fakturisano EUR</th>
             <th style="width:80px;text-align: right">RUC EUR</th>
-            <th style="width:80px;text-align: right">Trosak</th>
-            <th style="width:80px;text-align: right">Fakturisano</th>
-            <th style="width:80px;text-align: center">RUC</th>
+            <th style="width:80px;text-align: right">Trosak RSD</th>
+            <th style="width:80px;text-align: right">Fakturisano RSD</th>
+            <th style="width:80px;text-align: center">RUC RSD</th>
 
         </tr>
     </thead>
@@ -65,9 +65,9 @@
             <th style="width:80px;text-align: right">{{number_format($contract->Trosak_EUR,2)}}</th>
             <th style="width:80px;text-align: right">{{number_format($contract->Fakturisano_EUR,2)}}</th>
             <th style="width:80px;text-align: right">{{number_format($contract->RUC_EUR,2)}}</th>
-            <th style="width:80px;text-align: right">{{number_format($contract->Trosak,2)}}</th>
-            <th style="width:80px;text-align: right">{{number_format($contract->Fakturisano,2)}}</th>
-            <th style="width:80px;text-align: right">{{number_format($contract->RUC,2)}}</th>
+            <th style="width:80px;text-align: right">{{number_format($contract->Trosak_RSD,2)}}</th>
+            <th style="width:80px;text-align: right">{{number_format($contract->Fakturisano_RSD,2)}}</th>
+            <th style="width:80px;text-align: right">{{number_format($contract->RUC_RSD,2)}}</th>
         </tr>
         @endforeach
 

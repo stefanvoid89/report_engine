@@ -53,7 +53,7 @@ class CarRUC implements DataInterface
         $contracts = collect(DB::connection($connection)->select(
             "SELECT  acRegNo as [Vozilo], acCarNameShort as [Naziv],acType as [Tip]
             , isnull(tr.vrednost_eur,0.00) as [Trosak_EUR],isnull(fk.vrednost_eur,0.00) as [Fakturisano_EUR], isnull(fk.vrednost_eur,0.00) - isnull(tr.vrednost_eur,0.00) as [RUC_EUR]
-            , isnull(tr.vrednost_rsd,0.00) as [Trosak], isnull(fk.vrednost_rsd,0.00) as [Fakturisano] ,isnull(fk.vrednost_rsd,0.00) - isnull(tr.vrednost_rsd,0.00) as [RUC]
+            , isnull(tr.vrednost_rsd,0.00) as [Trosak_RSD], isnull(fk.vrednost_rsd,0.00) as [Fakturisano_RSD] ,isnull(fk.vrednost_rsd,0.00) - isnull(tr.vrednost_rsd,0.00) as [RUC_RSD]
             from _f_CarExtended() c 
             left join (
             --trosak
@@ -123,11 +123,11 @@ class CarRUC implements DataInterface
         ));
 
         $tr_sum_eur = $contracts->sum("Trosak_EUR");
-        $tr_sum_rsd = $contracts->sum("Trosak");
+        $tr_sum_rsd = $contracts->sum("Trosak_RSD");
         $fk_sum_eur = $contracts->sum("Fakturisano_EUR");
-        $fk_sum_rsd = $contracts->sum("Fakturisano");
+        $fk_sum_rsd = $contracts->sum("Fakturisano_RSD");
         $ruc_eur = $contracts->sum("RUC_EUR");
-        $ruc_rsd = $contracts->sum("RUC");
+        $ruc_rsd = $contracts->sum("RUC_RSD");
 
         $sum = compact("tr_sum_eur", "tr_sum_rsd", "fk_sum_eur", "fk_sum_rsd", "ruc_eur", "ruc_rsd");
 
