@@ -51,7 +51,7 @@ class CarRUCDetail implements DataInterface
         from _Subjects where anId = 1"))->first();
 
         $_contracts = collect(DB::connection($connection)->select(
-            "SELECT  acRegNo as [Vozilo], acCarNameShort as [Naziv],acType as [Tip],acKey as Dokument
+            "SELECT  acRegNo as [Vozilo], acCarNameShort as [Naziv],c.acType as [Tip_Vozila], t.actype as [Tip_Racuna],acKey as Dokument
             ,isnull(convert(varchar(20),adDate,104),'/') as Datum
             ,isnull(t.acName,'/') as Subjekat
                         ,isnull(trosak_eur,0) as [Trosak_EUR]
@@ -64,6 +64,7 @@ class CarRUCDetail implements DataInterface
             
               --trosak
                         SELECT  i.ackey
+                        ,it.acType
                         ,s.acName
                         ,irp.adDateDue as adDate
                                ,cast(irp.anValue / case when i.acCurrency <> 'RSD' then 1 else isnull(fx.anFxRate,117.5) end as decimal(17,4)) as trosak_eur 
@@ -75,6 +76,7 @@ class CarRUCDetail implements DataInterface
                                 inner join  _InvoiceRecPays irp on i.anId = irp.anInvoiceRecId
                                       inner join _Subjects s on s.anId = i.anSubjectId
                                 inner join _Vat v on v.anId = i.anVatId
+                                inner join _InvoicesReceivedTypes it on it.anId = i.anTypeId
                                 outer apply (select top 1 isnull(nullif(anFxRate,1),117.5) as anFxRate  from _FxRate where adDate = i.adDate)fx
                                 where 1=1
                                 and irp.adDateDue between :date_from1 and :date_to1
@@ -83,9 +85,10 @@ class CarRUCDetail implements DataInterface
              --fakturisano
                             select 
                             ackey
+                            ,acType
                             ,acname
                             ,adDate
-                                    ,0 as trosak_eur
+                                ,0 as trosak_eur
                                 ,0 as trosak_rsd
                             ,cast(minuti * vrednost_eur_koef as decimal(19,2)) as recun_eur 
                             ,cast(minuti * vrednost_rsd_koef as decimal(19,2)) as racun_rsd 
@@ -93,6 +96,7 @@ class CarRUCDetail implements DataInterface
                             ,anCarId from (
                                 select r.anId as anReservationId
                                 ,i.acKey
+                                ,it.acType
                                 ,i.adDate
                                 ,s.acName
                                 ,case when datediff(MINUTE,r.adDateFrom,r.addateto) = 0 then 0 
@@ -102,6 +106,7 @@ class CarRUCDetail implements DataInterface
                                 from _InvoiceItems ii 
                                 inner join _Invoices i on ii.anInvoiceId = i.anId 
                                 inner join _Subjects s on s.anId = i.anSubjectId
+                                inner join _InvoiceTypes it on it.anId = i.anTypeId
                                 cross apply (select top 1 isnull(nullif(anFxRate,1),117.5) as anFxRate  from _FxRate where adDate = i.adDate)fx
                                 inner join 
                                 (select distinct r.anId, df.adDateFrom, dt.adDateTo from _f_Reservations() r 
@@ -110,7 +115,7 @@ class CarRUCDetail implements DataInterface
                                 on r.anId = ii.anReservationId	
                                 
                                 where ii.anInvoiceId in (select anid from _Invoices where adDate between :date_from2 and :date_to2 )
-                                group by i.acKey, s.acName, r.anId,datediff(MINUTE,r.adDateFrom,r.addateto),i.adDate
+                                group by i.acKey, s.acName, r.anId,datediff(MINUTE,r.adDateFrom,r.addateto),i.adDate,it.acType
                             )r inner join (
                                     select r.anId as anReservationId,  r.ancarid
                                ,DATEDIFF(MINUTE,r.adDateFrom,r.adDateTo) as minuti

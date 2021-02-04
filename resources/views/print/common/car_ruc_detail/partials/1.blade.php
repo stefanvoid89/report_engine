@@ -41,15 +41,16 @@
 
     <colgroup>
 
-        <col style="width: 80px;">
-        <col style="width: 60px;">
-        <col>
-        <col style="width: 70px">
-        <col style="width: 70px">
-        <col style="width: 70px">
-        <col style="width: 70px">
-        <col style="width: 70px">
         <col style="width: 70px;">
+        <col style="width: 60px;">
+        <col style="width: 100px;">
+        <col>
+        <col style="width: 60px">
+        <col style="width: 60px">
+        <col style="width: 60px">
+        <col style="width: 60px">
+        <col style="width: 60px">
+        <col style="width: 60px;">
 
 
     </colgroup>
@@ -57,7 +58,7 @@
     @foreach($databag->contracts as $key=>$lines)
     <tr>
         <td style="font-weight:bold">{{$lines->first()->Vozilo}}</td>
-        <td colspan="2" style="font-weight:bold"> {{$lines->first()->Naziv}} </td>
+        <td colspan="3" style="font-weight:bold"> {{$lines->first()->Naziv}} </td>
         <td colspan="6"></td>
 
     </tr>
@@ -66,6 +67,7 @@
 
         <td>Dokument</td>
         <td>Datum</td>
+        <td>Tip racuna</td>
         <td>Subjekat</td>
         <td style=";text-align: right">Trosak EUR</td>
         <td style=";text-align: right">Trosak RSD</td>
@@ -78,12 +80,13 @@
     @foreach ($lines as $line)
     <tr>
 
-        <td>{{$line->Dokument}}</td>
-        <td>{{$line->Datum}}</td>
+        <td style=";font-size: 0.5rem">{{$line->Dokument}}</td>
+        <td style=";font-size: 0.5rem">{{$line->Datum}}</td>
+        <td style=";font-size: 0.5rem">{{$line->Tip_Racuna}}</td>
         <td>
             <div style="overflow: hidden;
             text-overflow: ellipsis;
-            white-space: nowrap; ">{{$line->Subjekat}}</div>
+            white-space: nowrap;font-size: 0.5rem ">{{$line->Subjekat}}</div>
         </td>
         <td style=";text-align: right">{{number_format($line->Trosak_EUR,2)}}</td>
         <td style=";text-align: right">{{number_format($line->Trosak_RSD,2)}}</td>
@@ -95,7 +98,7 @@
     </tr>
     @endforeach
     <tr>
-        <td colspan="3"></td>
+        <td colspan="4"></td>
         <td style=";text-align: right;font-weight:bold">{{number_format($lines->sum('Trosak_EUR'),2)}}</td>
         <td style=";text-align: right;font-weight:bold">{{number_format($lines->sum('Trosak_RSD'),2)}}</td>
         <td style=";text-align: right;font-weight:bold">{{number_format($lines->sum('Fakturisano_EUR'),2)}}</td>
@@ -106,13 +109,13 @@
             {{number_format($lines->sum('Fakturisano_RSD') - $lines->sum('Trosak_RSD'),2)}}</td>
     </tr>
     <tr>
-        <td colspan="9" style="line-height: 5px">&nbsp;</td>
+        <td colspan="10" style="line-height: 5px">&nbsp;</td>
     </tr>
 
     @endforeach
 
     <tr>
-        <td colspan="3" style=";text-align: right;font-weight:bold">Ukupno:</td>
+        <td colspan="4" style=";text-align: right;font-weight:bold">Ukupno:</td>
         <td style=";text-align: right;font-weight:bold">{{number_format($databag->sum["tr_sum_eur"],2)}}</td>
         <td style=";text-align: right;font-weight:bold">{{number_format($databag->sum["tr_sum_rsd"],2)}}</td>
         <td style=";text-align: right;font-weight:bold">{{number_format($databag->sum["fk_sum_eur"],2)}}</td>
